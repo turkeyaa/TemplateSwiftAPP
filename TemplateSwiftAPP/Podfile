@@ -1,0 +1,24 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'TemplateSwiftAPP' do
+    
+
+    pod 'Alamofire'          # 网络请求 https://github.com/Alamofire/Alamofire，同 AFNetworking
+    pod 'SnapKit'            # 布局框架 https://github.com/SnapKit/SnapKit，同 Masonry
+    
+    pod 'Kingfisher'         # 缓存图片 https://github.com/onevcat/Kingfisher，同 SDWebImage
+    pod 'IBAnimatable'       # 设计原型，自定义 UI，交互，导航，转场和动画 https://github.com/IBAnimatable/IBAnimatable
+    pod 'RxSwift'            # 响应式编程框架 https://github.com/ReactiveX/RxSwift
+    pod 'SVProgressHUD', '~> 2.1.2'     # 提示功能 https://github.com/SVProgressHUD/SVProgressHUD
+    pod 'MJRefresh'          # 上拉和下拉刷新框架 https://github.com/CoderMJLee/MJRefresh
+    
+#    pod 'SQLite.swift'       # SQLite https://github.com/stephencelis/SQLite.swift.git
+
+    
+    # 友盟分享
+    pod 'UMengUShare/Social/ReducedWeChat'
+    pod 'UMengUShare/Social/ReducedQQ'
+    pod 'UMengUShare/Social/ReducedSina'
+    
+end
