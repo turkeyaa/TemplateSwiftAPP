@@ -1,7 +1,5 @@
 # TemplateSwiftAPP
 
-> 根据实际项目开发总结，旨在让我们更加快速、高效的开发移动app
-
 ### 功能清单
 
 1. API：把每个接口都包装成一个独立的API，完成数据请求的整个交互逻辑。支持同步、异步数据请求，配置端口、路径、参数、请求方式(GET/POST/PUT...等)、数据解析、回调、暂停和取消等操作。
@@ -35,14 +33,11 @@
 
 ![目录结构](Resource/structure.png)
 
-### 技术总结
-
 ### 实战
 
 `Xcode 9.2` `Swift 4.0`
 
 [初始工程](Resource/TemplateSwiftAPP(初始).zip)，它包含了一个空项目，同时添加了CocoaPods管理，下载完成打开`TemplateSwiftAPP.xcworkspace`可直接编译。或者使用命令`pod update` 更新之后再打开
 
-
-
+### 技术总结
 

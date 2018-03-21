@@ -12,10 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var tabBar: TabBarVC?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 1. UI
+        tabBar = TabBarVC()
+        window?.backgroundColor = UIColor.white
+        window?.rootViewController = tabBar
+        
+        // 2. 友盟...
+        
         return true
     }
 
