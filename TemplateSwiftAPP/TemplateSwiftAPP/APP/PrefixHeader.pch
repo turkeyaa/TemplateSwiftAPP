@@ -12,11 +12,15 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+// Framework
+import UIKit
+
 // Macro
 import UIMacro
 import StringMacro
 import KeyMacro
 
+// Library
 import SnapKit
 
 #endif /* PrefixHeader_pch */

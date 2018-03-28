@@ -7,3 +7,112 @@
 //
 
 import Foundation
+
+/** 接口请求基类(包含：GET/POST),上传文件查看基类:BaseUploadApi
+ */
+
+// 1. 定义枚举
+enum RestApiCode: Int {
+    case RestApi_OK = 0                 // 成功
+    case RestApi_NoUserId = 0001        // 无用户ID信息(未登录)
+    case RestApi_UnkownError = 0002     // 未知错误(系统出错)
+    case RestApi_NoData      = 0003     // 没有数据
+    case RestApi_InvalidJSON = 108      // 解析 JSON 异常
+    
+    // ...... 等其他错误码，和后台错误码保持一致即可
+}
+
+// 2. 模拟接口
+enum MockType {
+    case MockNone
+    case MockFile
+}
+
+class BaseRestApi: RestApi {
+    
+    var code: RestApiCode?
+    var message: String?
+    var errorMessage: String?
+    
+    var dataSource: [Any]?
+    
+    static public func getRestApiURL(relativeURL: String) -> String {
+//        let url = URLHelper.instance.restApiURL(relativeURL: relativeURL)
+//        return url
+        return ""
+    }
+    
+    override init(url: String, httpMethod: HttpMethods) {
+        super.init(url: BaseRestApi.getRestApiURL(relativeURL: url),httpMethod: httpMethod)
+    }
+    
+    override func call(async: Bool) {
+        if self.mockType() == .MockNone {
+            super .call(async: async)
+        }
+        else {
+            // 模拟本地接口
+            let mockFile = self.mockFile()
+            let fileUrl = Bundle.main.url(forResource: mockFile, withExtension: "json")!
+            let data = try! Data.init(contentsOf: fileUrl)
+            
+            self.onSuccessed(response: data)
+        }
+    }
+    
+    override func queryPostData() -> Data? {
+        let requestData = self.prepareRequestData()
+        
+        let json = try! JSONSerialization.data(withJSONObject: requestData, options: .prettyPrinted)
+        
+        return json
+    }
+    
+    override func onSuccessed(response: Data) -> Void {
+        
+        let responseJson = try! JSONSerialization.jsonObject(with: response, options: JSONSerialization.ReadingOptions.allowFragments)
+        let responseDict = responseJson as! Dictionary<String, Any>
+        
+        let json = String(data: response, encoding: String.Encoding.utf8)
+        
+        print("RestApi:[\(object_getClassName(self))!]")
+        print("RestApi Response:[\(responseJson)]")
+        
+        message = responseDict["message"] as? String
+        
+        if message == "success" {
+            
+            code = RestApiCode.RestApi_OK
+            
+            if self.parseResponseJsonString(json: json!) {
+                
+            }
+            else {
+                code = RestApiCode.RestApi_InvalidJSON
+            }
+        }
+        else {
+            code = RestApiCode.RestApi_UnkownError
+        }
+        
+        super.onSuccessed(response: response)
+    }
+    
+    // Subclassing methods
+    func parseResponseJsonString(json: String) -> Bool {
+        assert(false, "子类必须重写该方法")
+        return false
+    }
+    func prepareRequestData() -> Dictionary<String, Any> {
+        let dic = [String: Any]()
+        return dic
+    }
+    
+    func mockType() -> MockType {
+        return .MockNone
+    }
+    func mockFile() -> String {
+        return ""
+    }
+}
+
