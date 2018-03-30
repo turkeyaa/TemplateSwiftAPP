@@ -22,7 +22,10 @@ class UserListVC: BaseLoadTC {
         let api = Users_Get.init()
         api.call(async: true)
         
-        return api.dataSource!
+        if api.code == .RestApi_OK {
+            self.dataSource = api.dataSource
+        }
+        return self.dataSource!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

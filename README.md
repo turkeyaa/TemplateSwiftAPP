@@ -35,9 +35,46 @@
 
 ### 实战
 
+#### 从零开始
+
+这边文章基于Swift语言，基于框架的方式来快速的构建自己的APP，从组件化、模型、界面、控制器封装、接口封装，到设计模式的使用，同时会集成一些常用的第三方库和SDK。
+
+这个项目会实现很多APP开发所需要的通用的功能和组件开发，同时支持你扩展自己的组件。目的在于提供一套统一的解决方案，你可以专注于业务模块。欢迎指正。
+
+
 `Xcode 9.2` `Swift 4.0`
 
 [初始工程](Resource/TemplateSwiftAPP(初始).zip)，它包含了一个空项目，同时添加了CocoaPods管理，下载完成打开`TemplateSwiftAPP.xcworkspace`可直接编译。或者使用命令`pod update` 更新之后再打开
+
+#### 1. 接口封装
+
+![API](Resource/API.png)
+
+我们的思想是基于REST Api方式，把每个接口都包装成独立的模块。每个**NSURLSession**的请求中，不同的只是参数、请求方式(GET/POST/PUT...)、接口路径、返回的数据。那我们是不是可以把不同的参数通过多态(重写父类的方法)来实现。而请求数据完成，通过block、代理或重写来处理不同的结果。这里的结果一般的是json数据，同时就可以把json转换成model传递给相应的控制器对象。你会发现我们的请求过程会特别的简单、方便。
+
+> 如何实现?
+
+1. 定义**RestApi**，一个抽象类。包含：初始化、执行、取消、结果处理、参数、日志统计...等方法。一些是子类必须要实现的方法(参数、结果处理)
+2. 定义**BaseRestApi**，继承RestApi。定义错误码、解码类型、结果处理方法
+3. 定义**BaseUploadApi**，继承**RestApi**，上传图片基类
+4. 定义**Users_Get**，继承**BaseRestApi**。定义初始化方法、请求参数、处理结果方法
+
+
+> 客户端代码
+
+```
+let api = Users_Get.init()
+api.call(async: true)
+        
+if api.code == .RestApi_OK {
+	self.dataSource = api.dataSource
+}
+
+```
+
+#### TODO
+
+#### 2. 模型
 
 ### 技术总结
 
