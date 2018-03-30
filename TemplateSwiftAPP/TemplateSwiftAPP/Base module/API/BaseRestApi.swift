@@ -28,6 +28,12 @@ enum MockType {
     case MockFile
 }
 
+// 3. 定义解析数据类型
+enum DecodeJSONType {
+    case DecodeJSONTypeDictionary       // 结果为：字典对象
+    case DecodeJSONTypeArray            // 结果为：数组对象
+}
+
 class BaseRestApi: RestApi {
     
     var code: RestApiCode?
@@ -36,10 +42,10 @@ class BaseRestApi: RestApi {
     
     var dataSource: [Any]?
     
+    var decodeType = DecodeJSONType.DecodeJSONTypeDictionary;   // 默认值
+    
     static public func getRestApiURL(relativeURL: String) -> String {
-//        let url = URLHelper.instance.restApiURL(relativeURL: relativeURL)
-//        return url
-        return ""
+        return URLHelper.instance.restApiURL(relativeURL: relativeURL)
     }
     
     override init(url: String, httpMethod: HttpMethods) {
@@ -73,10 +79,19 @@ class BaseRestApi: RestApi {
         let responseJson = try! JSONSerialization.jsonObject(with: response, options: JSONSerialization.ReadingOptions.allowFragments)
         let responseDict = responseJson as! Dictionary<String, Any>
         
-        let json = String(data: response, encoding: String.Encoding.utf8)
-        
-        print("RestApi:[\(object_getClassName(self))!]")
+        print("RestApi:[\(self)]")
         print("RestApi Response:[\(responseJson)]")
+        
+        let result:Any?
+        if decodeType == DecodeJSONType.DecodeJSONTypeDictionary {
+            result = responseDict["result"]
+        }
+        else {
+            result = responseDict["result"]
+        }
+        
+        let resultData = try! JSONSerialization.data(withJSONObject: result ?? "", options: .prettyPrinted)
+        
         
         message = responseDict["message"] as? String
         
@@ -84,7 +99,7 @@ class BaseRestApi: RestApi {
             
             code = RestApiCode.RestApi_OK
             
-            if self.parseResponseJsonString(json: json!) {
+            if self.parseResponseJsonString(json: resultData) {
                 
             }
             else {
@@ -99,7 +114,7 @@ class BaseRestApi: RestApi {
     }
     
     // Subclassing methods
-    func parseResponseJsonString(json: String) -> Bool {
+    func parseResponseJsonString(json: Data) -> Bool {
         assert(false, "子类必须重写该方法")
         return false
     }

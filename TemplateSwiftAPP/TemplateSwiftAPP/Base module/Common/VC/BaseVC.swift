@@ -34,9 +34,13 @@ class BaseVC: UIViewController {
         let rightBarItem = UIBarButtonItem.init(title: title, style: .done, target: self, action: #selector(BaseVC.goNext))
         self.navigationItem.rightBarButtonItem = rightBarItem
     }
-    func leftIcon(icon: UIImage?) -> Void {
+    func leftIcon(icon: UIImage) -> Void {
         let leftBarItem = UIBarButtonItem.init(image: icon, style: .done, target: self, action: #selector(BaseVC.goBack))
         self.navigationItem.leftBarButtonItem = leftBarItem
+    }
+    func rightIcon(icon: UIImage) -> Void {
+        let rightBarItem = UIBarButtonItem.init(image: icon, style: .done, target: self, action: #selector(BaseVC.goNext))
+        self.navigationItem.rightBarButtonItem = rightBarItem
     }
     
     // MARK: - SVProgressHUD

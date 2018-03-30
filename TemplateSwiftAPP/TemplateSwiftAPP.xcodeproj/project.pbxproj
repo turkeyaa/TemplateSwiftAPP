@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C607EFAF206DCA7600638291 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = C607EFAE206DCA7600638291 /* user.json */; };
+		C607EFB2206DD4DB00638291 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607EFB1206DD4DB00638291 /* UserCell.swift */; };
 		C655F64A2058BA3A00F65568 /* TemplateSwiftAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C655F6492058BA3A00F65568 /* TemplateSwiftAPPTests.swift */; };
 		C655F6552058BA3A00F65568 /* TemplateSwiftAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C655F6542058BA3A00F65568 /* TemplateSwiftAPPUITests.swift */; };
 		C655F66E2058BB6E00F65568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C655F6642058BB6E00F65568 /* Assets.xcassets */; };
@@ -89,6 +91,8 @@
 		6AC0E386AC5D462610D90450 /* Pods-TemplateSwiftAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateSwiftAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateSwiftAPP/Pods-TemplateSwiftAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		6CCB78343FE0F2DF337805A2 /* Pods-TemplateSwiftAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateSwiftAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateSwiftAPP/Pods-TemplateSwiftAPP.release.xcconfig"; sourceTree = "<group>"; };
 		A1652900FC90AE07BCFDC7C9 /* Pods_TemplateSwiftAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TemplateSwiftAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C607EFAE206DCA7600638291 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
+		C607EFB1206DD4DB00638291 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		C655F6312058BA3900F65568 /* TemplateSwiftAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemplateSwiftAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C655F6452058BA3A00F65568 /* TemplateSwiftAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TemplateSwiftAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C655F6492058BA3A00F65568 /* TemplateSwiftAPPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateSwiftAPPTests.swift; sourceTree = "<group>"; };
@@ -188,6 +192,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C607EFB0206DD4D000638291 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C607EFB1206DD4DB00638291 /* UserCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C655F6282058BA3900F65568 = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				C691AC27206B2622004F5FA6 /* UserListVC.swift */,
+				C607EFB0206DD4D000638291 /* Cell */,
 				C6598D90206B33DF003E3852 /* User.xcassets */,
 			);
 			path = User;
@@ -421,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				C691AC1E206B25B1004F5FA6 /* users.json */,
+				C607EFAE206DCA7600638291 /* user.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -606,6 +620,7 @@
 				C655F6742058BB6E00F65568 /* Main.storyboard in Resources */,
 				C655F66E2058BB6E00F65568 /* Assets.xcassets in Resources */,
 				C6598D8D206B33CF003E3852 /* Auth.xcassets in Resources */,
+				C607EFAF206DCA7600638291 /* user.json in Resources */,
 				C691AC1F206B25B1004F5FA6 /* users.json in Resources */,
 				C655F6712058BB6E00F65568 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -723,6 +738,7 @@
 				C6D9433720624BF2007974A9 /* RestApi.swift in Sources */,
 				C6D9434720624CA0007974A9 /* EmptyView.swift in Sources */,
 				C691AC46206B3168004F5FA6 /* FileManager.swift in Sources */,
+				C607EFB2206DD4DB00638291 /* UserCell.swift in Sources */,
 				C691AC3B206B30B9004F5FA6 /* TCellImage.swift in Sources */,
 				C6D9435620624DA7007974A9 /* UIMacro.swift in Sources */,
 				C691AC2A206B2628004F5FA6 /* MainVC.swift in Sources */,
