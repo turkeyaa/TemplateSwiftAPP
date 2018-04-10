@@ -8,22 +8,16 @@
 
 import Foundation
 
+
 class User: Codable {
     
-    var name: String
-    var phone: String
-    var name_spell: String
-    var user_id: String
-    var avatar_url: String
+    var name: String = ""
+    var phone: String = ""
+    var name_spell: String = ""
+    var user_id: String = ""
+    var avatar_url: String = ""
     
-    init(name: String, phone: String, name_spell: String, user_id: String, avatar_url: String) {
-        self.name = name
-        self.phone = phone
-        self.name_spell = name_spell
-        self.user_id = user_id
-        self.avatar_url = avatar_url
-    }
-    
+    /// 如果我们需要用不同的名称, 只需要提供我们自己的 CodingKey
     enum CodingKeys: String,CodingKey {
         case user_id = "userid"
         case name
@@ -32,3 +26,4 @@ class User: Codable {
         case avatar_url
     }
 }
+

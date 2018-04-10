@@ -7,9 +7,25 @@
 //
 
 import Foundation
+import UIKit
 
 class BaseFormTC: BaseTC {
-    override func viewDidLoad() {
-        
+    
+    var cells = [BaseTCell]() {
+        didSet {
+            self.dataSource = cells
+            self.tableView?.reloadData()
+        }
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.cells[indexPath.row]
+        cell.selectionStyle = .blue
+        return cell
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
 }

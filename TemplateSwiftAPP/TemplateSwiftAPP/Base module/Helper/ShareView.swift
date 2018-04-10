@@ -33,7 +33,7 @@ class ShareView: UIView {
         contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: contentHeight)
         
         super.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
-        self.backgroundColor = UIColor.rgb(r: 0, g: 0, b: 0, alpha: 0.5)
+        self.backgroundColor = UIColor.rgba(r: 0, g: 0, b: 0, alpha: 0.5)
         
         UIApplication.shared.keyWindow!.addSubview(self)
         self.addSubview(contentView)

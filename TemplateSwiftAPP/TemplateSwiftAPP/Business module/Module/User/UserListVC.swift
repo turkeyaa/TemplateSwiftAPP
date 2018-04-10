@@ -54,13 +54,27 @@ class UserListVC: BaseLoadTC {
     // 进入登录
     override func goNext() {
         
-        UIHelper.show(title: "点击登录")
+        let loginVc = LoginVC()
+        loginVc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(loginVc, animated: true)
         
+        /*
+        /// 路径
+        let filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
+        let fileName = NSStringFromClass(self.classForCoder) as String
         
+        let savePath = filePath + "/" + fileName + ".plist"
         
+        // 归档
+        let info = JSONModel.init()
+        info.name = "yuwenhua"
+        info.phone = "18668089860"
+
+        let rs = NSKeyedArchiver.archiveRootObject(info, toFile: savePath);
         
-//        let loginVc = LoginVC()
-//        loginVc.hidesBottomBarWhenPushed = true
-//        self.navigationController?.pushViewController(loginVc, animated: true)
+        // 解档
+        let newInfo = NSKeyedUnarchiver.unarchiveObject(withFile: savePath) as! JSONModel;
+        print("new : \(String(describing: newInfo.name))")
+        */
     }
 }

@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class BaseFormGroupTC: BaseFormTC {
-    override func viewDidLoad() {
-        
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return (self.dataSource?.count)!
     }
+    
 }

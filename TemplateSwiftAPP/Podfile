@@ -13,8 +13,10 @@ target 'TemplateSwiftAPP' do
     pod 'MJRefresh'          # 上拉和下拉刷新框架 https://github.com/CoderMJLee/MJRefresh
     
     pod 'SQLite.swift'       # SQLite https://github.com/stephencelis/SQLite.swift.git
-    
+
     # pod 'IBAnimatable'       # 设计原型，自定义 UI，交互，导航，转场和动画 https://github.com/IBAnimatable/IBAnimatable
+    
+    pod 'IQKeyboardManagerSwift'  # 键盘交互 https://github.com/hackiftekhar/IQKeyboardManager
     
     # 友盟分享
     pod 'UMengUShare/Social/ReducedWeChat'

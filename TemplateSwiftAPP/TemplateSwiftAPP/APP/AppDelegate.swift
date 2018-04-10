@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBar
         
         // 2. 友盟...
+        
+        // 3. 键盘交互
+        IQKeyboardManager.sharedManager().enable = true
         
         return true
     }

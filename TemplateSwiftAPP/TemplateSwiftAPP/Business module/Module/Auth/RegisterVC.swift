@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class RegisterVC: BaseVC {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "注册"
+    }
+}

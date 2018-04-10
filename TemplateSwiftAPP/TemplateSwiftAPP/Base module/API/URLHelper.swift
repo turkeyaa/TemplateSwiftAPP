@@ -44,7 +44,7 @@ class URLHelper: NSObject {
         return url
     }
     
-    func imageURL() -> String {
+    func restImageURL() -> String {
         var url: String = self.baseURL()
         url += "/resource"
         return url

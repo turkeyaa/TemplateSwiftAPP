@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class LoginVC: BaseVC {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "登录"
+        self.rightTitle(title: "注册")
+    }
+    
+    override func goNext() {
+        let vc = RegisterVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}

@@ -20,6 +20,12 @@ class BaseTCell: UITableViewCell {
         // Initialization code
     }
     
+    var bgColor: UIColor = .white {
+        didSet {
+            self.backgroundColor = bgColor
+        }
+    }
+    
     class func classCellHeight() -> CGFloat {
         return 44.0
     }
