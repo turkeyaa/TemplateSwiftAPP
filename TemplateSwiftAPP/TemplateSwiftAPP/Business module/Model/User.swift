@@ -9,13 +9,26 @@
 import Foundation
 
 
-class User: Codable {
+class User: JSONModel,Codable {
     
     var name: String = ""
     var phone: String = ""
     var name_spell: String = ""
     var user_id: String = ""
     var avatar_url: String = ""
+    
+    override init() {
+        super.init()
+    }
+    
+    override init(dict: [String : Any]) {
+        super.init(dict: dict)
+        setValuesForKeys(dict)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     /// 如果我们需要用不同的名称, 只需要提供我们自己的 CodingKey
     enum CodingKeys: String,CodingKey {
@@ -26,4 +39,5 @@ class User: Codable {
         case avatar_url
     }
 }
+
 

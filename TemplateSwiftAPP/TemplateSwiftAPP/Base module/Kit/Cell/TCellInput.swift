@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TCellInput: BaseTCell {
+class TCellInput: BaseTCell,UITextFieldDelegate {
     /// 属性
     var icon: UIImage? = nil {
         didSet {
@@ -49,8 +49,28 @@ class TCellInput: BaseTCell {
     }()
     lazy var textField: UITextField = {
         let view = UITextField.init()
+        view.font = .systemFont(ofSize: 15)
+        view.delegate = self
         return view
     }()
+    
+    
+    class func stringInputCell() -> BaseTCell {
+        let inputCell = TCellInput.init(style: .default, reuseIdentifier: nil);
+        inputCell.textField.keyboardType = .default;
+        return inputCell;
+    }
+    class func numberInputCell() -> BaseTCell {
+        let inputCell = TCellInput.init(style: .default, reuseIdentifier: nil);
+        inputCell.textField.keyboardType = .numberPad;
+        return inputCell;
+    }
+    class func passwordInputCell() -> BaseTCell {
+        let inputCell = TCellInput.init(style: .default, reuseIdentifier: nil);
+        inputCell.textField.keyboardType = .asciiCapable;
+        inputCell.textField.isSecureTextEntry = true
+        return inputCell;
+    }
     
     override func setupSubViews() {
         
@@ -80,6 +100,11 @@ class TCellInput: BaseTCell {
             make.right.equalTo(-30)
             make.left.equalTo(titleLabel.snp.right).offset(10)
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        value = textField.text!
+        return true
     }
     
     override class func classCellHeight() -> CGFloat {

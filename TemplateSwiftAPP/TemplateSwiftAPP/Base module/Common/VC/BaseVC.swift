@@ -27,10 +27,17 @@ class BaseVC: UIViewController {
     
     // MARK: - UI
     func leftTitle(title: String) -> Void {
+        
         let leftBarItem = UIBarButtonItem.init(title: title, style: .done, target: self, action: #selector(BaseVC.goBack))
         self.navigationItem.leftBarButtonItem = leftBarItem
     }
     func rightTitle(title: String) -> Void {
+        
+//        let btn = UIButton.init(type: .system)
+//        btn.setTitle(title, for: .normal)
+//        btn.addTarget(self, action: #selector(BaseVC.goNext), for: .touchUpInside)
+//        let rightBarView = UIBarButtonItem.init(customView: btn)
+        
         let rightBarItem = UIBarButtonItem.init(title: title, style: .done, target: self, action: #selector(BaseVC.goNext))
         self.navigationItem.rightBarButtonItem = rightBarItem
     }

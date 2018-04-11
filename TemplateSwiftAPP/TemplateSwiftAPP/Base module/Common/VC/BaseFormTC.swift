@@ -23,9 +23,4 @@ class BaseFormTC: BaseTC {
         cell.selectionStyle = .blue
         return cell
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
 }

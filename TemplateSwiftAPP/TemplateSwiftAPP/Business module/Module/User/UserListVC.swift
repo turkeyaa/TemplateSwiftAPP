@@ -58,6 +58,7 @@ class UserListVC: BaseLoadTC {
         loginVc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(loginVc, animated: true)
         
+        
         /*
         /// 路径
         let filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
@@ -66,14 +67,23 @@ class UserListVC: BaseLoadTC {
         let savePath = filePath + "/" + fileName + ".plist"
         
         // 归档
-        let info = JSONModel.init()
-        info.name = "yuwenhua"
-        info.phone = "18668089860"
+        let dict = [
+            "name":"yuwenhua",
+            "phone":"18668089860"
+        ]
+        let info = User.init(dict: dict)
+//        let info = User.init()
+//        info.name = "yuwenhua"
+//        info.phone = "18668089860"
+//        info.name_spell = "ywh"
+//        info.avatar_url = "icon.png"
+//        info.user_id = "123456"
 
         let rs = NSKeyedArchiver.archiveRootObject(info, toFile: savePath);
+        print("rs = \(rs)")
         
         // 解档
-        let newInfo = NSKeyedUnarchiver.unarchiveObject(withFile: savePath) as! JSONModel;
+        let newInfo = NSKeyedUnarchiver.unarchiveObject(withFile: savePath) as! User;
         print("new : \(String(describing: newInfo.name))")
         */
     }

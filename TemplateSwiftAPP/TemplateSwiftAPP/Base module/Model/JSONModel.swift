@@ -11,9 +11,6 @@ import Foundation
 /// 实现自动化归档 - 需要子类继承
 class JSONModel: NSObject,NSCoding {
     
-    var name: String?
-    var phone: String?
-    
     
     init(dict: [String: Any]) {
         super.init()
