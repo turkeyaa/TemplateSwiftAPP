@@ -26,8 +26,8 @@ class TabBarVC: UITabBarController {
         second.tabBarItem = UITabBarItem.init(title: "用户", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
         second.title = "用户";
         
-        third.tabBarItem = UITabBarItem.init(title: "表单元", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
-        third.title = "自定义表单元";
+        third.tabBarItem = UITabBarItem.init(title: "UI/Mudule", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
+        third.title = "UI/Mudule";
         
         self.viewControllers = [firstNav,secondNav,thirdNav]
         

@@ -55,7 +55,7 @@ class TCellNotify: BaseTCell {
             make.width.equalTo(70)
         }
         switchView.snp.makeConstraints { (make) in
-            make.right.equalTo(-30)
+            make.right.equalTo(-10)
             make.width.equalTo(60)
             make.centerY.equalTo(self.snp.centerY)
         }

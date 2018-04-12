@@ -20,12 +20,17 @@ class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
         // Do any additional setup after loading the view.
         
         // 界面
-        tableView = UITableView.init(frame: self.view.bounds, style: .plain)
+        tableView = UITableView.init(frame: self.view.bounds, style: tableViewStyle())
         tableView?.tableFooterView = UIView.init()
         tableView?.tableHeaderView = UIView.init()
         tableView?.delegate = self
         tableView?.dataSource = self
         self.view.addSubview(tableView!)
+    }
+    
+    /// MARK : 自定义表视图样式
+    func tableViewStyle() -> UITableViewStyle {
+        return UITableViewStyle.plain
     }
     
     // MARK: - tableView delegate and dataSource

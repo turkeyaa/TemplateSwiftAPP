@@ -44,6 +44,7 @@ class LoginVC: BaseFormTC {
         
         self.title = "登录"
         self.rightTitle(title: "注册")
+        self.leftIcon(icon: UIImage.init(named: "app_back")!)
         
         tableView?.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 20))
         cells = [accountCell,passwordCell]

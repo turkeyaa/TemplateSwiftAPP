@@ -9,43 +9,79 @@
 import Foundation
 import UIKit
 
-class InformationVC: BaseFormTC {
-    
-    lazy var iconCell: TCellImage = {
-        let cell = TCellImage.tcell(tableView: self.tableView, reuse: true) as! TCellImage
-        cell.icon = UIImage.init(named: "i_pay")
-        cell.title = "图标cell"
-        cell.value = "暂无"
-        cell.valueColor = UIColor.red
-        return cell
-    }()
-    lazy var labelCell: TCellLabel = {
-        let cell = TCellLabel.tcell(tableView: self.tableView, reuse: true) as! TCellLabel
-        cell.title = "标题cell"
-        cell.value = "子标题"
-        return cell
-    }()
-    lazy var switchCell: TCellNotify = {
-        let cell = TCellNotify.tcell(tableView: self.tableView, reuse: true) as! TCellNotify
-        cell.title = "通知cell"
-        return cell
-    }()
-    lazy var textFieldCell: TCellInput = {
-        let cell = TCellInput.tcell(tableView: self.tableView, reuse: true) as! TCellInput
-        cell.title = "输入cell"
-        cell.placeholder = "请输入账号"
-        return cell
-    }()
+class InformationVC: BaseFormGroupTC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /// 自定义表单元
-        self.cells = [iconCell,labelCell,switchCell,textFieldCell]
+        groupDataSource = [["表单元","分组表单元","下拉刷新表单元","网页视图","空页面","多视图切换"],["友盟：分享、统计、推送","地图","支付"]]
     }
     
-    func switchEvent(switch: UISwitch) {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return groupDataSource.count
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let titles = groupDataSource[section]
+        return titles.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier: String = "UICell"
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        if cell == nil {
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: cellIdentifier)
+        }
         
+        let titles = groupDataSource[indexPath.section]
+        let title = titles[indexPath.row] as? String
+        cell?.textLabel?.text = title
+        return cell!
     }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        let titles = groupDataSource[indexPath.section]
+        let title = titles[indexPath.row] as? String
+        
+        if section == 0 {
+            switch row {
+            case 0: do {
+                let vc = FormTableVC()
+                vc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(vc, animated: true)
+                }
+            case 1:
+                do {
+                    let vc = FormGroupTableVC()
+                    vc.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            case 2:
+                do {
+                    let vc = AutoRefreshTableVC()
+                    vc.hidesBottomBarWhenPushed = true
+                    vc.title = title
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            case 3:
+                do {
+                    let vc = WebVC()
+                    vc.hidesBottomBarWhenPushed = true
+                    vc.title = title
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            default:
+                showInfoMessage(hud: "TODO - \(title ?? "") - 暂未完成")
+            }
+        }
+        else if section == 1 {
+            showInfoMessage(hud: "TODO - \(title ?? "") - 暂未完成")
+        }
+    }
 }
