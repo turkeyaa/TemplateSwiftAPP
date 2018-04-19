@@ -12,6 +12,17 @@ import SVProgressHUD
 class BaseVC: UIViewController {
     
     
+    var isShowEmptyView: Bool = false {
+        didSet {
+            if isShowEmptyView == true {
+                emptyView.removeFromSuperview()
+            }
+            else {
+                view.addSubview(emptyView)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,13 +30,13 @@ class BaseVC: UIViewController {
     }
     
     
-    // MARK: - Event
+    /// MARK: - Event
     @objc func goNext() -> Void {}
     @objc func goBack() -> Void {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - UI
+    /// MARK: - UI
     func leftTitle(title: String) -> Void {
         
         let leftBarItem = UIBarButtonItem.init(title: title, style: .done, target: self, action: #selector(BaseVC.goBack))
@@ -50,7 +61,7 @@ class BaseVC: UIViewController {
         self.navigationItem.rightBarButtonItem = rightBarItem
     }
     
-    // MARK: - SVProgressHUD
+    /// MARK: - SVProgressHUD
     func showLoadingHUD() -> Void {
         self.showLoadingHUD(hud: "正在加载")
     }
@@ -86,6 +97,12 @@ class BaseVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /// MARK: - 空页面
+    lazy var emptyView:EmptyView = {
+        let view = EmptyView.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
+        return view
+    }()
     
     
     /*

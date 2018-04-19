@@ -11,7 +11,6 @@ import Foundation
 /// 实现自动化归档 - 需要子类继承
 class JSONModel: NSObject,NSCoding {
     
-    
     init(dict: [String: Any]) {
         super.init()
         setValuesForKeys(dict)

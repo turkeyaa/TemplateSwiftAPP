@@ -1,7 +1,7 @@
 {
     "status": 200,
     "message": "success",
-    "result": {
+    "data": {
         "phone": "13581887557",
         "name_spell": "liuyi",
         "avatar_url": "http://tva3.sinaimg.cn/crop.0.0.180.180.180/c74746f0jw1e8qgp5bmzyj2050050aa8.jpg",

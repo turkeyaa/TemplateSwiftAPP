@@ -84,10 +84,10 @@ class BaseRestApi: RestApi {
         
         let result:Any?
         if decodeType == DecodeJSONType.DecodeJSONTypeDictionary {
-            result = responseDict["result"]
+            result = responseDict["data"]
         }
         else {
-            result = responseDict["result"]
+            result = responseDict["data"]
         }
         
         let resultData = try! JSONSerialization.data(withJSONObject: result ?? "", options: .prettyPrinted)

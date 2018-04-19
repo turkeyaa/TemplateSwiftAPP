@@ -76,6 +76,13 @@ class InformationVC: BaseFormGroupTC {
                     vc.title = title
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
+            case 4:
+                do {
+                    let vc = EmptyVC()
+                    vc.hidesBottomBarWhenPushed = true
+                    vc.title = title
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             default:
                 showInfoMessage(hud: "TODO - \(title ?? "") - 暂未完成")
             }

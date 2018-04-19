@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60B450A72088437200E0CFF7 /* EmptyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B450A62088437200E0CFF7 /* EmptyVC.swift */; };
+		60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B450A8208846D400E0CFF7 /* NewsVC.swift */; };
 		C607EFAF206DCA7600638291 /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = C607EFAE206DCA7600638291 /* login.json */; };
 		C607EFB2206DD4DB00638291 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607EFB1206DD4DB00638291 /* UserCell.swift */; };
 		C607EFB4206DE84B00638291 /* Login_Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607EFB3206DE84B00638291 /* Login_Post.swift */; };
@@ -95,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60B450A62088437200E0CFF7 /* EmptyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyVC.swift; sourceTree = "<group>"; };
+		60B450A8208846D400E0CFF7 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		6AC0E386AC5D462610D90450 /* Pods-TemplateSwiftAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateSwiftAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateSwiftAPP/Pods-TemplateSwiftAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		6CCB78343FE0F2DF337805A2 /* Pods-TemplateSwiftAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateSwiftAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateSwiftAPP/Pods-TemplateSwiftAPP.release.xcconfig"; sourceTree = "<group>"; };
 		A1652900FC90AE07BCFDC7C9 /* Pods_TemplateSwiftAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TemplateSwiftAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +226,8 @@
 				C631B79A207EEC61008B8327 /* FormGroupTableVC.swift */,
 				C631B79C207EEF4B008B8327 /* AutoRefreshTableVC.swift */,
 				C631B79E207EF5B6008B8327 /* WebVC.swift */,
+				60B450A62088437200E0CFF7 /* EmptyVC.swift */,
+				60B450A8208846D400E0CFF7 /* NewsVC.swift */,
 			);
 			path = "UI module";
 			sourceTree = "<group>";
@@ -765,6 +771,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B450A72088437200E0CFF7 /* EmptyVC.swift in Sources */,
 				C6D9435020624D59007974A9 /* ShareView.swift in Sources */,
 				C6D9434020624C59007974A9 /* BaseTCell.swift in Sources */,
 				C637D38520720D97002A07E4 /* LoginVC.swift in Sources */,
@@ -793,6 +800,7 @@
 				C6D9433920624C03007974A9 /* BaseRestApi.swift in Sources */,
 				C6D9435420624D8D007974A9 /* ClosureMacro.swift in Sources */,
 				C631B79D207EEF4B008B8327 /* AutoRefreshTableVC.swift in Sources */,
+				60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */,
 				C6D9434920624CCD007974A9 /* Extension.swift in Sources */,
 				C6D9432E2062463C007974A9 /* TabBarVC.swift in Sources */,
 				C691AC36206B3061004F5FA6 /* BaseFormGroupTC.swift in Sources */,
