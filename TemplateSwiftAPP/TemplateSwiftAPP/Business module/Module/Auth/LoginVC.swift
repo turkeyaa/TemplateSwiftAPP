@@ -82,6 +82,7 @@ class LoginVC: BaseFormTC {
                 if loginApi.code == RestApiCode.RestApi_OK {
                     self.user = loginApi.user!
                     self.showSuccessMessage(hud: "登录成功")
+                    self.navigationController?.popViewController(animated: true)
                 }
                 else {
                     self.showErrorMessage(hud: "登录失败")

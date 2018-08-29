@@ -27,6 +27,10 @@ class Login_Post: BaseRestApi {
         return false
     }
     
+//    override func prepareRequestData() -> Dictionary<String, Any> {
+//        
+//    }
+    
     // 模拟本地接口，方便测试，需要在项目中添加相应的JSON数据（Resource目录）
     override func mockFile() -> String {
         return "login"

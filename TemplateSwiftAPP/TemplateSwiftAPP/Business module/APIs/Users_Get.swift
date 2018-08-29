@@ -13,7 +13,7 @@ class Users_Get: BaseRestApi {
     init() {
         super.init(url: "/template/user", httpMethod: .HttpMethods_Get)
         
-        // 用户列表为数组结合,需要重新设置解析类型
+        // 用户列表为数组,需要重新设置解析类型
         self.decodeType = DecodeJSONType.DecodeJSONTypeArray
     }
     

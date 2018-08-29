@@ -11,7 +11,6 @@ import SVProgressHUD
 
 class BaseVC: UIViewController {
     
-    
     var isShowEmptyView: Bool = false {
         didSet {
             if isShowEmptyView == true {
@@ -25,7 +24,6 @@ class BaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = UIColor.white
     }
     

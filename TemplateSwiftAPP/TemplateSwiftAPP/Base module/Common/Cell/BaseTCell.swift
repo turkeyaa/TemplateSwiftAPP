@@ -36,7 +36,6 @@ class BaseTCell: UITableViewCell {
             let identifier = NSStringFromClass(self)
             cell = tableView!.dequeueReusableCell(withIdentifier: identifier) as? BaseTCell
             if cell == nil {
-                
                 cell = self.init(style: .default, reuseIdentifier: identifier)
             }
         }
@@ -48,7 +47,6 @@ class BaseTCell: UITableViewCell {
     
     required override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         self.commonInit()
     }
     
@@ -71,7 +69,6 @@ class BaseTCell: UITableViewCell {
     
     func setupUI() -> Void {
         self.showIndicator(flag: true)
-        
         self.setupSubViews()
     }
     

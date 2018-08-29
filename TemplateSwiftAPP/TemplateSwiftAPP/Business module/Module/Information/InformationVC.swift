@@ -51,10 +51,11 @@ class InformationVC: BaseFormGroupTC {
         
         if section == 0 {
             switch row {
-            case 0: do {
-                let vc = FormTableVC()
-                vc.hidesBottomBarWhenPushed = true
-                self.navigationController?.pushViewController(vc, animated: true)
+            case 0:
+                do {
+                    let vc = FormTableVC()
+                    vc.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             case 1:
                 do {
@@ -83,6 +84,11 @@ class InformationVC: BaseFormGroupTC {
                     vc.title = title
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
+            case 5:
+                do {
+                    showInfoMessage(hud: "TODO - \(title ?? "") - 暂未完成")
+                }
+                
             default:
                 showInfoMessage(hud: "TODO - \(title ?? "") - 暂未完成")
             }

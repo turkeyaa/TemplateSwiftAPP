@@ -5,7 +5,7 @@ target 'TemplateSwiftAPP' do
     
 
     pod 'Alamofire'          # 网络请求 https://github.com/Alamofire/Alamofire，同 AFNetworking
-    pod 'SnapKit', '~> 4.0.0' # 布局框架 https://github.com/SnapKit/SnapKit，同 Masonry
+    pod 'SnapKit'            # 布局框架 https://github.com/SnapKit/SnapKit，同 Masonry
     
     pod 'Kingfisher'         # 缓存图片 https://github.com/onevcat/Kingfisher，同 SDWebImage
     pod 'RxSwift'            # 响应式编程框架 https://github.com/ReactiveX/RxSwift
@@ -13,9 +13,6 @@ target 'TemplateSwiftAPP' do
     pod 'MJRefresh'          # 上拉和下拉刷新框架 https://github.com/CoderMJLee/MJRefresh
     
     pod 'SQLite.swift'       # SQLite https://github.com/stephencelis/SQLite.swift.git
-
-    # pod 'IBAnimatable'       # 设计原型，自定义 UI，交互，导航，转场和动画 https://github.com/IBAnimatable/IBAnimatable
-    
     pod 'IQKeyboardManagerSwift'  # 键盘交互 https://github.com/hackiftekhar/IQKeyboardManager
     
     # 友盟分享

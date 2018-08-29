@@ -63,6 +63,6 @@ class EmptyView: UIView {
         return UIImage.init(named: "app_empty")!
     }
     func settingPlaceholdTitle() -> String {
-        return "暂无信息"
+        return "暂无更多信息"
     }
 }

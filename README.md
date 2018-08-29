@@ -63,11 +63,16 @@
 > 客户端代码
 
 ```
-let api = Users_Get.init()
-api.call(async: true)
-        
-if api.code == .RestApi_OK {
-	self.dataSource = api.dataSource
+let loginApi = Login_Post.init(account: account, password: password)
+loginApi.call(async: true)
+            
+if loginApi.code == RestApiCode.RestApi_OK {
+	self.user = loginApi.user!
+	self.showSuccessMessage(hud: "登录成功")
+	// TODO: 登录成功，逻辑处理
+}
+else {
+	self.showErrorMessage(hud: "登录失败")
 }
 
 ```
@@ -108,6 +113,12 @@ if let result = try? JSONDecoder().decode([User].self, from: json) {
 #### TODO
 
 #### 3. 视图
+
+继承类：`UIView`
+
+#### 4. 控制器
+
+
 
 ### 技术总结
 

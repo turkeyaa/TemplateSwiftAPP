@@ -82,32 +82,17 @@ class BaseRestApi: RestApi {
         print("RestApi:[\(self)]")
         print("RestApi Response:[\(responseJson)]")
         
-        let result:Any?
-        if decodeType == DecodeJSONType.DecodeJSONTypeDictionary {
-            result = responseDict["data"]
-        }
-        else {
-            result = responseDict["data"]
-        }
+        let result:Any? = responseDict["data"]
         
         let resultData = try! JSONSerialization.data(withJSONObject: result ?? "", options: .prettyPrinted)
         
-        
         message = responseDict["message"] as? String
         
-        if message == "success" {
-            
+        if self.parseResponseJsonString(json: resultData) {
             code = RestApiCode.RestApi_OK
-            
-            if self.parseResponseJsonString(json: resultData) {
-                
-            }
-            else {
-                code = RestApiCode.RestApi_InvalidJSON
-            }
         }
         else {
-            code = RestApiCode.RestApi_UnkownError
+            code = RestApiCode.RestApi_InvalidJSON
         }
         
         super.onSuccessed(response: response)
@@ -118,6 +103,7 @@ class BaseRestApi: RestApi {
         assert(false, "子类必须重写该方法")
         return false
     }
+    
     func prepareRequestData() -> Dictionary<String, Any> {
         let dic = [String: Any]()
         return dic
@@ -126,6 +112,7 @@ class BaseRestApi: RestApi {
     func mockType() -> MockType {
         return .MockNone
     }
+    
     func mockFile() -> String {
         return ""
     }
