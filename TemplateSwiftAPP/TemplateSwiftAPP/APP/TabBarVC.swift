@@ -14,7 +14,8 @@ class TabBarVC: UITabBarController {
         super.viewDidLoad()
         
         let first = MainVC()
-        let second = UserListVC()
+//        let second = UserListVC()
+        let second = MineVC()
         let third = InformationVC()
         
         let firstNav = UINavigationController.init(rootViewController: first)

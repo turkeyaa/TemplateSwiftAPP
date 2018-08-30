@@ -1,20 +1,17 @@
 //
-//  Users_Get.swift
+//  Topic_Get.swift
 //  TemplateSwiftAPP
 //
-//  Created by wenhua yu on 2018/3/28.
+//  Created by wenhua on 2018/8/29.
 //  Copyright © 2018年 wenhua yu. All rights reserved.
 //
 
 import Foundation
 
-class Users_Get: BaseRestApi {
+class Topic_Get: BaseRestApi {
     
-    init() {
-        super.init(url: "/template/user", httpMethod: .HttpMethods_Get)
-        
-        // 用户列表为数组,需要重新设置解析类型
-        self.decodeType = DecodeJSONType.DecodeJSONTypeArray
+    init(offset: Int, limit: Int) {
+        super.init(url: "topic/list", httpMethod: .HttpMethods_Get)
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {

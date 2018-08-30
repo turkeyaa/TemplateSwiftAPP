@@ -22,6 +22,7 @@ class ShareView: UIView {
     var _titles: [String]
     var _images: [UIImage]
     
+    /// 初始化方法
     init(titles: [String], images: [UIImage]) {
         
         _titles = titles

@@ -46,9 +46,9 @@ class UserCell: BaseTCell {
     }
     
     func updateUser(user: User) -> Void {
-        nameLabel?.text = user.name
+        nameLabel?.text = user.nickName
         
-        let url = URL.init(string: user.avatar_url)!
+        let url = URL.init(string: user.avatarUrl)!
         iconView?.kf.setImage(with: url, placeholder: UIImage.init(named: "placeholder"), options: nil, progressBlock: { (receivedSize, totalSize) in
             let progress = Float(receivedSize) / Float(totalSize)
             SVProgressHUD.showProgress(progress)

@@ -15,6 +15,9 @@ target 'TemplateSwiftAPP' do
     pod 'SQLite.swift'       # SQLite https://github.com/stephencelis/SQLite.swift.git
     pod 'IQKeyboardManagerSwift'  # 键盘交互 https://github.com/hackiftekhar/IQKeyboardManager
     
+    pod 'SwiftyMarkdown'     # Markdown 渲染 https://github.com/SimonFairbairn/SwiftyMarkdown
+    pod 'MarkdownView'       # Markdown 渲染 https://github.com/keitaoouchi/MarkdownView.git
+    
     # 友盟分享
     pod 'UMengUShare/Social/ReducedWeChat'
     pod 'UMengUShare/Social/ReducedQQ'

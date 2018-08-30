@@ -36,3 +36,15 @@ extension UIImage {
         return image
     }
 }
+
+extension String {
+    
+    static func timeStampToString(timeStamp: TimeInterval) -> String {
+        // 时间戳为毫秒级要 ／ 1000， 秒就不用除1000，参数带没带000
+        let date = NSDate(timeIntervalSince1970: timeStamp)
+        let dfmatter = DateFormatter()
+        // yyyy-MM-dd HH:mm:ss
+        dfmatter.dateFormat="MM-dd HH:mm"
+        return dfmatter.string(from: date as Date)
+    }
+}

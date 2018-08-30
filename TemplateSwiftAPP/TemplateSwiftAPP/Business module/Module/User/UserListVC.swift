@@ -48,7 +48,6 @@ class UserListVC: BaseLoadTC {
     // 点击 cell 事件
     func clickCell(index: Int) {
         let user = self.dataSource![index] as! User
-        UIHelper.show(title: "Row:\(index) -- 姓名:\(user.name)")
     }
     
     // 进入登录

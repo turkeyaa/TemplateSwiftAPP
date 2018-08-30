@@ -11,11 +11,16 @@ import Foundation
 
 class User: JSONModel,Codable {
     
-    var name: String = ""
-    var phone: String = ""
-    var name_spell: String = ""
-    var user_id: String = ""
-    var avatar_url: String = ""
+    var userID: UUID?
+    var account: String = ""
+    var website: String = ""
+    var author: String = ""
+    var city: String = ""
+    var company: String = ""
+    var sign: String = ""
+    var nickName: String = ""
+    var createTime: Int = 0
+    var avatarUrl: String = ""
     
     override init() {
         super.init()
@@ -32,11 +37,15 @@ class User: JSONModel,Codable {
     
     /// 如果我们需要用不同的名称, 只需要提供我们自己的 CodingKey
     enum CodingKeys: String,CodingKey {
-        case user_id = "userid"
-        case name
-        case name_spell
-        case phone
-        case avatar_url
+        case userID = "id"
+        case account
+        case website
+        case author
+        case city
+        case company
+        case sign
+        case nickName
+        case createTime
     }
 }
 
