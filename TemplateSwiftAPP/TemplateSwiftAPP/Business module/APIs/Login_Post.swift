@@ -10,18 +10,19 @@ import Foundation
 
 class Login_Post: BaseRestApi {
     
-    var user: User?
+    var token: String = ""
     
     init(account: String, password: String) {
         super.init(url: "auth/login", httpMethod: .HttpMethods_Post)
+        decodeType = .DecodeJSONTypeString;   // token 字符串
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {
         
-        if let result = try? JSONDecoder().decode(User.self, from: json) {
-            // 解析成功，赋值给:users对象
-            self.user = result
-            return true;
+        let result = json.base64EncodedString()
+        if result.count > 0 {
+            token = result
+            return true
         }
         
         return false

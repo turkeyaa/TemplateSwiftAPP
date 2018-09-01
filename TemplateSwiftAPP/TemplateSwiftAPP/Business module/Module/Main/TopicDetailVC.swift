@@ -30,7 +30,7 @@ class TopicDetailVC: BaseVC {
         
         // called when rendering finished
         md.onRendered = { [weak self] height in
-            self?.showInfoMessage(hud: "渲染完成")
+            self?.showInfoMessage(hud: "加载成功")
             self?.view.setNeedsLayout()
         }
         

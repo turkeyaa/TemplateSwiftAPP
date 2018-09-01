@@ -17,25 +17,32 @@ class AutoRefreshTableVC: BaseLoadTC {
     // MAKR: - 加载数据
     override func queryData() -> Array<Any> {
         
-        let api = Users_Get.init()
+        let api = Topic_Get.init(offset: 1, limit: 10)
         api.call(async: true)
-        
-        if api.code == .RestApi_OK {
-            self.dataSource = api.dataSource
-        }
-        return self.dataSource!
+        /// 休眠1秒
+        sleep(1)
+        return api.dataSource!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: UserCell = UserCell.tcell(tableView: tableView, reuse: true) as! UserCell
+        let cell: TopicCell = TopicCell.tcell(tableView: tableView, reuse: true) as! TopicCell
         
-        let user = self.dataSource?[indexPath.row] as! User
+        let topic = self.dataSource?[indexPath.row] as! Topic
         cell.showIndicator(flag: true)
-        cell.updateUser(user: user)
+        cell.updateTopic(topic: topic)
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        
+        let vc = TopicDetailVC()
+        vc.topic = self.dataSource![indexPath.row] as! Topic
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UserCell.classCellHeight()
+        return TopicCell.classCellHeight()
     }
 }

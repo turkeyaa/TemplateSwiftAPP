@@ -16,15 +16,19 @@ class LoginVC: BaseFormTC {
     
     lazy var accountCell: TCellInput = {
         let cell = TCellInput.tcell(tableView: self.tableView, reuse: true) as! TCellInput
+        cell.icon = UIImage.init(named: "account")
         cell.title = "账号"
         cell.placeholder = "请输入账号"
+        cell.value = "18668089860"
         cell.showIndicator(flag: false)
         return cell
     }()
     lazy var passwordCell: TCellInput = {
         let cell = TCellInput.tcell(tableView: self.tableView, reuse: true) as! TCellInput
+        cell.icon = UIImage.init(named: "password")
         cell.title = "密码"
         cell.placeholder = "请输入密码"
+        cell.value = "18698894171"
         cell.showIndicator(flag: false)
         return cell
     }()
@@ -72,16 +76,23 @@ class LoginVC: BaseFormTC {
         
         DispatchQueue.global().async {
             self.showLoadingHUD(hud: "登录中...")
-            sleep(2)
+            
+            sleep(1)
             
             let loginApi = Login_Post.init(account: account, password: password)
             loginApi.call(async: true)
             
+            let userApi = UserInfo_Post.init()
+            userApi.call(async: true)
+            
             DispatchQueue.main.async {
                 /// 进入主线程,更新界面
-                if loginApi.code == RestApiCode.RestApi_OK {
-                    self.user = loginApi.user!
+                if loginApi.code == .RestApi_OK && userApi.code == .RestApi_OK {
+                    
                     self.showSuccessMessage(hud: "登录成功")
+                    
+                    WorkSpace.sharedInstance.onLogIn(api: userApi, account: account, password: password, token: loginApi.token)
+                    
                     self.navigationController?.popViewController(animated: true)
                 }
                 else {

@@ -16,11 +16,21 @@ class MainVC: BaseLoadTC {
         self.rightTitle(title: "登录")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if WorkSpace.sharedInstance.appPreference.isLoginSuccess {
+            self.rightTitle(title: "")
+        } else {
+            self.rightTitle(title: "登录")
+        }
+    }
+    
     // MAKR: - 加载数据
     override func queryData() -> Array<Any> {
         
         let api = Topic_Get.init(offset: 1, limit: 10)
         api.call(async: true)
+        sleep(1)
         return api.dataSource!
     }
     

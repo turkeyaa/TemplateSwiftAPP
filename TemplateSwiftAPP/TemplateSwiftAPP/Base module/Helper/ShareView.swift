@@ -87,8 +87,8 @@ class ShareView: UIView {
     @objc func shareEvent(gesture: UITapGestureRecognizer) -> Void {
         hide()
         
-        let index = gesture.view?.tag
-        shareView!(index!)
+//        let index = gesture.view?.tag
+//        shareView!(index!)
     }
     
     @objc func hide() -> Void {
@@ -98,6 +98,7 @@ class ShareView: UIView {
             self.removeFromSuperview()
         }
     }
+    
     func show() -> Void {
         UIView.animate(withDuration: 0.4, animations: {
             self.contentView.frame = CGRect.init(x: 0, y: Device_height-self.contentHeight, width: Device_width, height: self.contentHeight)

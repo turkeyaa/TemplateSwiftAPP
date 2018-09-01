@@ -32,6 +32,7 @@ enum MockType {
 enum DecodeJSONType {
     case DecodeJSONTypeDictionary       // 结果为：字典对象
     case DecodeJSONTypeArray            // 结果为：数组对象
+    case DecodeJSONTypeString           // 结果为：字符串对象
 }
 
 class BaseRestApi: RestApi {
@@ -80,15 +81,19 @@ class BaseRestApi: RestApi {
         let responseDict = responseJson as! Dictionary<String, Any>
         
         print("RestApi:[\(self)]")
-        print("RestApi Response:[\(responseJson)]")
+        print("RestApi Response:\(responseJson)")
         
-        let result:Any? = responseDict["data"]
-        
-        let resultData = try! JSONSerialization.data(withJSONObject: result ?? "", options: .prettyPrinted)
-        
+        let data:Any? = responseDict["data"]
         message = responseDict["message"] as? String
         
-        if self.parseResponseJsonString(json: resultData) {
+        var resultData: Data?
+        if decodeType == .DecodeJSONTypeString {
+            resultData = Data.init(base64Encoded: data as! String)
+        } else {
+            resultData = try? JSONSerialization.data(withJSONObject: data ?? "", options: .prettyPrinted)
+        }
+        
+        if self.parseResponseJsonString(json: resultData!) {
             code = RestApiCode.RestApi_OK
         }
         else {
