@@ -12,7 +12,7 @@ let AppStatus_Product = 1     // 正式环境
 let AppStatus_Develop = 2     // 开发环境
 let AppStatus_Test    = 3     // 测试环境
 
-let APP_STATUS = AppStatus_Product
+let APP_STATUS = AppStatus_Develop
 
 class URLHelper: NSObject {
     static let instance = URLHelper()

@@ -35,6 +35,11 @@
 		60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B450A8208846D400E0CFF7 /* NewsVC.swift */; };
 		60DF5978213BC7B300248384 /* TCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF5977213BC7B300248384 /* TCellTextView.swift */; };
 		60DF597A213BCA6100248384 /* TopicNewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF5979213BCA6100248384 /* TopicNewApi.swift */; };
+		60DF597C213BCF4400248384 /* CommentListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF597B213BCF4400248384 /* CommentListApi.swift */; };
+		60DF597E213BD0C600248384 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF597D213BD0C600248384 /* Comment.swift */; };
+		60DF5980213BD40C00248384 /* TopicCommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF597F213BD40C00248384 /* TopicCommentListView.swift */; };
+		60DF5982213BD82300248384 /* TopinInfoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF5981213BD82300248384 /* TopinInfoApi.swift */; };
+		60DF5984213BE9B000248384 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF5983213BE9B000248384 /* CommentCell.swift */; };
 		60E44037213AC62C00A14F8B /* UserInfo_Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E44036213AC62C00A14F8B /* UserInfo_Post.swift */; };
 		60E4403A213AC82500A14F8B /* AppPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E44039213AC82500A14F8B /* AppPreference.swift */; };
 		60E4403D213ACE4700A14F8B /* Auth.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60E4403C213ACE4700A14F8B /* Auth.xcassets */; };
@@ -145,6 +150,11 @@
 		60B450A8208846D400E0CFF7 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		60DF5977213BC7B300248384 /* TCellTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellTextView.swift; sourceTree = "<group>"; };
 		60DF5979213BCA6100248384 /* TopicNewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicNewApi.swift; sourceTree = "<group>"; };
+		60DF597B213BCF4400248384 /* CommentListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListApi.swift; sourceTree = "<group>"; };
+		60DF597D213BD0C600248384 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		60DF597F213BD40C00248384 /* TopicCommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCommentListView.swift; sourceTree = "<group>"; };
+		60DF5981213BD82300248384 /* TopinInfoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopinInfoApi.swift; sourceTree = "<group>"; };
+		60DF5983213BE9B000248384 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		60E44036213AC62C00A14F8B /* UserInfo_Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo_Post.swift; sourceTree = "<group>"; };
 		60E44039213AC82500A14F8B /* AppPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreference.swift; sourceTree = "<group>"; };
 		60E4403C213ACE4700A14F8B /* Auth.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Auth.xcassets; sourceTree = "<group>"; };
@@ -264,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				60480FB72136A25800E68DAC /* TopicCell.swift */,
+				60DF5983213BE9B000248384 /* CommentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -273,6 +284,7 @@
 			children = (
 				609BA71F213BA2B600593268 /* TopicBottomView.swift */,
 				609BA727213BBAB600593268 /* TopicCommentView.swift */,
+				60DF597F213BD40C00248384 /* TopicCommentListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -454,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				60480FB42136A16300E68DAC /* Topic_Get.swift */,
+				60DF5981213BD82300248384 /* TopinInfoApi.swift */,
 				60DF5979213BCA6100248384 /* TopicNewApi.swift */,
 				609BA71C213BA07300593268 /* UserTopic_Get.swift */,
 				C607EFB3206DE84B00638291 /* Login_Post.swift */,
@@ -461,6 +474,7 @@
 				609BA721213BB1B100593268 /* NewLikeApi.swift */,
 				609BA723213BB1C000593268 /* NewCollectApi.swift */,
 				609BA725213BB1CD00593268 /* NewCommentApi.swift */,
+				60DF597B213BCF4400248384 /* CommentListApi.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -481,6 +495,7 @@
 			children = (
 				C691AC1C206B2564004F5FA6 /* User.swift */,
 				60480FB221369F2900E68DAC /* Topic.swift */,
+				60DF597D213BD0C600248384 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -900,7 +915,9 @@
 				C631B79D207EEF4B008B8327 /* AutoRefreshTableVC.swift in Sources */,
 				609BA71D213BA07300593268 /* UserTopic_Get.swift in Sources */,
 				60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */,
+				60DF597E213BD0C600248384 /* Comment.swift in Sources */,
 				608AEC012136E244004F7809 /* TopicDetailVC.swift in Sources */,
+				60DF5982213BD82300248384 /* TopinInfoApi.swift in Sources */,
 				609BA720213BA2B600593268 /* TopicBottomView.swift in Sources */,
 				C6D9434920624CCD007974A9 /* Extension.swift in Sources */,
 				609BA72A213BC06E00593268 /* TopicNewVC.swift in Sources */,
@@ -910,11 +927,13 @@
 				60480FB321369F2900E68DAC /* Topic.swift in Sources */,
 				60756B8E213B52E2001628B1 /* LoginNotify.swift in Sources */,
 				C631B79B207EEC61008B8327 /* FormGroupTableVC.swift in Sources */,
+				60DF5980213BD40C00248384 /* TopicCommentListView.swift in Sources */,
 				C631B79F207EF5B6008B8327 /* WebVC.swift in Sources */,
 				C6D9435820624DB2007974A9 /* StringMacro.swift in Sources */,
 				C6D9434420624C6E007974A9 /* BaseView.swift in Sources */,
 				60E4403A213AC82500A14F8B /* AppPreference.swift in Sources */,
 				C691AC41206B30E6004F5FA6 /* TCellNotify.swift in Sources */,
+				60DF597C213BCF4400248384 /* CommentListApi.swift in Sources */,
 				C691AC32206B303A004F5FA6 /* BaseWebVC.swift in Sources */,
 				60DF597A213BCA6100248384 /* TopicNewApi.swift in Sources */,
 				609BA728213BBAB600593268 /* TopicCommentView.swift in Sources */,
@@ -924,6 +943,7 @@
 				60756B92213B5854001628B1 /* UserInfoVC.swift in Sources */,
 				C6D9434220624C66007974A9 /* BaseVC.swift in Sources */,
 				C6A8D46E207CA71700836923 /* InformationVC.swift in Sources */,
+				60DF5984213BE9B000248384 /* CommentCell.swift in Sources */,
 				609BA722213BB1B100593268 /* NewLikeApi.swift in Sources */,
 				C691AC34206B3056004F5FA6 /* BaseFormTC.swift in Sources */,
 				60480FB82136A25800E68DAC /* TopicCell.swift in Sources */,

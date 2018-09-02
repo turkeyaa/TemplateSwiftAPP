@@ -1,5 +1,5 @@
 //
-//  TopicCommentView.swift
+//  TopicCommentListView.swift
 //  TemplateSwiftAPP
 //
 //  Created by wenhua on 2018/9/2.
@@ -9,15 +9,11 @@
 import Foundation
 import UIKit
 
-class TopicCommentView: UIView,UITextViewDelegate {
+class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     var clickItemBlock: BlockItem?
     
-    var title: String = "" {
-        didSet {
-            textView.text = title
-        }
-    }
+    var dataSource: Array<Any>?
     
     lazy var contentView: UIView = {
         let view = UIView.init()
@@ -31,22 +27,15 @@ class TopicCommentView: UIView,UITextViewDelegate {
         view.addTarget(self, action: #selector(closeEvent), for: .touchUpInside)
         return view
     }()
-    lazy var saveBtn: UIButton = {
-        let view = UIButton.init(type: .custom)
-        view.setTitle("保存", for: .normal)
-        view.setTitleColor(UIColor.orange, for: .normal)
-        view.addTarget(self, action: #selector(saveEvent), for: .touchUpInside)
-        return view
-    }()
     lazy var lineView: UIView = {
         let view = UIView.init()
         view.backgroundColor = UIColor.init(white: 0.7, alpha: 0.3)
         return view
     }()
-    lazy var textView: UITextView = {
-        let view = UITextView.init()
-        view.font = UIFont.systemFont(ofSize: 16)
+    lazy var tableView: UITableView = {
+        let view = UITableView.init(frame: CGRect.zero, style: .plain)
         view.delegate = self
+        view.dataSource = self
         return view
     }()
     
@@ -58,9 +47,8 @@ class TopicCommentView: UIView,UITextViewDelegate {
         UIApplication.shared.keyWindow!.addSubview(self)
         self.addSubview(contentView)
         contentView.addSubview(closeBtn)
-        contentView.addSubview(saveBtn)
         contentView.addSubview(lineView)
-        contentView.addSubview(textView)
+        contentView.addSubview(tableView)
         
         setupLayout()
     }
@@ -79,32 +67,19 @@ class TopicCommentView: UIView,UITextViewDelegate {
             make.height.equalTo(30)
             make.left.top.equalTo(10)
         }
-        saveBtn.snp.makeConstraints { (make) in
-            make.width.equalTo(50)
-            make.height.equalTo(30)
-            make.top.equalTo(10)
-            make.right.equalTo(-10)
-        }
         lineView.snp.makeConstraints { (make) in
             make.left.right.equalTo(0)
             make.top.equalTo(39.5)
             make.height.equalTo(0.5)
         }
-        textView.snp.makeConstraints { (make) in
+        tableView.snp.makeConstraints { (make) in
             make.top.equalTo(40)
-            make.left.right.equalTo(0)
-            make.bottom.equalTo(0)      /// todo - 减去键盘高度
+            make.left.right.bottom.equalTo(0)
         }
     }
     
     @objc func closeEvent() -> Void {
         self.hide()
-    }
-    
-    @objc func saveEvent() -> Void {
-        if clickItemBlock != nil {
-            clickItemBlock!(1)
-        }
     }
     
     @objc func hide() -> Void {
@@ -117,12 +92,36 @@ class TopicCommentView: UIView,UITextViewDelegate {
         }
     }
     
-    func beginInput() -> Void {
-        textView.becomeFirstResponder()
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        title = textView.text
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dataSource != nil {
+            return self.dataSource!.count
+        }
+        return 0
     }
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell: CommentCell = CommentCell.tcell(tableView: tableView, reuse: true) as! CommentCell
+        
+        let comment = self.dataSource![indexPath.row] as! Comment
+        cell.showIndicator(flag: false)
+        cell.updateComment(comment: comment)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CommentCell.classCellHeight()
+    }
+    
+    func reloadData() -> Void {
+        self.tableView.reloadData()
+    }
+    
+    func show() -> Void {
+        setupLayout()
+    }
 }

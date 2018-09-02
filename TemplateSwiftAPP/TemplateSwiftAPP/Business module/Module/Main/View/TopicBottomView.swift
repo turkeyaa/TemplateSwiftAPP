@@ -42,6 +42,9 @@ class TopicBottomView: UIView {
         let view = UILabel.init()
         view.textColor = UIColor.lightGray
         view.textAlignment = .right
+        view.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(promptTapEvent))
+        view.addGestureRecognizer(gesture)
         return view
     }()
     
@@ -110,6 +113,11 @@ class TopicBottomView: UIView {
         
         if clickItemBlock != nil {
             clickItemBlock!(2)
+        }
+    }
+    @objc func promptTapEvent() -> Void {
+        if clickItemBlock != nil {
+            clickItemBlock!(3)
         }
     }
     

@@ -52,7 +52,7 @@ class UserCollect: BaseLoadTC {
         let topic = self.dataSource![index] as! Topic
         
         let vc = TopicDetailVC()
-        vc.topic = topic
+        vc.topicID = topic.topicID!.uuidString
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }

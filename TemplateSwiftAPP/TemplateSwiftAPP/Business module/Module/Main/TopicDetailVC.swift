@@ -13,7 +13,9 @@ import MarkdownView
 
 class TopicDetailVC: BaseVC {
     
-    var topic: Topic = Topic()
+    var topicID: String = ""
+    
+    private var topic: Topic = Topic()
     lazy var bottomView: TopicBottomView = {
         var view = TopicBottomView.init()
         view.clickItemBlock = {
@@ -22,6 +24,7 @@ class TopicDetailVC: BaseVC {
         }
         return view
     }()
+    
     lazy var shareView: ShareView = {
         let titles = ["QQ","微信","新浪微博"]
         let icons = [UIImage.init(named: "app_qq")!,UIImage.init(named: "app_weixin")!,UIImage.init(named: "app_weibo")!]
@@ -33,35 +36,39 @@ class TopicDetailVC: BaseVC {
         return view
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = topic.title
-        self.rightIcon(icon: UIImage.init(named: "app_share")!)
-        
-        /// 初始化
-        let md = MarkdownView()
-        self.view.addSubview(md)
-        self.view.addSubview(bottomView)
-        
-        md.load(markdown: topic.content)
-        md.isScrollEnabled = true
-        
+    lazy var commentListView: TopicCommentListView = {
+        let view = TopicCommentListView.init()
+        view.clickItemBlock = {
+            (index: Int) -> Void in
+            self.listCloseBtnEvent(index: index)
+        }
+        return view
+    }()
+    
+    lazy var commentView: TopicCommentView = {
+        let view = TopicCommentView.init()
+        view.clickItemBlock = {
+            (index: Int) -> Void in
+            self.commentEvent(index: index)
+        }
+        return view
+    }()
+    
+    lazy var md: MarkdownView = {
+        let view = MarkdownView()
+        view.isScrollEnabled = true
         // called when rendering finished
-        md.onRendered = { [weak self] height in
-            self?.showInfoMessage(hud: "加载成功")
+        view.onRendered = { [weak self] height in
+//            self?.showSuccessMessage(hud: "加载完成")
             self?.view.setNeedsLayout()
         }
-        
         // called when user touch link
-        md.onTouchLink = { [weak self] request in
+        view.onTouchLink = { [weak self] request in
             guard let url = request.url else { return false }
             
             if url.scheme == "file" {
                 return false
-            } else if url.scheme == "https" {
-//                let safari = SFSafariViewController(url: url)
-//                self?.navigationController?.pushViewController(safari, animated: true)
+            } else if url.scheme == "http" {
                 let webVC = WebVC()
                 self?.navigationController?.pushViewController(webVC, animated: true)
                 return false
@@ -69,6 +76,17 @@ class TopicDetailVC: BaseVC {
                 return false
             }
         }
+        return view
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = topic.title
+        self.rightIcon(icon: UIImage.init(named: "app_share")!)
+        
+        self.view.addSubview(md)
+        self.view.addSubview(bottomView)
         
         /// 约束
         md.snp.makeConstraints { (make) in
@@ -80,12 +98,58 @@ class TopicDetailVC: BaseVC {
             make.height.equalTo(50)
         }
         
-        bottomView.updateUI(topic: topic)
+        self.loadTopic()
     }
     
     /// api
-    func loaeCommentList() -> Void {
+    func loadTopic() -> Void {
         
+        self.showLoadingHUD(hud: "正在加载")
+        
+        DispatchQueue.global().async {
+            
+            let api = TopicInfoApi.init(topicID: self.topicID)
+            api.call(async: true)
+            
+            let commentApi = CommentListApi.init(offset: 0, limit: 100, topicID: self.topicID)
+            commentApi.call(async: true)
+            
+            DispatchQueue.main.async {
+                self.hideLoadingHUD()
+                if api.code == .status_ok {
+                    self.topic = api.topic
+                    
+                    self.md.load(markdown: self.topic.content)
+                    self.bottomView.updateUI(topic: self.topic)
+                } else {
+                    
+                }
+            }
+        }
+    }
+    
+    func addComment(content: String) -> Void {
+        
+        if content.count == 0 {
+            UIHelper.show(title: "评论内容不能为空")
+            return
+        }
+        self.showLoadingHUD(hud: "正在加载")
+        
+        DispatchQueue.global().async {
+            
+            let api = NewCommentApi.init(topicID: self.topicID, content: content)
+            api.call(async: true)
+            
+            DispatchQueue.main.async {
+                self.hideLoadingHUD()
+                if api.code == .status_ok {
+                    UIHelper.show(title: "评论成功")
+                } else {
+                    UIHelper.show(title: api.message)
+                }
+            }
+        }
     }
     
     /// 交互事件
@@ -121,27 +185,42 @@ class TopicDetailVC: BaseVC {
                         UIHelper.show(title: api.message)
                     }
                 }
-                
+            } else if index == 2 {
+                /// 添加评论
+                DispatchQueue.main.async {
+                    self.commentView.beginInput()
+                }
             } else {
-                
-                UIHelper.show(title: "todo - 暂未完成")
-                /*
-                let api = NewCommentApi.init(topicID: self.topic.topicID!.uuidString, content: "写的很好")
+                /// 评论列表
+                let api = CommentListApi.init(offset: 0, limit: 100, topicID: self.topicID)
                 api.call(async: true)
                 DispatchQueue.main.async {
                     if api.code == .status_ok {
-                        UIHelper.show(title: "喜欢成功了")
+                        self.commentListView.dataSource = api.dataSource
+                        self.commentListView.reloadData()
                     } else {
-                        UIHelper.show(title: api.message)
+                        
                     }
                 }
-                */
             }
         }
     }
     
+    func listCloseBtnEvent(index: Int) -> Void {
+        commentListView.removeFromSuperview()
+    }
+    
+    func commentEvent(index: Int) -> Void {
+        
+        if index == 1 {
+            addComment(content: commentView.title)
+        }
+        commentView.removeFromSuperview()
+    }
+    
     override func goNext() {
-        self.view.addSubview(shareView)
+//        self.view.addSubview(shareView)
+        self.shareView.show()
     }
     
 }

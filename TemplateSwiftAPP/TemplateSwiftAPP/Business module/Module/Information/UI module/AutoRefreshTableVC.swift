@@ -36,7 +36,8 @@ class AutoRefreshTableVC: BaseLoadTC {
         super.tableView(tableView, didSelectRowAt: indexPath)
         
         let vc = TopicDetailVC()
-        vc.topic = self.dataSource![indexPath.row] as! Topic
+        let topic = self.dataSource![indexPath.row] as! Topic
+        vc.topicID = topic.topicID!.uuidString
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

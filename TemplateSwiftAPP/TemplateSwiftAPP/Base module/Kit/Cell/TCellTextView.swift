@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TCellTextView: BaseTCell {
+class TCellTextView: BaseTCell,UITextViewDelegate {
     
     var title: String = "" {
         didSet {
@@ -21,6 +21,7 @@ class TCellTextView: BaseTCell {
     lazy var textView: UITextView = {
         let view = UITextView.init()
         view.font = UIFont.systemFont(ofSize: 16)
+        view.delegate = self
         return view
     }()
     
@@ -44,5 +45,9 @@ class TCellTextView: BaseTCell {
     
     override class func classCellHeight() -> CGFloat {
         return 200.0
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        title = textView.text
     }
 }
