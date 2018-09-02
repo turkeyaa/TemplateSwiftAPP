@@ -13,11 +13,24 @@ import Foundation
 
 // 1. 定义枚举
 enum RestApiCode: Int {
-    case RestApi_OK = 0                 // 成功
-    case RestApi_NoUserId = 0001        // 无用户ID信息(未登录)
-    case RestApi_UnkownError = 0002     // 未知错误(系统出错)
-    case RestApi_NoData      = 0003     // 没有数据
-    case RestApi_InvalidJSON = 108      // 解析 JSON 异常
+//    case RestApi_OK = 0                 // 成功
+//    case RestApi_NoUserId = 0001        // 无用户ID信息(未登录)
+//    case RestApi_UnkownError = 0002     // 未知错误(系统出错)
+//    case RestApi_NoData      = 0003     // 没有数据
+//    case RestApi_InvalidJSON = 108      // 解析 JSON 异常
+    
+    case status_ok                  = 200
+    case status_invalid_json        = 108          /// 解析 JSON 异常
+    case status_unkown_error        = 1000
+    case status_error               = 1001
+    case status_token               = 1002
+    case status_no_user             = 1003
+    case status_error_psd           = 1004
+    case status_existed_account     = 1005
+    case status_no_entry            = 1006          /// 如果没有Admin-Token则提示无权限
+    case status_no_repet_like       = 1007
+    case status_no_repet_collet     = 1008
+    case status_error_params        = 1009
     
     // ...... 等其他错误码，和后台错误码保持一致即可
 }
@@ -33,11 +46,12 @@ enum DecodeJSONType {
     case DecodeJSONTypeDictionary       // 结果为：字典对象
     case DecodeJSONTypeArray            // 结果为：数组对象
     case DecodeJSONTypeString           // 结果为：字符串对象
+    case DecodeJSONTypeNone             // 空结果
 }
 
 class BaseRestApi: RestApi {
     
-    var code: RestApiCode = .RestApi_UnkownError
+    var code: RestApiCode = .status_error
     var message: String = ""
     var errorMessage: String = ""
     
@@ -85,7 +99,7 @@ class BaseRestApi: RestApi {
         
         let data:Any? = responseDict["data"]
         message = responseDict["message"] as! String
-        
+        code = RestApiCode(rawValue: responseDict["status"] as! Int)!
         var resultData: Data?
         if decodeType == .DecodeJSONTypeString {
             if data != nil {
@@ -93,15 +107,21 @@ class BaseRestApi: RestApi {
             } else {
                 resultData = Data.init()
             }
+        } else if decodeType == .DecodeJSONTypeNone {
+            resultData = Data.init()
         } else {
-            resultData = try? JSONSerialization.data(withJSONObject: data ?? "", options: .prettyPrinted)
+            if data != nil {
+                resultData = try? JSONSerialization.data(withJSONObject: data ?? "", options: .prettyPrinted)
+            } else {
+                resultData = Data.init()
+            }
         }
         
         if self.parseResponseJsonString(json: resultData!) {
-            code = RestApiCode.RestApi_OK
+            
         }
         else {
-            code = RestApiCode.RestApi_InvalidJSON
+            code = .status_invalid_json
         }
         
         super.onSuccessed(response: response)

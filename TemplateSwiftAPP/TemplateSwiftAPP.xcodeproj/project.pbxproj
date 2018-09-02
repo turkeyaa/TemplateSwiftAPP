@@ -23,8 +23,18 @@
 		60756B90213B5686001628B1 /* TCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60756B8F213B5686001628B1 /* TCellButton.swift */; };
 		60756B92213B5854001628B1 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60756B91213B5854001628B1 /* UserInfoVC.swift */; };
 		608AEC012136E244004F7809 /* TopicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608AEC002136E244004F7809 /* TopicDetailVC.swift */; };
+		609BA71B213B9F1D00593268 /* UserCollectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA71A213B9F1D00593268 /* UserCollectVC.swift */; };
+		609BA71D213BA07300593268 /* UserTopic_Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA71C213BA07300593268 /* UserTopic_Get.swift */; };
+		609BA720213BA2B600593268 /* TopicBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA71F213BA2B600593268 /* TopicBottomView.swift */; };
+		609BA722213BB1B100593268 /* NewLikeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA721213BB1B100593268 /* NewLikeApi.swift */; };
+		609BA724213BB1C000593268 /* NewCollectApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA723213BB1C000593268 /* NewCollectApi.swift */; };
+		609BA726213BB1CD00593268 /* NewCommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA725213BB1CD00593268 /* NewCommentApi.swift */; };
+		609BA728213BBAB600593268 /* TopicCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA727213BBAB600593268 /* TopicCommentView.swift */; };
+		609BA72A213BC06E00593268 /* TopicNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA729213BC06E00593268 /* TopicNewVC.swift */; };
 		60B450A72088437200E0CFF7 /* EmptyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B450A62088437200E0CFF7 /* EmptyVC.swift */; };
 		60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B450A8208846D400E0CFF7 /* NewsVC.swift */; };
+		60DF5978213BC7B300248384 /* TCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF5977213BC7B300248384 /* TCellTextView.swift */; };
+		60DF597A213BCA6100248384 /* TopicNewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF5979213BCA6100248384 /* TopicNewApi.swift */; };
 		60E44037213AC62C00A14F8B /* UserInfo_Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E44036213AC62C00A14F8B /* UserInfo_Post.swift */; };
 		60E4403A213AC82500A14F8B /* AppPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E44039213AC82500A14F8B /* AppPreference.swift */; };
 		60E4403D213ACE4700A14F8B /* Auth.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60E4403C213ACE4700A14F8B /* Auth.xcassets */; };
@@ -123,8 +133,18 @@
 		60756B8F213B5686001628B1 /* TCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellButton.swift; sourceTree = "<group>"; };
 		60756B91213B5854001628B1 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		608AEC002136E244004F7809 /* TopicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailVC.swift; sourceTree = "<group>"; };
+		609BA71A213B9F1D00593268 /* UserCollectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectVC.swift; sourceTree = "<group>"; };
+		609BA71C213BA07300593268 /* UserTopic_Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTopic_Get.swift; sourceTree = "<group>"; };
+		609BA71F213BA2B600593268 /* TopicBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicBottomView.swift; sourceTree = "<group>"; };
+		609BA721213BB1B100593268 /* NewLikeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLikeApi.swift; sourceTree = "<group>"; };
+		609BA723213BB1C000593268 /* NewCollectApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCollectApi.swift; sourceTree = "<group>"; };
+		609BA725213BB1CD00593268 /* NewCommentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentApi.swift; sourceTree = "<group>"; };
+		609BA727213BBAB600593268 /* TopicCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCommentView.swift; sourceTree = "<group>"; };
+		609BA729213BC06E00593268 /* TopicNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicNewVC.swift; sourceTree = "<group>"; };
 		60B450A62088437200E0CFF7 /* EmptyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyVC.swift; sourceTree = "<group>"; };
 		60B450A8208846D400E0CFF7 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		60DF5977213BC7B300248384 /* TCellTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellTextView.swift; sourceTree = "<group>"; };
+		60DF5979213BCA6100248384 /* TopicNewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicNewApi.swift; sourceTree = "<group>"; };
 		60E44036213AC62C00A14F8B /* UserInfo_Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo_Post.swift; sourceTree = "<group>"; };
 		60E44039213AC82500A14F8B /* AppPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreference.swift; sourceTree = "<group>"; };
 		60E4403C213ACE4700A14F8B /* Auth.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Auth.xcassets; sourceTree = "<group>"; };
@@ -248,6 +268,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		609BA71E213BA2A400593268 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				609BA71F213BA2B600593268 /* TopicBottomView.swift */,
+				609BA727213BBAB600593268 /* TopicCommentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		60E44038213AC80E00A14F8B /* Preference */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +384,10 @@
 			children = (
 				C691AC29206B2628004F5FA6 /* MainVC.swift */,
 				608AEC002136E244004F7809 /* TopicDetailVC.swift */,
+				609BA71A213B9F1D00593268 /* UserCollectVC.swift */,
+				609BA729213BC06E00593268 /* TopicNewVC.swift */,
 				6005BCA9213B6B7E0034417B /* Main.xcassets */,
+				609BA71E213BA2A400593268 /* View */,
 				60480FB62136A24900E68DAC /* Cell */,
 			);
 			path = Main;
@@ -381,6 +413,7 @@
 				C691AC3E206B30DC004F5FA6 /* TCellLabel.swift */,
 				C691AC40206B30E6004F5FA6 /* TCellNotify.swift */,
 				60756B8F213B5686001628B1 /* TCellButton.swift */,
+				60DF5977213BC7B300248384 /* TCellTextView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -421,8 +454,13 @@
 			isa = PBXGroup;
 			children = (
 				60480FB42136A16300E68DAC /* Topic_Get.swift */,
+				60DF5979213BCA6100248384 /* TopicNewApi.swift */,
+				609BA71C213BA07300593268 /* UserTopic_Get.swift */,
 				C607EFB3206DE84B00638291 /* Login_Post.swift */,
 				60E44036213AC62C00A14F8B /* UserInfo_Post.swift */,
+				609BA721213BB1B100593268 /* NewLikeApi.swift */,
+				609BA723213BB1C000593268 /* NewCollectApi.swift */,
+				609BA725213BB1CD00593268 /* NewCommentApi.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -846,6 +884,7 @@
 				C6D9434720624CA0007974A9 /* EmptyView.swift in Sources */,
 				C691AC46206B3168004F5FA6 /* SandFileManager.swift in Sources */,
 				C691AC3B206B30B9004F5FA6 /* TCellImage.swift in Sources */,
+				609BA724213BB1C000593268 /* NewCollectApi.swift in Sources */,
 				C6D9435620624DA7007974A9 /* UIMacro.swift in Sources */,
 				C607EFB4206DE84B00638291 /* Login_Post.swift in Sources */,
 				C691AC2A206B2628004F5FA6 /* MainVC.swift in Sources */,
@@ -856,11 +895,15 @@
 				C6D9433B20624C14007974A9 /* JSONModel.swift in Sources */,
 				C6D9433920624C03007974A9 /* BaseRestApi.swift in Sources */,
 				C6D9435420624D8D007974A9 /* ClosureMacro.swift in Sources */,
+				60DF5978213BC7B300248384 /* TCellTextView.swift in Sources */,
 				6022B4112136C0BE005D7A30 /* MineVC.swift in Sources */,
 				C631B79D207EEF4B008B8327 /* AutoRefreshTableVC.swift in Sources */,
+				609BA71D213BA07300593268 /* UserTopic_Get.swift in Sources */,
 				60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */,
 				608AEC012136E244004F7809 /* TopicDetailVC.swift in Sources */,
+				609BA720213BA2B600593268 /* TopicBottomView.swift in Sources */,
 				C6D9434920624CCD007974A9 /* Extension.swift in Sources */,
+				609BA72A213BC06E00593268 /* TopicNewVC.swift in Sources */,
 				C6D9432E2062463C007974A9 /* TabBarVC.swift in Sources */,
 				C691AC36206B3061004F5FA6 /* BaseFormGroupTC.swift in Sources */,
 				C6D9434B20624D0E007974A9 /* WorkSpace.swift in Sources */,
@@ -873,16 +916,21 @@
 				60E4403A213AC82500A14F8B /* AppPreference.swift in Sources */,
 				C691AC41206B30E6004F5FA6 /* TCellNotify.swift in Sources */,
 				C691AC32206B303A004F5FA6 /* BaseWebVC.swift in Sources */,
+				60DF597A213BCA6100248384 /* TopicNewApi.swift in Sources */,
+				609BA728213BBAB600593268 /* TopicCommentView.swift in Sources */,
 				60E44037213AC62C00A14F8B /* UserInfo_Post.swift in Sources */,
 				60756B90213B5686001628B1 /* TCellButton.swift in Sources */,
 				C631B799207EEC2E008B8327 /* FormTableVC.swift in Sources */,
 				60756B92213B5854001628B1 /* UserInfoVC.swift in Sources */,
 				C6D9434220624C66007974A9 /* BaseVC.swift in Sources */,
 				C6A8D46E207CA71700836923 /* InformationVC.swift in Sources */,
+				609BA722213BB1B100593268 /* NewLikeApi.swift in Sources */,
 				C691AC34206B3056004F5FA6 /* BaseFormTC.swift in Sources */,
 				60480FB82136A25800E68DAC /* TopicCell.swift in Sources */,
+				609BA71B213B9F1D00593268 /* UserCollectVC.swift in Sources */,
 				C691AC19206B2355004F5FA6 /* BaseUploadApi.swift in Sources */,
 				C637D38620720D97002A07E4 /* RegisterVC.swift in Sources */,
+				609BA726213BB1CD00593268 /* NewCommentApi.swift in Sources */,
 				C691AC3F206B30DC004F5FA6 /* TCellLabel.swift in Sources */,
 				C6D9435A20624E65007974A9 /* Category.swift in Sources */,
 			);

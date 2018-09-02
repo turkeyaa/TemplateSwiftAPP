@@ -14,7 +14,7 @@ class MainVC: BaseLoadTC {
         super.viewDidLoad();
         
         self.rightTitle(title: "登录")
-        
+        self.leftTitle(title: "新主题")
         LoginNotify.sharedInstance.addLoginObserver(target: self, selector: #selector(loginSuccess))
         LoginNotify.sharedInstance.addLogoutObserver(target: self, selector: #selector(logoutSuccess))
     }
@@ -25,7 +25,7 @@ class MainVC: BaseLoadTC {
     
     /// 通知相关
     @objc func loginSuccess(notify: Notification) -> Void {
-        self.rightTitle(title: "信息")
+        self.rightTitle(title: "个人信息")
     }
     
     @objc func logoutSuccess(notify: Notification) -> Void {
@@ -35,9 +35,8 @@ class MainVC: BaseLoadTC {
     // MAKR: - 加载数据
     override func queryData() -> Array<Any> {
         
-        let api = Topic_Get.init(offset: 0, limit: 10)
+        let api = Topic_Get.init(offset: offset, limit: limit)
         api.call(async: true)
-        sleep(1)
         return api.dataSource!
     }
     
@@ -68,6 +67,16 @@ class MainVC: BaseLoadTC {
         vc.topic = topic
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func goBack() {
+        if !WorkSpace.sharedInstance.appPreference.isLoginSuccess {
+            UIHelper.show(title: "请先登录")
+            return
+        }
+        let vc = TopicNewVC()
+        let nav = UINavigationController.init(rootViewController: vc)
+        self.navigationController?.present(nav, animated: true, completion: nil)
     }
     
     // 进入登录

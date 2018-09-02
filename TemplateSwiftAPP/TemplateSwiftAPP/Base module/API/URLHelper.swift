@@ -23,7 +23,7 @@ class URLHelper: NSObject {
     
     func baseURL() -> String {
         
-        // 修改为你们自己的服务器地址即可 - 测试用测试用测试用
+        // 修改为你们自己的服务器地址即可 - 这是测试用测试用测试用
         if APP_STATUS == AppStatus_Product {
             return "http://106.14.146.99/"
         }

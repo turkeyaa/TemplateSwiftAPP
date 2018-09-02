@@ -11,3 +11,6 @@ import Foundation
 // 分享回调,选择分享平台
 typealias ShareViewItem = (Int) -> Void
 typealias ShareViewBack = (Bool) -> Void
+
+
+typealias BlockItem = (_ index: Int) -> Void

@@ -82,21 +82,43 @@ else {
 Swift 4.0之后，苹果推出支持了json->model的转换。通过Codable可以直接将json转成对象
 
 ```
-class User: Codable {
+class Topic: JSONModel,Codable {
     
-    var name: String = ""
-    var phone: String = ""
-    var name_spell: String = ""
-    var user_id: String = ""
-    var avatar_url: String = ""
+    var topicID: UUID?
+    var userID: UUID = UUID.init()
+    var categoryId: Int = 0
+    var likeNum: Int = 0
+    var isGood: Int = 0
+    var viewNum: Int = 0
+    var collectNum: Int = 0
+    var replyNum: Int = 0
+    var createTime: TimeInterval = 0
+    var author: String = ""
+    var title: String = ""
+    var content: String = ""
+    
+    override init() {
+        super.init()
+    }
+    
+    override init(dict: [String : Any]) {
+        super.init(dict: dict)
+        setValuesForKeys(dict)
+    }
     
     /// 如果我们需要用不同的名称, 只需要提供我们自己的 CodingKey
     enum CodingKeys: String,CodingKey {
-        case user_id = "userid"
-        case name
-        case name_spell
-        case phone
-        case avatar_url
+        case topicID = "id"
+        case categoryId
+        case likeNum
+        case isGood
+        case viewNum
+        case collectNum
+        case replyNum
+        case author
+        case title
+        case content
+        case createTime
     }
 }
 ```
@@ -104,13 +126,17 @@ class User: Codable {
 > 客户端代码
 
 ```
-if let result = try? JSONDecoder().decode([User].self, from: json) {
+override func parseResponseJsonString(json: Data) -> Bool {
+        
+        if let result = try? JSONDecoder().decode([Topic].self, from: json) {
             // 解析成功，赋值给:users对象
             self.dataSource = result
+            return true;
         }
+        
+        return false
+    }
 ```
-
-#### TODO
 
 #### 3. 视图
 

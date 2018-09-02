@@ -27,6 +27,7 @@ class UserInfoVC: BaseFormGroupTC {
         
         self.title = "用户信息"
         groupDataSource = [["昵称","加入时间","地区"],["主页","签名"]]
+        self.rightTitle(title: "我的收藏")
         
         let user = WorkSpace.sharedInstance.user
         groupValueDataSource = [[user.nickName,String.timeStampToString(timeStamp: user.createTime),user.city],[user.website,user.sign]]
@@ -68,14 +69,14 @@ class UserInfoVC: BaseFormGroupTC {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        
-    }
-    
     @objc func logoutEvent() -> Void {
         WorkSpace.sharedInstance.onLogOut()
         UIHelper.show(title: "退出登录成功")
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func goNext() {
+        let vc = UserCollect()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

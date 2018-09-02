@@ -13,10 +13,10 @@ class ShareView: UIView {
     
     var items: Int = 4
     var contentHeight: CGFloat = 150.0
-    var shareWidth: CGFloat = 60.0
+    var shareWidth: CGFloat = 50.0
     
     var contentView: UIView
-    var shareView: ShareViewItem?
+    var clickItemBlock: BlockItem?
     var cancelBtn: UIButton?
     
     var _titles: [String]
@@ -64,7 +64,7 @@ class ShareView: UIView {
             let title = _titles[i]
             let image: UIImage = _images[i]
             
-            let imgView = UIImageView.init(frame: CGRect.init(x: paddingX+(itemWidth-shareWidth)/2.0, y: 0, width: shareWidth, height: shareWidth))
+            let imgView = UIImageView.init(frame: CGRect.init(x: paddingX+(itemWidth-shareWidth)/2.0, y: 10, width: shareWidth, height: shareWidth))
             imgView.image = image
             imgView.tag = i
             imgView.isUserInteractionEnabled = true
@@ -87,8 +87,10 @@ class ShareView: UIView {
     @objc func shareEvent(gesture: UITapGestureRecognizer) -> Void {
         hide()
         
-//        let index = gesture.view?.tag
-//        shareView!(index!)
+        let index = gesture.view!.tag
+        if clickItemBlock != nil {
+            clickItemBlock!(index)
+        }
     }
     
     @objc func hide() -> Void {

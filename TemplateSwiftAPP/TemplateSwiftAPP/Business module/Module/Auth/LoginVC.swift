@@ -28,7 +28,7 @@ class LoginVC: BaseFormTC {
         cell.icon = UIImage.init(named: "password")
         cell.title = "密码"
         cell.placeholder = "请输入密码"
-        cell.value = "tourist"
+        cell.value = "123456"
         cell.showIndicator(flag: false)
         return cell
     }()
@@ -85,20 +85,18 @@ class LoginVC: BaseFormTC {
         DispatchQueue.global().async {
             self.showLoadingHUD(hud: "登录中...")
             
-            sleep(1)
-            
             let loginApi = Login_Post.init(account: account, password: password)
             loginApi.call(async: false)
             
             var userApi: UserInfo_Post?
-            if loginApi.code == RestApiCode.RestApi_OK {
+            if loginApi.code == .status_ok {
                 userApi = UserInfo_Post.init(token: loginApi.token)
                 userApi!.call(async: false)
             }
             
             DispatchQueue.main.async {
                 /// 进入主线程,更新界面
-                if loginApi.code == .RestApi_OK && userApi!.code == .RestApi_OK {
+                if loginApi.code == .status_ok && userApi!.code == .status_ok {
                     
                     self.showSuccessMessage(hud: "登录成功")
                     
