@@ -32,6 +32,15 @@ class LoginVC: BaseFormTC {
         cell.showIndicator(flag: false)
         return cell
     }()
+    
+    lazy var loginBtn2: TCellButton = {
+        let cell = TCellButton.tcell(tableView: self.tableView, reuse: true) as! TCellButton
+        cell.title = "登录"
+        cell.titleColor = UIColor.white
+        cell.showIndicator(flag: false)
+        return cell
+    }()
+    
     lazy var loginBtn: UIButton = {
 
         let btn = UIButton.init(frame: .init(x: 20, y: 150, width: Device_width-40, height: 50))

@@ -20,9 +20,9 @@ class JSONModel: NSObject,NSCoding {
     }
     
     // 解档
-    required init?(coder aDecoder: NSCoder) {
+    required convenience init?(coder aDecoder: NSCoder) {
         // 先初始化
-        super.init()
+        self.init()
         // 获取当前类的所有属性名
         let nameList = getPropertyNameList()
         // 进行解档

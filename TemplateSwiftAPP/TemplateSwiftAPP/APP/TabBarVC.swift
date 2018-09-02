@@ -14,7 +14,6 @@ class TabBarVC: UITabBarController {
         super.viewDidLoad()
         
         let first = MainVC()
-//        let second = UserListVC()
         let second = MineVC()
         let third = InformationVC()
         
@@ -26,8 +25,7 @@ class TabBarVC: UITabBarController {
         first.title = "主页";
         second.tabBarItem = UITabBarItem.init(title: "用户", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
         second.title = "用户";
-        
-        third.tabBarItem = UITabBarItem.init(title: "UI/Mudule", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
+        third.tabBarItem = UITabBarItem.init(title: "UI/Mudule", image: UIImage.init(named: "information"), selectedImage: UIImage.init(named: "informationSel"));
         third.title = "UI/Mudule";
         
         self.viewControllers = [firstNav,secondNav,thirdNav]

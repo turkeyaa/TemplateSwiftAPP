@@ -14,15 +14,22 @@ class MainVC: BaseLoadTC {
         super.viewDidLoad();
         
         self.rightTitle(title: "登录")
+        
+        LoginNotify.sharedInstance.addLoginObserver(target: self, selector: #selector(loginSuccess))
+        LoginNotify.sharedInstance.addLogoutObserver(target: self, selector: #selector(logoutSuccess))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if WorkSpace.sharedInstance.appPreference.isLoginSuccess {
-            self.rightTitle(title: "")
-        } else {
-            self.rightTitle(title: "登录")
-        }
+    }
+    
+    /// 通知相关
+    @objc func loginSuccess(notify: Notification) -> Void {
+        self.rightTitle(title: "信息")
+    }
+    
+    @objc func logoutSuccess(notify: Notification) -> Void {
+        self.rightTitle(title: "登录")
     }
     
     // MAKR: - 加载数据
@@ -66,10 +73,15 @@ class MainVC: BaseLoadTC {
     // 进入登录
     override func goNext() {
         
-        let loginVc = LoginVC()
-        loginVc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(loginVc, animated: true)
-        
+        if WorkSpace.sharedInstance.appPreference.isLoginSuccess {
+            let vc = UserInfoVC()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = LoginVC()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
 }

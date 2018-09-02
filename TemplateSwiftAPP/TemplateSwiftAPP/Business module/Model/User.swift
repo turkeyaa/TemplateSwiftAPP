@@ -19,7 +19,7 @@ class User: JSONModel,Codable {
     var company: String = ""
     var sign: String = ""
     var nickName: String = ""
-    var createTime: Int = 0
+    var createTime: TimeInterval = 0
     var avatarUrl: String = ""
     
     override init() {
@@ -29,10 +29,6 @@ class User: JSONModel,Codable {
     override init(dict: [String : Any]) {
         super.init(dict: dict)
         setValuesForKeys(dict)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
     /// 如果我们需要用不同的名称, 只需要提供我们自己的 CodingKey

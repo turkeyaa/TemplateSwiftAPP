@@ -15,5 +15,7 @@ class RegisterVC: BaseVC {
         
         self.title = "注册"
         self.leftIcon(icon: UIImage.init(named: "app_back")!)
+        
+        UIHelper.show(title: "todo - 暂未完成")
     }
 }

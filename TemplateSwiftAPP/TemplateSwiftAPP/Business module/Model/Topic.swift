@@ -32,9 +32,9 @@ class Topic: JSONModel,Codable {
         setValuesForKeys(dict)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+//    required convenience init?(coder aDecoder: NSCoder) {
+//        self.init(coder: aDecoder)
+//    }
     
     /// 如果我们需要用不同的名称, 只需要提供我们自己的 CodingKey
     enum CodingKeys: String,CodingKey {

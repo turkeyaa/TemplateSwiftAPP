@@ -19,6 +19,10 @@ class WorkSpace: NSObject {
         appPreference = AppPreference()
     }
     
+    static func currentUser() -> User {
+        return WorkSpace.sharedInstance.user
+    }
+    
     /// 登录
     func onLogIn(api: BaseRestApi, account: String, password: String, token: String) -> Void {
         
@@ -29,10 +33,16 @@ class WorkSpace: NSObject {
         appPreference.password = password
         appPreference.token = token
         appPreference.isLoginSuccess = true
+        
+        /// 通知
+        LoginNotify.sharedInstance.postLoginNotify()
     }
     
     /// 退出
     func onLogOut() -> Void {
         appPreference.isLoginSuccess = false
+        
+        /// 通知
+        LoginNotify.sharedInstance.postLogoutNotify()
     }
 }
