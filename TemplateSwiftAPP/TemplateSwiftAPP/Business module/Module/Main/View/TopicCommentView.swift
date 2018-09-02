@@ -56,13 +56,15 @@ class TopicCommentView: UIView,UITextViewDelegate {
         self.backgroundColor = UIColor.rgba(r: 0, g: 0, b: 0, alpha: 0.5)
         
         UIApplication.shared.keyWindow!.addSubview(self)
-        self.addSubview(contentView)
+        addSubview(contentView)
         contentView.addSubview(closeBtn)
         contentView.addSubview(saveBtn)
         contentView.addSubview(lineView)
         contentView.addSubview(textView)
         
         setupLayout()
+        
+        show()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -102,23 +104,39 @@ class TopicCommentView: UIView,UITextViewDelegate {
     }
     
     @objc func saveEvent() -> Void {
+        if title.count == 0 {
+            UIHelper.show(title: "评论内容不能为空")
+            return
+        }
         if clickItemBlock != nil {
             clickItemBlock!(1)
+            hide()
         }
     }
     
     @objc func hide() -> Void {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: 0)
-        }) { (flag) in
-            if self.clickItemBlock != nil {
-                self.clickItemBlock!(0)
-            }
+//        UIView.animate(withDuration: 0.4, animations: {
+//            self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: 0)
+//        }) { (flag) in
+//            if self.clickItemBlock != nil {
+//                self.clickItemBlock!(0)
+//            }
+//        }
+        textView.resignFirstResponder()
+        UIView.animate(withDuration: 0.4) {
+            self.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height)
         }
     }
     
-    func beginInput() -> Void {
+    func show() -> Void {
+        UIView.animate(withDuration: 0.4) {
+            self.frame = CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height)
+        }
         textView.becomeFirstResponder()
+    }
+    
+    func beginInput() -> Void {
+//        textView.becomeFirstResponder()
     }
     
     func textViewDidChange(_ textView: UITextView) {

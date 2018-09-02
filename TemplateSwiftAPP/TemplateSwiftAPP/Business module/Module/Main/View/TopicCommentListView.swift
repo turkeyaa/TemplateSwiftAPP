@@ -51,6 +51,8 @@ class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
         contentView.addSubview(tableView)
         
         setupLayout()
+        
+        show()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -82,16 +84,6 @@ class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
         self.hide()
     }
     
-    @objc func hide() -> Void {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: 0)
-        }) { (flag) in
-            if self.clickItemBlock != nil {
-                self.clickItemBlock!(0)
-            }
-        }
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -118,10 +110,18 @@ class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func reloadData() -> Void {
-        self.tableView.reloadData()
+        tableView.reloadData()
+    }
+    
+    @objc func hide() -> Void {
+        UIView.animate(withDuration: 0.4) {
+            self.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height)
+        }
     }
     
     func show() -> Void {
-        setupLayout()
+        UIView.animate(withDuration: 0.4) {
+            self.frame = CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height)
+        }
     }
 }

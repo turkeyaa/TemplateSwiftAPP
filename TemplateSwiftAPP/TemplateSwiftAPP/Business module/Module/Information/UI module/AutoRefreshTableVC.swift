@@ -15,11 +15,11 @@ class AutoRefreshTableVC: BaseLoadTC {
     }
     
     // MAKR: - 加载数据
-    override func queryData() -> Array<Any> {
+    override func queryData() -> Array<Any>? {
         
         let api = Topic_Get.init(offset: offset, limit: limit)
         api.call(async: true)
-        return api.dataSource!
+        return api.dataSource
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

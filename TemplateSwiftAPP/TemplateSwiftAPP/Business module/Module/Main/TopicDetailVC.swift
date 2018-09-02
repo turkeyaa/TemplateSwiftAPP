@@ -59,7 +59,7 @@ class TopicDetailVC: BaseVC {
         view.isScrollEnabled = true
         // called when rendering finished
         view.onRendered = { [weak self] height in
-//            self?.showSuccessMessage(hud: "加载完成")
+            self?.showSuccessMessage(hud: "加载完成")
             self?.view.setNeedsLayout()
         }
         // called when user touch link
@@ -130,10 +130,6 @@ class TopicDetailVC: BaseVC {
     
     func addComment(content: String) -> Void {
         
-        if content.count == 0 {
-            UIHelper.show(title: "评论内容不能为空")
-            return
-        }
         self.showLoadingHUD(hud: "正在加载")
         
         DispatchQueue.global().async {
@@ -188,7 +184,7 @@ class TopicDetailVC: BaseVC {
             } else if index == 2 {
                 /// 添加评论
                 DispatchQueue.main.async {
-                    self.commentView.beginInput()
+                    self.commentView.show()
                 }
             } else {
                 /// 评论列表
@@ -196,6 +192,7 @@ class TopicDetailVC: BaseVC {
                 api.call(async: true)
                 DispatchQueue.main.async {
                     if api.code == .status_ok {
+                        self.commentListView.show()
                         self.commentListView.dataSource = api.dataSource
                         self.commentListView.reloadData()
                     } else {
@@ -215,7 +212,7 @@ class TopicDetailVC: BaseVC {
         if index == 1 {
             addComment(content: commentView.title)
         }
-        commentView.removeFromSuperview()
+//        commentView.removeFromSuperview()
     }
     
     override func goNext() {

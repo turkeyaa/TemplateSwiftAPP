@@ -45,21 +45,31 @@ class BaseLoadTC: BaseTC {
         queue.async {
             
             let array = self.queryData()
-            if more {
-                self.dataSource = self.dataSource! + array
+            if array != nil {
+                if more {
+                    self.dataSource = self.dataSource! + array!
+                }
+                else {
+                    self.dataSource = array
+                }
+            } else {
+                /// 网络链接失败了
             }
-            else {
-                self.dataSource = array
-            }
+            
             
             DispatchQueue.main.async {
                 self.hideLoadingHUD()
                 self.tableView!.mj_footer.endRefreshing()
                 self.tableView!.mj_header.endRefreshing()
                 
-                if ((self.limit+1) * self.offset) > self.dataSource!.count {
-                    /// 暂无更多数据
-                    self.tableView!.mj_footer.endRefreshingWithNoMoreData()
+                if self.dataSource == nil {
+                    /// 网络链接失败了
+                    self.showErrorMessage(hud: "网络连接异常了")
+                } else {
+                    if ((self.limit+1) * self.offset) > self.dataSource!.count {
+                        /// 暂无更多数据
+                        self.tableView!.mj_footer.endRefreshingWithNoMoreData()
+                    }
                 }
                 
                 self.tableView!.reloadData()
@@ -68,7 +78,7 @@ class BaseLoadTC: BaseTC {
     }
     
     // MARK: - 子类重写的方法
-    func queryData() -> Array<Any> {
-        return Array()
+    func queryData() -> Array<Any>? {
+        return nil
     }
 }

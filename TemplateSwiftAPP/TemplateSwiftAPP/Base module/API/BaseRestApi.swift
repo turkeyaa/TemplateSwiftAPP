@@ -21,6 +21,7 @@ enum RestApiCode: Int {
     
     case status_ok                  = 200
     case status_invalid_json        = 108          /// 解析 JSON 异常
+    case status_invalid_network     = 109          /// 网络链接异常
     case status_unkown_error        = 1000
     case status_error               = 1001
     case status_token               = 1002
@@ -87,6 +88,11 @@ class BaseRestApi: RestApi {
         let json = try! JSONSerialization.data(withJSONObject: requestData, options: .prettyPrinted)
         
         return json
+    }
+    
+    override func onError(error: Error) {
+        code = .status_invalid_network
+        message = "网络连接异常了"
     }
     
     override func onSuccessed(response: Data) -> Void {

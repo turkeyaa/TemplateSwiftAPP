@@ -94,6 +94,7 @@ class RestApi {
         let session: URLSession = URLSession.shared
         
         task = session.dataTask(with: request!, completionHandler: { (data, resp, error) in
+            
             if error != nil {
                 print(error.debugDescription)
                 self.onError(error: error!)
