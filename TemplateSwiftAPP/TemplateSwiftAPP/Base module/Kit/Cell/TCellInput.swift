@@ -115,6 +115,10 @@ class TCellInput: BaseTCell,UITextFieldDelegate {
         value = key
     }
     
+    override func height() -> CGFloat {
+        return TCellInput.classCellHeight()
+    }
+    
     override class func classCellHeight() -> CGFloat {
         return 50.0
     }

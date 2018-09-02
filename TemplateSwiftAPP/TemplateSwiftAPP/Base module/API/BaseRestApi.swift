@@ -37,9 +37,9 @@ enum DecodeJSONType {
 
 class BaseRestApi: RestApi {
     
-    var code: RestApiCode?
-    var message: String?
-    var errorMessage: String?
+    var code: RestApiCode = .RestApi_UnkownError
+    var message: String = ""
+    var errorMessage: String = ""
     
     var dataSource: [Any]?
     
@@ -55,7 +55,7 @@ class BaseRestApi: RestApi {
     
     override func call(async: Bool) {
         if self.mockType() == .MockNone {
-            super .call(async: async)
+            super.call(async: async)
         }
         else {
             // 模拟本地接口
@@ -84,11 +84,15 @@ class BaseRestApi: RestApi {
         print("RestApi Response:\(responseJson)")
         
         let data:Any? = responseDict["data"]
-        message = responseDict["message"] as? String
+        message = responseDict["message"] as! String
         
         var resultData: Data?
         if decodeType == .DecodeJSONTypeString {
-            resultData = Data.init(base64Encoded: data as! String)
+            if data != nil {
+                resultData =  (data! as! String).data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+            } else {
+                resultData = Data.init()
+            }
         } else {
             resultData = try? JSONSerialization.data(withJSONObject: data ?? "", options: .prettyPrinted)
         }

@@ -60,7 +60,7 @@ class UserInfoVC: BaseFormGroupTC {
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
          return 60.0
     }
     

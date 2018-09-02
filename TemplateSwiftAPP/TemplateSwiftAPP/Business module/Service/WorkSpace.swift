@@ -24,14 +24,14 @@ class WorkSpace: NSObject {
     }
     
     /// 登录
-    func onLogIn(api: BaseRestApi, account: String, password: String, token: String) -> Void {
+    func onLogIn(api: BaseRestApi, account: String, password: String) -> Void {
         
         let userApi = api as! UserInfo_Post
         user = userApi.user!
         
         appPreference.account = account
         appPreference.password = password
-        appPreference.token = token
+        appPreference.token = userApi.queryToken()
         appPreference.isLoginSuccess = true
         
         /// 通知

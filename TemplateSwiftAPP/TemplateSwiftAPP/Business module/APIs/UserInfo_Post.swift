@@ -12,8 +12,11 @@ class UserInfo_Post: BaseRestApi {
     
     var user: User?
     
-    init() {
+    private var token: String = ""
+    
+    init(token: String) {
         super.init(url: "user/user", httpMethod: .HttpMethods_Post)
+        self.token = token
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {
@@ -27,11 +30,15 @@ class UserInfo_Post: BaseRestApi {
         return false
     }
     
+    override func queryToken() -> String {
+        return token
+    }
+    
     // 模拟本地接口，方便测试，需要在项目中添加相应的JSON数据（Resource目录）
     override func mockFile() -> String {
         return "userInfo"
     }
     override func mockType() -> MockType {
-        return .MockFile
+        return .MockNone
     }
 }

@@ -43,6 +43,10 @@ class BaseFormGroupTC: BaseFormTC {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10.0
+        return 5.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.001
     }
 }

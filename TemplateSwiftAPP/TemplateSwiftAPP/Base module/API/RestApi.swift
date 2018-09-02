@@ -86,6 +86,9 @@ class RestApi {
             assert(false, "暂时不支持该请求:\(_httpMethod)")
         }
         
+        /// 自定义header - token
+        request?.addValue(self.configToken(), forHTTPHeaderField: "Authorization")
+        
         let condition = NSCondition.init()
         
         let session: URLSession = URLSession.shared
@@ -96,7 +99,6 @@ class RestApi {
                 self.onError(error: error!)
             }
             else {
-                
                 if let response = resp as? HTTPURLResponse {
                     
                     if response.statusCode == 200 {
@@ -104,7 +106,7 @@ class RestApi {
                         self.onSuccessed(response: data!)
                     } else {
                         //通知UI接口执行失败
-                        self.onFailed(error: error!)
+                        self.onFailed(error: error)
                     }
                 }
             }
@@ -133,10 +135,19 @@ class RestApi {
         return nil
     }
     
+    /// 5. 自定义header
+    func configToken() -> String {
+        return "Bearer " + self.queryToken()
+    }
+    
+    func queryToken() -> String {
+        return ""
+    }
+    
     // TODO: 写入日志
-    // 5. 回调，需要子类重写的方法
+    // 6. 回调，需要子类重写的方法
     func onSuccessed(response: Data) -> Void {}
-    func onFailed(error: Error) -> Void {}
+    func onFailed(error: Error?) -> Void {}
     func onCancelled() -> Void {}
     func onTimeout() -> Void {}
     func onError(error: Error) -> Void {}

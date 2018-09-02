@@ -19,16 +19,16 @@ class LoginVC: BaseFormTC {
         cell.icon = UIImage.init(named: "account")
         cell.title = "账号"
         cell.placeholder = "请输入账号"
-        cell.value = "18668089860"
+        cell.value = "18698894171"
         cell.showIndicator(flag: false)
         return cell
     }()
     lazy var passwordCell: TCellInput = {
-        let cell = TCellInput.tcell(tableView: self.tableView, reuse: true) as! TCellInput
+        let cell = TCellInput.passwordInputCell() as! TCellInput
         cell.icon = UIImage.init(named: "password")
         cell.title = "密码"
         cell.placeholder = "请输入密码"
-        cell.value = "18698894171"
+        cell.value = "tourist"
         cell.showIndicator(flag: false)
         return cell
     }()
@@ -37,21 +37,12 @@ class LoginVC: BaseFormTC {
         let cell = TCellButton.tcell(tableView: self.tableView, reuse: true) as! TCellButton
         cell.title = "登录"
         cell.titleColor = UIColor.white
+        cell.titleBgColor = UIColor.red
         cell.showIndicator(flag: false)
+        cell.addButtonTarget(target: self, selector: #selector(loginEvent))
         return cell
     }()
     
-    lazy var loginBtn: UIButton = {
-
-        let btn = UIButton.init(frame: .init(x: 20, y: 150, width: Device_width-40, height: 50))
-        btn.setTitle("LOGIN", for: .normal)
-        btn.setTitleColor(.red, for: .normal)
-        btn.layer.borderColor = UIColor.red.cgColor
-        btn.layer.borderWidth = 1.0
-        btn.layer.cornerRadius = 4.0
-        btn.addTarget(self, action: #selector(loginEvent), for: .touchUpInside)
-        return btn
-    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,14 +50,22 @@ class LoginVC: BaseFormTC {
         self.rightTitle(title: "注册")
         self.leftIcon(icon: UIImage.init(named: "app_back")!)
         
-        tableView?.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 20))
-        cells = [accountCell,passwordCell]
-        tableView?.addSubview(loginBtn)
+        
+        /// 分割线
+        tableView!.separatorInset = UIEdgeInsets.init()
+        tableView!.separatorColor = UIColor.clear
+        
+        tableView!.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 60))
+        cells = [accountCell,passwordCell,loginBtn2]
     }
     
     override func goNext() {
         let vc = RegisterVC()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cells[indexPath.row].height()
     }
     
     @objc func loginEvent() -> Void {
@@ -89,23 +88,26 @@ class LoginVC: BaseFormTC {
             sleep(1)
             
             let loginApi = Login_Post.init(account: account, password: password)
-            loginApi.call(async: true)
+            loginApi.call(async: false)
             
-            let userApi = UserInfo_Post.init()
-            userApi.call(async: true)
+            var userApi: UserInfo_Post?
+            if loginApi.code == RestApiCode.RestApi_OK {
+                userApi = UserInfo_Post.init(token: loginApi.token)
+                userApi!.call(async: false)
+            }
             
             DispatchQueue.main.async {
                 /// 进入主线程,更新界面
-                if loginApi.code == .RestApi_OK && userApi.code == .RestApi_OK {
+                if loginApi.code == .RestApi_OK && userApi!.code == .RestApi_OK {
                     
                     self.showSuccessMessage(hud: "登录成功")
                     
-                    WorkSpace.sharedInstance.onLogIn(api: userApi, account: account, password: password, token: loginApi.token)
+                    WorkSpace.sharedInstance.onLogIn(api: userApi!, account: account, password: password)
                     
                     self.navigationController?.popViewController(animated: true)
                 }
                 else {
-                    self.showErrorMessage(hud: "登录失败")
+                    self.showErrorMessage(hud: loginApi.message)
                 }
             }
         }

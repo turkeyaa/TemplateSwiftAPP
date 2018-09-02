@@ -21,10 +21,10 @@ class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
         
         // 界面
         tableView = UITableView.init(frame: self.view.bounds, style: tableViewStyle())
-        tableView?.tableFooterView = UIView.init()
-        tableView?.tableHeaderView = UIView.init()
-        tableView?.delegate = self
-        tableView?.dataSource = self
+        tableView!.tableFooterView = UIView.init()
+        tableView!.tableHeaderView = UIView.init()
+        tableView!.delegate = self
+        tableView!.dataSource = self
         self.view.addSubview(tableView!)
     }
     
@@ -41,7 +41,7 @@ class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if dataSource != nil {
-            return (dataSource?.count)!
+            return dataSource!.count
         }
         return 0
     }

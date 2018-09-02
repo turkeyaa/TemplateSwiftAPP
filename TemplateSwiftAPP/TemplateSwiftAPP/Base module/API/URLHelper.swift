@@ -25,13 +25,13 @@ class URLHelper: NSObject {
         
         // 修改为你们自己的服务器地址即可 - 测试用测试用测试用
         if APP_STATUS == AppStatus_Product {
-            return "http://106.14.146.99:8181"
+            return "http://106.14.146.99/"
         }
         else if APP_STATUS == AppStatus_Develop {
-            return "http://106.14.146.99:8181"
+            return "http://localhost:8181/"
         }
         else if APP_STATUS == AppStatus_Test {
-            return ""
+            return "http://localhost:8181/"
         }
         else {
             return ""

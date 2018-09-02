@@ -88,4 +88,8 @@ class TCellImage: BaseTCell {
     override class func classCellHeight() -> CGFloat {
         return 50.0
     }
+    
+    override func height() -> CGFloat {
+        return TCellImage.classCellHeight()
+    }
 }

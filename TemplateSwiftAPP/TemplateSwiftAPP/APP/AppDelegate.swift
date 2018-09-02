@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = tabBar
         
-        // 2. 友盟...
+        // 2. SDK相关...
         
         // 3. 键盘交互
 //        IQKeyboardManager.sharedManager().enable = true

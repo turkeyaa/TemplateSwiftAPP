@@ -17,6 +17,12 @@ class TCellButton: BaseTCell {
         }
     }
     
+    var titleBgColor: UIColor = .white {
+        didSet {
+            titleButton.backgroundColor = titleBgColor
+        }
+    }
+    
     var titleColor: UIColor = .gray {
         didSet {
             titleButton.setTitleColor(titleColor, for: .normal)
@@ -39,16 +45,22 @@ class TCellButton: BaseTCell {
     override func setupLayouts() {
         
         titleButton.snp.makeConstraints { (make) in
-            make.top.equalTo(5)
-            make.bottom.equalTo(-5)
+            make.top.equalTo(20)
+            make.bottom.equalTo(0)
             make.left.equalTo(30)
             make.right.equalTo(-30)
         }
     }
     
-    override class func classCellHeight() -> CGFloat {
-        return 60.0
+    override func height() -> CGFloat {
+        return TCellButton.classCellHeight()
     }
     
+    override class func classCellHeight() -> CGFloat {
+        return 70.0
+    }
     
+    func addButtonTarget(target: Any, selector: Selector) -> Void {
+        titleButton.addTarget(target, action: selector, for: .touchUpInside)
+    }
 }

@@ -69,4 +69,12 @@ class TCellLabel: BaseTCell {
             make.left.equalTo(titleLabel.snp.right).offset(10)
         }
     }
+    
+    override func height() -> CGFloat {
+        return TCellLabel.classCellHeight()
+    }
+    
+    override class func classCellHeight() -> CGFloat {
+        return 50.0
+    }
 }

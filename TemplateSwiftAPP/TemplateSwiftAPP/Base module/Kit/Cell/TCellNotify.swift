@@ -64,4 +64,12 @@ class TCellNotify: BaseTCell {
     func addSwitchTarget(target: Any?, selector: Selector) -> Void {
         switchView.addTarget(target, action: selector, for: .valueChanged)
     }
+    
+    override func height() -> CGFloat {
+        return TCellNotify.classCellHeight()
+    }
+    
+    override class func classCellHeight() -> CGFloat {
+        return 50.0
+    }
 }

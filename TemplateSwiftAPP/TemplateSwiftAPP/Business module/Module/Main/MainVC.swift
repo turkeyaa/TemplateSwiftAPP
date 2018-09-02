@@ -35,7 +35,7 @@ class MainVC: BaseLoadTC {
     // MAKR: - 加载数据
     override func queryData() -> Array<Any> {
         
-        let api = Topic_Get.init(offset: 1, limit: 10)
+        let api = Topic_Get.init(offset: 0, limit: 10)
         api.call(async: true)
         sleep(1)
         return api.dataSource!

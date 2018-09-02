@@ -17,6 +17,11 @@ class MineVC: BaseVC {
     
     override func goNext() {
         
+        /// todo - 测试沙河文件系统
+        let crashFile = SandFileManager.crashFile()
+        print(crashFile)
+        
+        /// todo - 测试自动化编码和解码
         /// 路径
         let filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
         let fileName = NSStringFromClass(self.classForCoder) as String
