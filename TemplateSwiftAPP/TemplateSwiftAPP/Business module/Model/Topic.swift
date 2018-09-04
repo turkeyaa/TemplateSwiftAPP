@@ -20,6 +20,7 @@ class Topic: JSONModel,Codable {
     var replyNum: Int = 0
     var createTime: TimeInterval = 0
     var author: String = ""
+    var authorImage: String = ""
     var title: String = ""
     var content: String = ""
     
@@ -45,5 +46,6 @@ class Topic: JSONModel,Codable {
         case title
         case content
         case createTime
+//        case authorImage
     }
 }

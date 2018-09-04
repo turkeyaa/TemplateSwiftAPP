@@ -14,7 +14,7 @@ class BaseFormTC: BaseTC {
     var cells = [BaseTCell]() {
         didSet {
             self.dataSource = cells
-            self.tableView?.reloadData()
+            self.tableView.reloadData()
         }
     }
     

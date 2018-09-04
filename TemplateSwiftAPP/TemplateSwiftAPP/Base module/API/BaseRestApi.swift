@@ -61,7 +61,7 @@ class BaseRestApi: RestApi {
     var decodeType = DecodeJSONType.DecodeJSONTypeDictionary;   // 默认值
     
     static public func getRestApiURL(relativeURL: String) -> String {
-        return URLHelper.instance.restApiURL(relativeURL: relativeURL)
+        return URLHelper.sharedInstance.restApiURL(relativeURL: relativeURL)
     }
     
     override init(url: String, httpMethod: HttpMethods) {

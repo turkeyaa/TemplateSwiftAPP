@@ -22,11 +22,16 @@ class BaseVC: UIViewController {
         }
     }
     
+    /// MARK: - 空页面
+    lazy var emptyView:EmptyView = {
+        let view = EmptyView.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
     }
-    
     
     /// MARK: - Event
     @objc func goNext() -> Void {}
@@ -95,12 +100,6 @@ class BaseVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /// MARK: - 空页面
-    lazy var emptyView:EmptyView = {
-        let view = EmptyView.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
-        return view
-    }()
     
     
     /*

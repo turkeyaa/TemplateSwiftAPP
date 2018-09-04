@@ -20,7 +20,7 @@ class User: JSONModel,Codable {
     var sign: String = ""
     var nickName: String = ""
     var createTime: TimeInterval = 0
-    var avatarUrl: String = ""
+    var authorImage: String = ""
     
     override init() {
         super.init()
@@ -42,6 +42,7 @@ class User: JSONModel,Codable {
         case sign
         case nickName
         case createTime
+        case authorImage
     }
 }
 

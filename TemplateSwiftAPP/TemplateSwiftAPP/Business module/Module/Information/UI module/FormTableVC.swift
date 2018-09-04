@@ -44,7 +44,7 @@ class FormTableVC: BaseFormTC {
         title = "表单元"
         /// 自定义表单元
         self.cells = [iconCell,labelCell,switchCell,textFieldCell]
-        tableView?.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 10))
+        tableView.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 10))
     }
     
     func switchEvent(switch: UISwitch) {

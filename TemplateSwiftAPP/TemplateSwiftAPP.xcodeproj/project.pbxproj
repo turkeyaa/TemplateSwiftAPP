@@ -10,6 +10,7 @@
 		6005BCA8213B6B490034417B /* redame in Resources */ = {isa = PBXBuildFile; fileRef = 6005BCA7213B6B490034417B /* redame */; };
 		6005BCAA213B6B7E0034417B /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6005BCA9213B6B7E0034417B /* Main.xcassets */; };
 		6022B4112136C0BE005D7A30 /* MineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6022B4102136C0BE005D7A30 /* MineVC.swift */; };
+		6041F38B213EB64E007A61A0 /* UserInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6041F38A213EB64E007A61A0 /* UserInfoHeaderView.swift */; };
 		60480FA72136990300E68DAC /* userInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FA62136990300E68DAC /* userInfo.json */; };
 		60480FA92136995900E68DAC /* category.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FA82136995900E68DAC /* category.json */; };
 		60480FAB2136998700E68DAC /* topicList.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FAA2136998700E68DAC /* topicList.json */; };
@@ -125,6 +126,7 @@
 		6005BCA7213B6B490034417B /* redame */ = {isa = PBXFileReference; lastKnownFileType = text; path = redame; sourceTree = "<group>"; };
 		6005BCA9213B6B7E0034417B /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
 		6022B4102136C0BE005D7A30 /* MineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineVC.swift; sourceTree = "<group>"; };
+		6041F38A213EB64E007A61A0 /* UserInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderView.swift; sourceTree = "<group>"; };
 		60480FA62136990300E68DAC /* userInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userInfo.json; sourceTree = "<group>"; };
 		60480FA82136995900E68DAC /* category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = category.json; sourceTree = "<group>"; };
 		60480FAA2136998700E68DAC /* topicList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = topicList.json; sourceTree = "<group>"; };
@@ -270,6 +272,14 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		6041F389213EB4DC007A61A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6041F38A213EB64E007A61A0 /* UserInfoHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		60480FB62136A24900E68DAC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +422,7 @@
 				C637D38420720D97002A07E4 /* RegisterVC.swift */,
 				60756B91213B5854001628B1 /* UserInfoVC.swift */,
 				60E4403C213ACE4700A14F8B /* Auth.xcassets */,
+				6041F389213EB4DC007A61A0 /* View */,
 				60E4403B213ACD9300A14F8B /* Notify */,
 			);
 			path = Auth;
@@ -934,6 +945,7 @@
 				60E4403A213AC82500A14F8B /* AppPreference.swift in Sources */,
 				C691AC41206B30E6004F5FA6 /* TCellNotify.swift in Sources */,
 				60DF597C213BCF4400248384 /* CommentListApi.swift in Sources */,
+				6041F38B213EB64E007A61A0 /* UserInfoHeaderView.swift in Sources */,
 				C691AC32206B303A004F5FA6 /* BaseWebVC.swift in Sources */,
 				60DF597A213BCA6100248384 /* TopicNewApi.swift in Sources */,
 				609BA728213BBAB600593268 /* TopicCommentView.swift in Sources */,

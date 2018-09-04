@@ -107,14 +107,6 @@ class TCellInput: BaseTCell,UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        value = textField.text!
-    }
-    
-    override func didChangeValue(forKey key: String) {
-        value = key
-    }
-    
     override func height() -> CGFloat {
         return TCellInput.classCellHeight()
     }

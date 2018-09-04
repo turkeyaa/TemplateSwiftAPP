@@ -13,7 +13,7 @@ class UserCollect: BaseLoadTC {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.title = "我的收藏"
+        self.title = "我发布的"
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -11,21 +11,23 @@ import MJRefresh
 
 class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
     
-    var tableView: UITableView?
     var dataSource: Array<Any>?
+    
+    lazy var tableView: UITableView = {
+        let view = UITableView.init(frame: self.view.bounds, style: tableViewStyle())
+        view.tableFooterView = UIView.init()
+        view.tableHeaderView = UIView.init()
+        view.delegate = self
+        view.dataSource = self
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        // 界面
-        tableView = UITableView.init(frame: self.view.bounds, style: tableViewStyle())
-        tableView!.tableFooterView = UIView.init()
-        tableView!.tableHeaderView = UIView.init()
-        tableView!.delegate = self
-        tableView!.dataSource = self
-        self.view.addSubview(tableView!)
+        self.view.addSubview(tableView)
     }
     
     /// MARK : 自定义表视图样式

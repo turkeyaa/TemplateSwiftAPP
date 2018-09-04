@@ -15,7 +15,8 @@ let AppStatus_Test    = 3     // 测试环境
 let APP_STATUS = AppStatus_Product
 
 class URLHelper: NSObject {
-    static let instance = URLHelper()
+    
+    static let sharedInstance = URLHelper()
     
     private override init() {
         super.init()
@@ -25,13 +26,13 @@ class URLHelper: NSObject {
         
         // 修改为你们自己的服务器地址即可 - 这是测试用测试用测试用
         if APP_STATUS == AppStatus_Product {
-            return "http://106.14.146.99/"
+            return "http://106.14.146.99"
         }
         else if APP_STATUS == AppStatus_Develop {
-            return "http://localhost:8181/"
+            return "http://localhost:8181"
         }
         else if APP_STATUS == AppStatus_Test {
-            return "http://localhost:8181/"
+            return "http://localhost:8181"
         }
         else {
             return ""
@@ -40,13 +41,15 @@ class URLHelper: NSObject {
     
     func restApiURL(relativeURL: String) -> String {
         var url:String = self.baseURL()
+        url += "/"
         url += relativeURL
         return url
     }
     
     func restImageURL() -> String {
         var url: String = self.baseURL()
-        url += "/resource"
+        url += ":8686/"
+        url += "images/"
         return url
     }
 }

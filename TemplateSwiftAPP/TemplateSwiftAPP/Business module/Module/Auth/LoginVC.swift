@@ -50,12 +50,11 @@ class LoginVC: BaseFormTC {
         self.rightTitle(title: "注册")
         self.leftIcon(icon: UIImage.init(named: "app_back")!)
         
-        
         /// 分割线
-        tableView!.separatorInset = UIEdgeInsets.init()
-        tableView!.separatorColor = UIColor.clear
+        tableView.separatorInset = UIEdgeInsets.init()
+        tableView.separatorColor = UIColor.clear
         
-        tableView!.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 60))
+        tableView.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 60))
         cells = [accountCell,passwordCell,loginBtn2]
     }
     

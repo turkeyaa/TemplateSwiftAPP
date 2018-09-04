@@ -13,12 +13,12 @@ class BaseFormGroupTC: BaseFormTC {
     
     var groupCells = [[BaseTCell]]() {
         didSet {
-            self.tableView?.reloadData()
+            self.tableView.reloadData()
         }
     }
     var groupDataSource = [[Any]]() {
         didSet {
-            self.tableView?.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -42,8 +42,16 @@ class BaseFormGroupTC: BaseFormTC {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableView.tableHeaderView
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return tableView.tableFooterView
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5.0
+        return 10.0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

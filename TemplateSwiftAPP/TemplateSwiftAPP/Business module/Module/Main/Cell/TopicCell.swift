@@ -92,19 +92,17 @@ class TopicCell: BaseTCell {
     }
     
     func updateTopic(topic: Topic) -> Void {
-        iconView.image = UIImage.init(named: "app_placeholder")
         titleLabel.text = topic.author
         timeLabel.text = "发布于:" + String.timeStampToString(timeStamp: topic.createTime)
         contentLabel.text = topic.content
-        
-//        let url = URL.init(string: "")
-//        iconView!.kf.setImage(with: url, placeholder: UIImage.init(named: "app_placeholder"), options: nil, progressBlock: { (receivedSize, totalSize) in
-//            let progress = Float(receivedSize) / Float(totalSize)
-//            SVProgressHUD.showProgress(progress)
-//            SVProgressHUD.setBackgroundColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5))
-//            SVProgressHUD.setForegroundColor(UIColor.white)
-//        }, completionHandler: { (image, error, cacheType, url) in
-//            SVProgressHUD.dismiss()
-//        })
+        let url = URL.init(string: URLHelper.sharedInstance.restImageURL() + topic.authorImage)
+        iconView.kf.setImage(with: url, placeholder: UIImage.init(named: "app_placeholder"), options: nil, progressBlock: { (receivedSize, totalSize) in
+            let progress = Float(receivedSize) / Float(totalSize)
+            SVProgressHUD.showProgress(progress)
+            SVProgressHUD.setBackgroundColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5))
+            SVProgressHUD.setForegroundColor(UIColor.white)
+        }, completionHandler: { (image, error, cacheType, url) in
+            SVProgressHUD.dismiss()
+        })
     }
 }
