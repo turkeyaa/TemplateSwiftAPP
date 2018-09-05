@@ -56,7 +56,6 @@ class BaseLoadTC: BaseTC {
                 /// 网络链接失败了
             }
             
-            
             DispatchQueue.main.async {
                 self.hideLoadingHUD()
                 self.tableView.mj_footer.endRefreshing()

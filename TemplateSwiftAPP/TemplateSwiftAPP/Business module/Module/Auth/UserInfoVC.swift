@@ -24,6 +24,8 @@ class UserInfoVC: BaseFormGroupTC {
     
     lazy var userHeaderView: UserInfoHeaderView = {
         let view = UserInfoHeaderView.init(frame: CGRect.init(x: 0, y: 10, width: Device_width, height: 100))
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(assetEvent))
+        view.addGestureRecognizer(tap)
         return view
     }()
     
@@ -84,6 +86,41 @@ class UserInfoVC: BaseFormGroupTC {
         WorkSpace.sharedInstance.onLogOut()
         UIHelper.show(title: "退出登录成功")
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func assetEvent() -> Void {
+        ActionHelper.showSheet(title: "选择类型", message: "", actions: ["访问相册","访问相机"], vc: self) { (index) in
+            if index == 0 {
+                self.enterAlbum()
+            } else {
+                UIHelper.show(title: "todo - 暂不支持相机")
+            }
+        }
+    }
+    
+    func enterAlbum() -> Void {
+        
+        let configu = Configuration.init()
+        configu.leftTitle = "取消"
+        configu.rightTitle = "完成"
+//        configu.leftImage = UIImage.init(named: "d_close")
+//        configu.rightImage = UIImage.init(named: "d_complete")
+        
+        configu.maxCount = 1    // 最大可选中图片数量
+        
+        configu.numberBgColor = UIColor.red     // 数量背景颜色
+        
+        let vc = AssetPickerController.init(configu: configu)
+        
+        vc.assetResult = { (result: [UIImage]) in
+            print(result)   // UIImage 数组对象
+        }
+        vc.errorResult = { (index: Int) in
+            if index == 0 {
+                UIHelper.show(title: "只能选择\(configu.maxCount)张图片")
+            }
+        }
+        present(vc, animated: true, completion: nil)
     }
     
     override func goNext() {
