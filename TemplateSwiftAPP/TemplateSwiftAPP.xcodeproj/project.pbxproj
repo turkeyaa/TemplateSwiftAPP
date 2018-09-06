@@ -13,7 +13,6 @@
 		6041F38B213EB64E007A61A0 /* UserInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6041F38A213EB64E007A61A0 /* UserInfoHeaderView.swift */; };
 		60480FA72136990300E68DAC /* userInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FA62136990300E68DAC /* userInfo.json */; };
 		60480FA92136995900E68DAC /* category.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FA82136995900E68DAC /* category.json */; };
-		60480FAB2136998700E68DAC /* topicList.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FAA2136998700E68DAC /* topicList.json */; };
 		60480FAD213699D300E68DAC /* commentList.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FAC213699D300E68DAC /* commentList.json */; };
 		60480FAF213699F100E68DAC /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FAE213699F100E68DAC /* success.json */; };
 		60480FB121369A1900E68DAC /* newLike.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FB021369A1900E68DAC /* newLike.json */; };
@@ -48,6 +47,8 @@
 		60C07F87213FFF2B008DCC4C /* deselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C07F83213FFF2B008DCC4C /* deselect.png */; };
 		60C07F88213FFF2B008DCC4C /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C07F84213FFF2B008DCC4C /* select.png */; };
 		60C07F89213FFF2B008DCC4C /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C07F85213FFF2B008DCC4C /* close.png */; };
+		60C9D244214159DA004AADA2 /* FontMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D243214159DA004AADA2 /* FontMacro.swift */; };
+		60C9D24621415B84004AADA2 /* ColorMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D24521415B84004AADA2 /* ColorMacro.swift */; };
 		60DF5978213BC7B300248384 /* TCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF5977213BC7B300248384 /* TCellTextView.swift */; };
 		60DF597A213BCA6100248384 /* TopicNewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF5979213BCA6100248384 /* TopicNewApi.swift */; };
 		60DF597C213BCF4400248384 /* CommentListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DF597B213BCF4400248384 /* CommentListApi.swift */; };
@@ -143,7 +144,6 @@
 		6041F38A213EB64E007A61A0 /* UserInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderView.swift; sourceTree = "<group>"; };
 		60480FA62136990300E68DAC /* userInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userInfo.json; sourceTree = "<group>"; };
 		60480FA82136995900E68DAC /* category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = category.json; sourceTree = "<group>"; };
-		60480FAA2136998700E68DAC /* topicList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = topicList.json; sourceTree = "<group>"; };
 		60480FAC213699D300E68DAC /* commentList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = commentList.json; sourceTree = "<group>"; };
 		60480FAE213699F100E68DAC /* success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		60480FB021369A1900E68DAC /* newLike.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = newLike.json; sourceTree = "<group>"; };
@@ -178,6 +178,8 @@
 		60C07F83213FFF2B008DCC4C /* deselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deselect.png; sourceTree = "<group>"; };
 		60C07F84213FFF2B008DCC4C /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select.png; sourceTree = "<group>"; };
 		60C07F85213FFF2B008DCC4C /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		60C9D243214159DA004AADA2 /* FontMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMacro.swift; sourceTree = "<group>"; };
+		60C9D24521415B84004AADA2 /* ColorMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMacro.swift; sourceTree = "<group>"; };
 		60DF5977213BC7B300248384 /* TCellTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellTextView.swift; sourceTree = "<group>"; };
 		60DF5979213BCA6100248384 /* TopicNewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicNewApi.swift; sourceTree = "<group>"; };
 		60DF597B213BCF4400248384 /* CommentListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListApi.swift; sourceTree = "<group>"; };
@@ -626,6 +628,8 @@
 			isa = PBXGroup;
 			children = (
 				C6D9434820624CCD007974A9 /* Extension.swift */,
+				60C9D243214159DA004AADA2 /* FontMacro.swift */,
+				60C9D24521415B84004AADA2 /* ColorMacro.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -695,7 +699,6 @@
 				C607EFAE206DCA7600638291 /* login.json */,
 				60480FA62136990300E68DAC /* userInfo.json */,
 				60480FA82136995900E68DAC /* category.json */,
-				60480FAA2136998700E68DAC /* topicList.json */,
 				60480FAC213699D300E68DAC /* commentList.json */,
 				60480FAE213699F100E68DAC /* success.json */,
 				60480FB021369A1900E68DAC /* newLike.json */,
@@ -885,7 +888,6 @@
 				60C07F86213FFF2B008DCC4C /* complete.png in Resources */,
 				C6A8D470207CAEE500836923 /* Information.xcassets in Resources */,
 				60480FAD213699D300E68DAC /* commentList.json in Resources */,
-				60480FAB2136998700E68DAC /* topicList.json in Resources */,
 				60480FAF213699F100E68DAC /* success.json in Resources */,
 				C691AC1F206B25B1004F5FA6 /* register.json in Resources */,
 				6005BCAA213B6B7E0034417B /* Main.xcassets in Resources */,
@@ -995,6 +997,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C9D244214159DA004AADA2 /* FontMacro.swift in Sources */,
 				60C07F76213FF53E008DCC4C /* AssetCell.swift in Sources */,
 				60B450A72088437200E0CFF7 /* EmptyVC.swift in Sources */,
 				C6D9435020624D59007974A9 /* ShareView.swift in Sources */,
@@ -1047,6 +1050,7 @@
 				60756B8E213B52E2001628B1 /* LoginNotify.swift in Sources */,
 				60C07F80213FF67B008DCC4C /* ActionHelper.swift in Sources */,
 				C631B79B207EEC61008B8327 /* FormGroupTableVC.swift in Sources */,
+				60C9D24621415B84004AADA2 /* ColorMacro.swift in Sources */,
 				60DF5980213BD40C00248384 /* TopicCommentListView.swift in Sources */,
 				C631B79F207EF5B6008B8327 /* WebVC.swift in Sources */,
 				C6D9435820624DB2007974A9 /* StringMacro.swift in Sources */,

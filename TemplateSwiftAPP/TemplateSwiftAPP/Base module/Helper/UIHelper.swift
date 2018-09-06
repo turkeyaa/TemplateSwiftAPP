@@ -44,7 +44,6 @@ class UIHelper: UIView {
         window.addSubview(titleLabel)
         
         centerY = window.frame.height/2.0
-        
         setupLayout()
     }
     

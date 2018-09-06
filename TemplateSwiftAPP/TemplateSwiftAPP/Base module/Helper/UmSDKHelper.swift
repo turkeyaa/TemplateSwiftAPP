@@ -11,7 +11,7 @@ import UIKit
 
 class UmSDKHelper: NSObject {
     
-    var shareBack: ShareViewBack?
+    var clickItemBlock: BlockItem?
     
     // MARK: - 分享内容
 //    func share(type: UMSocialPlatformType,title: String, content: String, vc: UIViewController,back: @escaping ShareViewBack) -> Void {
@@ -52,8 +52,4 @@ class UmSDKHelper: NSObject {
 //        })
 //    }
     
-    func share(back: ShareViewBack) -> Void {
-        
-        back(true)
-    }
 }

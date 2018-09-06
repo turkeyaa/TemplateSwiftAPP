@@ -81,7 +81,6 @@ class EmptyView: UIView {
         }
     }
     
-    /// 点击事件
     /// Subclassing
     func settingPlaceholdImage() -> UIImage {
         return UIImage.init(named: "app_empty")!
