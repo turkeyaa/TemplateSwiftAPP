@@ -15,6 +15,7 @@ class EmptyVC: BaseVC {
         
         self.rightTitle(title: "刷新")
         
+        self.emptyView.emptyViewType = .EmptyViewType_NoNav
         self.isShowEmptyView = false
     }
     

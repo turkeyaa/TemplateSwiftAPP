@@ -14,17 +14,20 @@ class BaseVC: UIViewController {
     var isShowEmptyView: Bool = false {
         didSet {
             if isShowEmptyView == true {
-                emptyView.removeFromSuperview()
+                view.addSubview(emptyView)
+                view.bringSubview(toFront: emptyView)
             }
             else {
-                view.addSubview(emptyView)
+                emptyView.removeFromSuperview()
             }
         }
     }
     
-    /// MARK: - 空页面
-    lazy var emptyView:EmptyView = {
-        let view = EmptyView.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
+    lazy var emptyView: EmptyView = {
+        var view = EmptyView.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
+        view.emptyViewType = EmptyViewType.EmptyViewType_NoNavAndTab
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(emptyTapGesture))
+        view.addGestureRecognizer(tap)
         return view
     }()
     
@@ -100,6 +103,9 @@ class BaseVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /// 空页面点击交互
+    @objc func emptyTapGesture() -> Void {}
     
     
     /*

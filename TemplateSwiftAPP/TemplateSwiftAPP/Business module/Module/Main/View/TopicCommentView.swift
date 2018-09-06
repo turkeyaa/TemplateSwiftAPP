@@ -11,6 +11,8 @@ import UIKit
 
 class TopicCommentView: UIView,UITextViewDelegate {
     
+    let contentPaddingY: CGFloat = 150.0
+    
     var clickItemBlock: BlockItem?
     
     var title: String = "" {
@@ -73,7 +75,7 @@ class TopicCommentView: UIView,UITextViewDelegate {
     
     func setupLayout() -> Void {
         contentView.snp.makeConstraints { (make) in
-            make.top.equalTo(150)
+            make.top.equalTo(self.contentPaddingY)
             make.left.right.bottom.equalTo(0)
         }
         closeBtn.snp.makeConstraints { (make) in
@@ -115,29 +117,27 @@ class TopicCommentView: UIView,UITextViewDelegate {
     }
     
     @objc func hide() -> Void {
-//        UIView.animate(withDuration: 0.4, animations: {
-//            self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: 0)
-//        }) { (flag) in
-//            if self.clickItemBlock != nil {
-//                self.clickItemBlock!(0)
-//            }
-//        }
         textView.resignFirstResponder()
         UIView.animate(withDuration: 0.4) {
-            self.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height)
+            self.alpha = 0.0
+            self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height-self.contentPaddingY)
         }
     }
     
     func show() -> Void {
-        UIView.animate(withDuration: 0.4) {
-            self.frame = CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height)
+        self.alpha = 0.0
+        self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height-contentPaddingY)
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.alpha = 1.0
+            self.contentView.frame = CGRect.init(x: 0, y: self.contentPaddingY, width: Device_width, height: Device_height-self.contentPaddingY)
+        }) { (flag) in
+            if flag {
+                self.textView.becomeFirstResponder()
+            }
         }
-        textView.becomeFirstResponder()
     }
     
-    func beginInput() -> Void {
-//        textView.becomeFirstResponder()
-    }
     
     func textViewDidChange(_ textView: UITextView) {
         title = textView.text

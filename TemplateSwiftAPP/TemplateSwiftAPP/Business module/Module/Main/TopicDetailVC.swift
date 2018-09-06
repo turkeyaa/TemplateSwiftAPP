@@ -59,7 +59,7 @@ class TopicDetailVC: BaseVC {
         view.isScrollEnabled = true
         // called when rendering finished
         view.onRendered = { [weak self] height in
-            self?.showSuccessMessage(hud: "加载完成")
+//            self?.showSuccessMessage(hud: "加载完成")
             self?.view.setNeedsLayout()
         }
         // called when user touch link
@@ -212,11 +212,9 @@ class TopicDetailVC: BaseVC {
         if index == 1 {
             addComment(content: commentView.title)
         }
-//        commentView.removeFromSuperview()
     }
     
     override func goNext() {
-//        self.view.addSubview(shareView)
         self.shareView.show()
     }
     

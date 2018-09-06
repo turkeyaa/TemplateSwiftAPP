@@ -27,7 +27,7 @@ class RestApi {
     var _httpMethod: HttpMethods = .HttpMethods_Get     // 默认为GET请求
     var _isCancel = false
     
-    let timeout: TimeInterval = 20                      // 设置超时时间
+    let timeout: TimeInterval = 10                      // 设置超时时间
     
     var task: URLSessionTask?
     

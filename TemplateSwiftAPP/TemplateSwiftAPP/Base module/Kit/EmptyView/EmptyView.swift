@@ -32,6 +32,12 @@ class EmptyView: UIView {
         return view
     }()
     
+    var emptyViewType = EmptyViewType.EmptyViewType_Full {
+        willSet(newValue) {
+            updateEmptyViewFrame(type: newValue)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -39,6 +45,9 @@ class EmptyView: UIView {
     }
     
     func setupUI() -> Void {
+        
+        backgroundColor = UIColor.white
+        
         addSubview(iconView)
         addSubview(titleLabel)
         
@@ -58,11 +67,26 @@ class EmptyView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateEmptyViewFrame(type: EmptyViewType) -> Void {
+        if type == .EmptyViewType_Full {
+            self.frame = CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height)
+        } else if type == .EmptyViewType_NoNav {
+            self.frame = CGRect.init(x: 0, y: Device_nav+Device_status, width: Device_width, height: Device_height-Device_nav-Device_status)
+        } else if type == .EmptyViewType_NoTab {
+            self.frame = CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height-Device_tab)
+        } else if type == .EmptyViewType_NoNavAndTab {
+            self.frame = CGRect.init(x: 0, y: Device_nav+Device_status, width: Device_width, height: Device_height-Device_nav-Device_status-Device_tab)
+        } else {
+            
+        }
+    }
+    
+    /// 点击事件
     /// Subclassing
     func settingPlaceholdImage() -> UIImage {
         return UIImage.init(named: "app_empty")!
     }
     func settingPlaceholdTitle() -> String {
-        return "暂无更多信息"
+        return "点击重新加载"
     }
 }

@@ -31,7 +31,6 @@ class ShareView: UIView {
         
         contentView = UIView.init()
         contentView.backgroundColor = UIColor.white
-        contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: contentHeight)
         
         super.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
         self.backgroundColor = UIColor.rgba(r: 0, g: 0, b: 0, alpha: 0.5)
@@ -94,15 +93,18 @@ class ShareView: UIView {
     }
     
     @objc func hide() -> Void {
+        self.alpha = 1.0
         UIView.animate(withDuration: 0.4, animations: {
+            self.alpha = 0.0
             self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: self.contentHeight)
-        }) { (flag) in
-            self.removeFromSuperview()
-        }
+        })
     }
     
     func show() -> Void {
+        self.alpha = 0.0
+        self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: self.contentHeight)
         UIView.animate(withDuration: 0.4, animations: {
+            self.alpha = 1.0
             self.contentView.frame = CGRect.init(x: 0, y: Device_height-self.contentHeight, width: Device_width, height: self.contentHeight)
         })
     }

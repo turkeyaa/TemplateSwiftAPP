@@ -64,7 +64,9 @@ class BaseLoadTC: BaseTC {
                 if self.dataSource == nil {
                     /// 网络链接失败了
                     self.showErrorMessage(hud: "网络连接异常了")
+                    self.isShowEmptyView = true
                 } else {
+                    self.isShowEmptyView = false
                     if ((self.limit+1) * self.offset) > self.dataSource!.count {
                         /// 暂无更多数据
                         self.tableView.mj_footer.endRefreshingWithNoMoreData()

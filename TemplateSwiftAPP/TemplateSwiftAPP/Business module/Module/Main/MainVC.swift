@@ -17,6 +17,8 @@ class MainVC: BaseLoadTC {
         self.leftTitle(title: "新主题")
         LoginNotify.sharedInstance.addLoginObserver(target: self, selector: #selector(loginSuccess))
         LoginNotify.sharedInstance.addLogoutObserver(target: self, selector: #selector(logoutSuccess))
+        
+        self.emptyView.emptyViewType = EmptyViewType.EmptyViewType_NoNavAndTab
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +81,11 @@ class MainVC: BaseLoadTC {
         self.navigationController?.present(nav, animated: true, completion: nil)
     }
     
+    /// 空页面点击交互
+    @objc override func emptyTapGesture() -> Void {
+        self.loadData(more: false)
+    }
+    
     // 进入登录
     override func goNext() {
         
@@ -91,6 +98,5 @@ class MainVC: BaseLoadTC {
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
 }

@@ -11,6 +11,8 @@ import UIKit
 
 class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
     
+    let contentPaddingY: CGFloat = 150.0
+    
     var clickItemBlock: BlockItem?
     
     var dataSource: Array<Any>?
@@ -115,13 +117,18 @@ class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     @objc func hide() -> Void {
         UIView.animate(withDuration: 0.4) {
-            self.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height)
+            self.alpha = 0.0
+            self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height-self.contentPaddingY)
         }
     }
     
     func show() -> Void {
-        UIView.animate(withDuration: 0.4) {
-            self.frame = CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height)
-        }
+        self.alpha = 0.0
+        self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height-contentPaddingY)
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.alpha = 1.0
+            self.contentView.frame = CGRect.init(x: 0, y: self.contentPaddingY, width: Device_width, height: Device_height-self.contentPaddingY)
+        })
     }
 }

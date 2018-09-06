@@ -388,6 +388,14 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		60C07F8A21400693008DCC4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6D9434D20624D58007974A9 /* ShareView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		60E44038213AC80E00A14F8B /* Preference */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +641,7 @@
 		C6D943202060E952007974A9 /* Kit */ = {
 			isa = PBXGroup;
 			children = (
+				60C07F8A21400693008DCC4C /* View */,
 				C691AC42206B3112004F5FA6 /* NavView */,
 				C691AC39206B30A0004F5FA6 /* Cell */,
 				C6D9434520624C98007974A9 /* EmptyView */,
@@ -745,7 +754,6 @@
 		C6D9434C20624D44007974A9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				C6D9434D20624D58007974A9 /* ShareView.swift */,
 				C6D9434E20624D59007974A9 /* UIHelper.swift */,
 				C6D9434F20624D59007974A9 /* UmSDKHelper.swift */,
 				60C07F7F213FF67B008DCC4C /* ActionHelper.swift */,
