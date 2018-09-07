@@ -15,8 +15,8 @@ class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
     
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: self.view.bounds, style: tableViewStyle())
+        view.tableHeaderView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: 10.0))
         view.tableFooterView = UIView.init()
-        view.tableHeaderView = UIView.init()
         view.delegate = self
         view.dataSource = self
         return view

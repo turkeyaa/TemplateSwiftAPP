@@ -23,7 +23,7 @@ class UserInfoVC: BaseFormGroupTC {
     }()
     
     lazy var userHeaderView: UserInfoHeaderView = {
-        let view = UserInfoHeaderView.init(frame: CGRect.init(x: 0, y: 10, width: Device_width, height: 100))
+        let view = UserInfoHeaderView.init(frame: CGRect.init(x: 0, y: 20, width: Device_width, height: 100))
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(assetEvent))
         view.addGestureRecognizer(tap)
         return view
@@ -33,8 +33,10 @@ class UserInfoVC: BaseFormGroupTC {
         super.viewDidLoad()
         
         self.title = "用户信息"
-        groupDataSource = [["昵称","加入时间","地区"],["主页","签名"]]
         self.rightTitle(title: "我发布的")
+        self.leftIcon(icon: UIImage.init(named: "app_back")!)
+        
+        groupDataSource = [["昵称","加入时间","地区"],["主页","签名"]]
         
         let user = WorkSpace.sharedInstance.user
         groupValueDataSource = [[user.nickName,String.timeStampToString(timeStamp: user.createTime),user.city],[user.website,user.sign]]
@@ -77,7 +79,7 @@ class UserInfoVC: BaseFormGroupTC {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return 70.0
+            return 130.0
         }
         return 10.0
     }

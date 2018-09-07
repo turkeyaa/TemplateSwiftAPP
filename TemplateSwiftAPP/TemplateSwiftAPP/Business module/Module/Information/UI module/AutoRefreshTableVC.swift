@@ -41,6 +41,10 @@ class AutoRefreshTableVC: BaseLoadTC {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    override func emptyTapGesture() {
+        self.loadData(more: false)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TopicCell.classCellHeight()
     }

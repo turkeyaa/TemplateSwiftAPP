@@ -13,13 +13,17 @@ class EmptyVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.rightTitle(title: "刷新")
+        self.rightTitle(title: "重置")
         
-        self.emptyView.emptyViewType = .EmptyViewType_NoNav
-        self.isShowEmptyView = false
+        self.isShowEmptyView = true
     }
     
     override func goNext() {
-        self.isShowEmptyView = !self.isShowEmptyView
+        self.isShowEmptyView = true
+    }
+    
+    override func emptyTapGesture() {
+        UIHelper.show(title: "刷新完成")
+        self.isShowEmptyView = !self.isShowEmptyView;
     }
 }

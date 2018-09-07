@@ -31,6 +31,24 @@ class BaseVC: UIViewController {
         return view
     }()
     
+    lazy var leftBtn: UIButton = {
+        var view = UIButton.init(type: .custom)
+        view.addTarget(self, action: #selector(BaseVC.goBack), for: .touchUpInside)
+        view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        view.titleLabel?.font = FontMacro.fontBB
+        view.setTitleColor(ColorMacro.ColorText, for: .normal)
+        return view
+    }()
+    
+    lazy var rightBtn: UIButton = {
+        var view = UIButton.init(type: .custom)
+        view.addTarget(self, action: #selector(BaseVC.goNext), for: .touchUpInside)
+        view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        view.titleLabel?.font = FontMacro.fontBB
+        view.setTitleColor(ColorMacro.ColorText, for: .normal)
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -44,26 +62,26 @@ class BaseVC: UIViewController {
     
     /// MARK: - UI
     func leftTitle(title: String) -> Void {
-        
-        let leftBarItem = UIBarButtonItem.init(title: title, style: .done, target: self, action: #selector(BaseVC.goBack))
-        self.navigationItem.leftBarButtonItem = leftBarItem
+        leftBtn.setTitle(title, for: .normal)
+        let rightBarItem = UIBarButtonItem.init(customView: leftBtn)
+        self.navigationItem.leftBarButtonItem = rightBarItem
     }
+    
     func rightTitle(title: String) -> Void {
-        
-//        let btn = UIButton.init(type: .system)
-//        btn.setTitle(title, for: .normal)
-//        btn.addTarget(self, action: #selector(BaseVC.goNext), for: .touchUpInside)
-//        let rightBarView = UIBarButtonItem.init(customView: btn)
-        
-        let rightBarItem = UIBarButtonItem.init(title: title, style: .done, target: self, action: #selector(BaseVC.goNext))
+        rightBtn.setTitle(title, for: .normal)
+        let rightBarItem = UIBarButtonItem.init(customView: rightBtn)
         self.navigationItem.rightBarButtonItem = rightBarItem
     }
+    
     func leftIcon(icon: UIImage) -> Void {
-        let leftBarItem = UIBarButtonItem.init(image: icon, style: .done, target: self, action: #selector(BaseVC.goBack))
+        leftBtn.setImage(icon, for: .normal)
+        let leftBarItem = UIBarButtonItem.init(customView: leftBtn)
         self.navigationItem.leftBarButtonItem = leftBarItem
     }
+    
     func rightIcon(icon: UIImage) -> Void {
-        let rightBarItem = UIBarButtonItem.init(image: icon, style: .done, target: self, action: #selector(BaseVC.goNext))
+        rightBtn.setImage(icon, for: .normal)
+        let rightBarItem = UIBarButtonItem.init(customView: leftBtn)
         self.navigationItem.rightBarButtonItem = rightBarItem
     }
     
