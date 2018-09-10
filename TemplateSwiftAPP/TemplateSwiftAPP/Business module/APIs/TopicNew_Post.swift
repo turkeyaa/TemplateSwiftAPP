@@ -1,5 +1,5 @@
 //
-//  TopicNewApi.swift
+//  TopicNew_Post.swift
 //  TemplateSwiftAPP
 //
 //  Created by wenhua on 2018/9/2.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TopicNewApi: BaseRestApi {
+class TopicNew_Post: BaseRestApi {
     
     private var title: String = ""
     private var content: String = ""

@@ -13,11 +13,6 @@ import Foundation
 
 // 1. 定义枚举
 enum RestApiCode: Int {
-//    case RestApi_OK = 0                 // 成功
-//    case RestApi_NoUserId = 0001        // 无用户ID信息(未登录)
-//    case RestApi_UnkownError = 0002     // 未知错误(系统出错)
-//    case RestApi_NoData      = 0003     // 没有数据
-//    case RestApi_InvalidJSON = 108      // 解析 JSON 异常
     
     case status_ok                  = 200
     case status_invalid_json        = 108          /// 解析 JSON 异常

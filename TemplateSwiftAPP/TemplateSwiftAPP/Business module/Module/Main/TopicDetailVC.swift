@@ -106,15 +106,15 @@ class TopicDetailVC: BaseVC {
         
         self.showLoadingHUD(hud: "正在加载")
         
-        DispatchQueue.global().async {
+        GCDHelper.runInGlobalQueue {
             
-            let api = TopicInfoApi.init(topicID: self.topicID)
+            let api = TopicInfo_Get.init(topicID: self.topicID)
             api.call(async: true)
             
-            let commentApi = CommentListApi.init(offset: 0, limit: 100, topicID: self.topicID)
+            let commentApi = CommentList_Get.init(offset: 0, limit: 100, topicID: self.topicID)
             commentApi.call(async: true)
             
-            DispatchQueue.main.async {
+            GCDHelper.runInMainQueue {
                 self.hideLoadingHUD()
                 if api.code == .status_ok {
                     self.topic = api.topic
@@ -134,7 +134,7 @@ class TopicDetailVC: BaseVC {
         
         DispatchQueue.global().async {
             
-            let api = NewCommentApi.init(topicID: self.topicID, content: content)
+            let api = NewComment_Post.init(topicID: self.topicID, content: content)
             api.call(async: true)
             
             DispatchQueue.main.async {
@@ -159,7 +159,7 @@ class TopicDetailVC: BaseVC {
         DispatchQueue.global().async {
             
             if index == 0 {
-                let api = NewLikeApi.init(topicID: self.topic.topicID!.uuidString)
+                let api = NewLike_Post.init(topicID: self.topic.topicID!.uuidString)
                 api.call(async: true)
                 DispatchQueue.main.async {
                     if api.code == .status_ok {
@@ -171,7 +171,7 @@ class TopicDetailVC: BaseVC {
                 }
                 
             } else if index == 1 {
-                let api = NewCollectApi.init(topicID: self.topic.topicID!.uuidString)
+                let api = NewCollect_Post.init(topicID: self.topic.topicID!.uuidString)
                 api.call(async: true)
                 DispatchQueue.main.async {
                     if api.code == .status_ok {
@@ -188,7 +188,7 @@ class TopicDetailVC: BaseVC {
                 }
             } else {
                 /// 评论列表
-                let api = CommentListApi.init(offset: 0, limit: 100, topicID: self.topicID)
+                let api = CommentList_Get.init(offset: 0, limit: 100, topicID: self.topicID)
                 api.call(async: true)
                 DispatchQueue.main.async {
                     if api.code == .status_ok {

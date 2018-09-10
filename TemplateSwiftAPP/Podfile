@@ -17,7 +17,7 @@ target 'TemplateSwiftAPP' do
     
     pod 'MarkdownView'       # Markdown 渲染 https://github.com/keitaoouchi/MarkdownView.git
     
-#    pod 'TAssetPicker'       # 资源选择 https://github.com/turkeyaa/TAssetPicker
+    pod 'TAssetPicker'       # 资源选择 https://github.com/turkeyaa/TAssetPicker
 
     # 友盟分享
     pod 'UMengUShare/Social/ReducedWeChat'

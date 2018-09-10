@@ -78,13 +78,17 @@ class UIHelper: UIView {
     }
     
     func postSetting() -> Void {
-        let delayTime: DispatchTimeInterval = .seconds(2)
+        let delayTime: DispatchTimeInterval = .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayTime) {
             self.titleLabel.alpha = 0.0;
             self.contentView.alpha = 0.0;
         }
     }
     
+    /**
+     *  自定义 toast
+     *  @param title        内容
+     */
     static func show(title: String) {
         UIHelper.instance.postMessage(message: title)
     }

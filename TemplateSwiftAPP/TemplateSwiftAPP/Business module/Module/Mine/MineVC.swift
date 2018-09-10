@@ -11,10 +11,9 @@ import Foundation
 class MineVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.rightTitle(title: "归档")
     }
     
+    /*
     override func goNext() {
         
         /// todo - 测试沙河文件系统
@@ -36,6 +35,6 @@ class MineVC: BaseVC {
         // 解档
         let localUser = NSKeyedUnarchiver.unarchiveObject(withFile: savePath) as! User;
         print("new : \(String(describing: localUser.nickName))")
-    }
+    }*/
     
 }

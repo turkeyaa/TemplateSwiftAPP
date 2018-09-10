@@ -138,7 +138,7 @@ class RestApi {
     
     /// 5. 自定义header
     func configToken() -> String {
-        return "Bearer " + self.queryToken()
+        return "Bearer " + queryToken()
     }
     
     func queryToken() -> String {

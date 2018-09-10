@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import TAssetPicker
 
 class UserInfoVC: BaseFormGroupTC {
     
@@ -91,7 +92,7 @@ class UserInfoVC: BaseFormGroupTC {
     }
     
     @objc func assetEvent() -> Void {
-        ActionHelper.showSheet(title: "选择类型", message: "", actions: ["访问相册","访问相机"], vc: self) { (index) in
+        ActionHelper.showSheet(title: "", message: "选择类型", actions: ["访问相册","访问相机"], vc: self) { (index) in
             if index == 0 {
                 self.enterAlbum()
             } else {
@@ -102,12 +103,11 @@ class UserInfoVC: BaseFormGroupTC {
     
     func enterAlbum() -> Void {
         
-        let configu = Configuration.init()
-        configu.leftTitle = "取消"
-        configu.rightTitle = "完成"
-//        configu.leftImage = UIImage.init(named: "d_close")
-//        configu.rightImage = UIImage.init(named: "d_complete")
-        
+        let configu = AssetConfiguration.init()
+//        configu.leftTitle = "取消"
+//        configu.rightTitle = "完成"
+        configu.leftImage = UIImage.init(named: "app_closed")
+        configu.rightImage = UIImage.init(named: "app_completion")
         configu.maxCount = 1    // 最大可选中图片数量
         
         configu.numberBgColor = UIColor.red     // 数量背景颜色
@@ -116,6 +116,10 @@ class UserInfoVC: BaseFormGroupTC {
         
         vc.assetResult = { (result: [UIImage]) in
             print(result)   // UIImage 数组对象
+            if result.count > 0 {
+                let image = result[0]
+                self.userHeaderView.icon = image
+            }
         }
         vc.errorResult = { (index: Int) in
             if index == 0 {

@@ -10,3 +10,5 @@ import Foundation
 
 
 typealias BlockItem = (_ index: Int) -> Void
+
+typealias BlockVoid = () -> Void

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewCommentApi: BaseRestApi {
+class NewComment_Post: BaseRestApi {
     
     private var topicID: String = ""
     private var content: String = ""

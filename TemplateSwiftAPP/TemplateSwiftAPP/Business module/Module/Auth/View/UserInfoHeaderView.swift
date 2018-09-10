@@ -14,7 +14,7 @@ class UserInfoHeaderView: BaseView {
     
     lazy var iconView: UIImageView = {
         let view = UIImageView.init()
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 4.0
         view.clipsToBounds = true
         return view
@@ -24,6 +24,12 @@ class UserInfoHeaderView: BaseView {
         let view = UILabel.init()
         return view
     }()
+    
+    var icon: UIImage? = nil {
+        didSet {
+            iconView.image = icon
+        }
+    }
     
     override func setupUI() {
         backgroundColor = UIColor.white

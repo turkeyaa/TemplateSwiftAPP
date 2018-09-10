@@ -1,5 +1,5 @@
 //
-//  NewLikeApi.swift
+//  NewCollectApi.swift
 //  TemplateSwiftAPP
 //
 //  Created by wenhua on 2018/9/2.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-class NewLikeApi: BaseRestApi {
+class NewCollect_Post: BaseRestApi {
     
     private var topicID: String = ""
     
     init(topicID: String) {
-        super.init(url: "topic/newLike", httpMethod: .HttpMethods_Post)
+        super.init(url: "topic/newCollect", httpMethod: .HttpMethods_Post)
         decodeType = .DecodeJSONTypeNone
         
         self.topicID = topicID

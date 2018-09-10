@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
+/// todo - 友盟分享
 class UmSDKHelper: NSObject {
     
-    var clickItemBlock: BlockItem?
+//    var clickItemBlock: BlockItem?
     
     // MARK: - 分享内容
 //    func share(type: UMSocialPlatformType,title: String, content: String, vc: UIViewController,back: @escaping ShareViewBack) -> Void {
