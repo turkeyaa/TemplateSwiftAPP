@@ -85,9 +85,20 @@ class BaseRestApi: RestApi {
         return json
     }
     
+    override func onFailed(error: Error?) {
+        code = .status_invalid_network
+        message = HUD_service_error
+        GCDHelper.runInMainQueue {
+            UIHelper.show(title: self.message)
+        }
+    }
+    
     override func onError(error: Error) {
         code = .status_invalid_network
-        message = "网络连接异常了"
+        message = HUD_network_error
+        GCDHelper.runInMainQueue {
+            UIHelper.show(title: self.message)
+        }
     }
     
     override func onSuccessed(response: Data) -> Void {

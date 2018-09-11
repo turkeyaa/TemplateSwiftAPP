@@ -11,6 +11,7 @@
 		6005BCAA213B6B7E0034417B /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6005BCA9213B6B7E0034417B /* Main.xcassets */; };
 		6021698D2145011D005E6281 /* GCDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6021698C2145011D005E6281 /* GCDHelper.swift */; };
 		6022B4112136C0BE005D7A30 /* MineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6022B4102136C0BE005D7A30 /* MineVC.swift */; };
+		603821992147B3E50054645D /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 603821982147B3E50054645D /* readme */; };
 		6041F38B213EB64E007A61A0 /* UserInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6041F38A213EB64E007A61A0 /* UserInfoHeaderView.swift */; };
 		60480FA72136990300E68DAC /* userInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FA62136990300E68DAC /* userInfo.json */; };
 		60480FA92136995900E68DAC /* category.json in Resources */ = {isa = PBXBuildFile; fileRef = 60480FA82136995900E68DAC /* category.json */; };
@@ -47,6 +48,7 @@
 		60E44037213AC62C00A14F8B /* UserInfo_Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E44036213AC62C00A14F8B /* UserInfo_Post.swift */; };
 		60E4403A213AC82500A14F8B /* AppPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E44039213AC82500A14F8B /* AppPreference.swift */; };
 		60E4403D213ACE4700A14F8B /* Auth.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60E4403C213ACE4700A14F8B /* Auth.xcassets */; };
+		60E7F8E02147693800D5926C /* UserUploadIcon_Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E7F8DF2147693800D5926C /* UserUploadIcon_Post.swift */; };
 		C607EFAF206DCA7600638291 /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = C607EFAE206DCA7600638291 /* login.json */; };
 		C607EFB4206DE84B00638291 /* Login_Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607EFB3206DE84B00638291 /* Login_Post.swift */; };
 		C631B799207EEC2E008B8327 /* FormTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631B798207EEC2E008B8327 /* FormTableVC.swift */; };
@@ -130,6 +132,7 @@
 		6005BCA9213B6B7E0034417B /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
 		6021698C2145011D005E6281 /* GCDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDHelper.swift; sourceTree = "<group>"; };
 		6022B4102136C0BE005D7A30 /* MineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineVC.swift; sourceTree = "<group>"; };
+		603821982147B3E50054645D /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
 		6041F38A213EB64E007A61A0 /* UserInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderView.swift; sourceTree = "<group>"; };
 		60480FA62136990300E68DAC /* userInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userInfo.json; sourceTree = "<group>"; };
 		60480FA82136995900E68DAC /* category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = category.json; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 		60E44036213AC62C00A14F8B /* UserInfo_Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo_Post.swift; sourceTree = "<group>"; };
 		60E44039213AC82500A14F8B /* AppPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreference.swift; sourceTree = "<group>"; };
 		60E4403C213ACE4700A14F8B /* Auth.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Auth.xcassets; sourceTree = "<group>"; };
+		60E7F8DF2147693800D5926C /* UserUploadIcon_Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUploadIcon_Post.swift; sourceTree = "<group>"; };
 		6AC0E386AC5D462610D90450 /* Pods-TemplateSwiftAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateSwiftAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateSwiftAPP/Pods-TemplateSwiftAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		6CCB78343FE0F2DF337805A2 /* Pods-TemplateSwiftAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateSwiftAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateSwiftAPP/Pods-TemplateSwiftAPP.release.xcconfig"; sourceTree = "<group>"; };
 		A1652900FC90AE07BCFDC7C9 /* Pods_TemplateSwiftAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TemplateSwiftAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,6 +282,21 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		603821972147B3A30054645D /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				60480FB42136A16300E68DAC /* Topic_Get.swift */,
+				60DF5981213BD82300248384 /* TopicInfo_Get.swift */,
+				60DF5979213BCA6100248384 /* TopicNew_Post.swift */,
+				609BA71C213BA07300593268 /* UserTopic_Get.swift */,
+				609BA721213BB1B100593268 /* NewLike_Post.swift */,
+				609BA723213BB1C000593268 /* NewCollect_Post.swift */,
+				609BA725213BB1CD00593268 /* NewComment_Post.swift */,
+				60DF597B213BCF4400248384 /* CommentList_Get.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
 		6041F389213EB4DC007A61A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +346,16 @@
 				60756B8D213B52E2001628B1 /* LoginNotify.swift */,
 			);
 			path = Notify;
+			sourceTree = "<group>";
+		};
+		60E7F8DE2147690C00D5926C /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				C607EFB3206DE84B00638291 /* Login_Post.swift */,
+				60E44036213AC62C00A14F8B /* UserInfo_Post.swift */,
+				60E7F8DF2147693800D5926C /* UserUploadIcon_Post.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		AAB8F8F5DCD053DF15940EFE /* Pods */ = {
@@ -423,6 +452,7 @@
 				609BA71A213B9F1D00593268 /* UserCollectVC.swift */,
 				609BA729213BC06E00593268 /* TopicNewVC.swift */,
 				6005BCA9213B6B7E0034417B /* Main.xcassets */,
+				603821972147B3A30054645D /* Api */,
 				609BA71E213BA2A400593268 /* View */,
 				60480FB62136A24900E68DAC /* Cell */,
 			);
@@ -436,6 +466,7 @@
 				C637D38420720D97002A07E4 /* RegisterVC.swift */,
 				60756B91213B5854001628B1 /* UserInfoVC.swift */,
 				60E4403C213ACE4700A14F8B /* Auth.xcassets */,
+				60E7F8DE2147690C00D5926C /* Api */,
 				6041F389213EB4DC007A61A0 /* View */,
 				60E4403B213ACD9300A14F8B /* Notify */,
 			);
@@ -490,16 +521,7 @@
 		C6D9431A2060E952007974A9 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				60480FB42136A16300E68DAC /* Topic_Get.swift */,
-				60DF5981213BD82300248384 /* TopicInfo_Get.swift */,
-				60DF5979213BCA6100248384 /* TopicNew_Post.swift */,
-				609BA71C213BA07300593268 /* UserTopic_Get.swift */,
-				C607EFB3206DE84B00638291 /* Login_Post.swift */,
-				60E44036213AC62C00A14F8B /* UserInfo_Post.swift */,
-				609BA721213BB1B100593268 /* NewLike_Post.swift */,
-				609BA723213BB1C000593268 /* NewCollect_Post.swift */,
-				609BA725213BB1CD00593268 /* NewComment_Post.swift */,
-				60DF597B213BCF4400248384 /* CommentList_Get.swift */,
+				603821982147B3E50054645D /* readme */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -790,6 +812,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603821992147B3E50054645D /* readme in Resources */,
 				6005BCA8213B6B490034417B /* redame in Resources */,
 				60480FA92136995900E68DAC /* category.json in Resources */,
 				60E4403D213ACE4700A14F8B /* Auth.xcassets in Resources */,
@@ -944,6 +967,7 @@
 				609BA71D213BA07300593268 /* UserTopic_Get.swift in Sources */,
 				60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */,
 				60DF597E213BD0C600248384 /* Comment.swift in Sources */,
+				60E7F8E02147693800D5926C /* UserUploadIcon_Post.swift in Sources */,
 				608AEC012136E244004F7809 /* TopicDetailVC.swift in Sources */,
 				60DF5982213BD82300248384 /* TopicInfo_Get.swift in Sources */,
 				609BA720213BA2B600593268 /* TopicBottomView.swift in Sources */,

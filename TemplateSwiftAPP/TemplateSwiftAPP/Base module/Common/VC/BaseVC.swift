@@ -94,6 +94,7 @@ class BaseVC: UIViewController {
         self.settingSVProgressHUD()
         SVProgressHUD.show(withStatus: hud)
     }
+    
     func hideLoadingHUD() -> Void {
         SVProgressHUD.dismiss()
     }
@@ -102,10 +103,12 @@ class BaseVC: UIViewController {
         self.settingSVProgressHUD()
         SVProgressHUD.showInfo(withStatus: hud)
     }
+    
     func showSuccessMessage(hud: String) -> Void {
         self.settingSVProgressHUD()
         SVProgressHUD.showSuccess(withStatus: hud)
     }
+    
     func showErrorMessage(hud: String) -> Void {
         self.settingSVProgressHUD()
         SVProgressHUD.showError(withStatus: hud)
@@ -114,7 +117,7 @@ class BaseVC: UIViewController {
     func settingSVProgressHUD() -> Void {
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setMinimumDismissTimeInterval(2)
+        SVProgressHUD.setMinimumDismissTimeInterval(1)
     }
     
     override func didReceiveMemoryWarning() {

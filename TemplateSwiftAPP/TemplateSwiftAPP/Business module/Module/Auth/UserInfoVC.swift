@@ -119,8 +119,8 @@ class UserInfoVC: BaseFormGroupTC {
         vc.assetResult = { (result: [UIImage]) in
             print(result)   // UIImage 数组对象
             if result.count > 0 {
-                let image = result[0]
-                self.userHeaderView.icon = image
+                let icon = result[0]
+                self.p_updateUserIcon(icon: icon)
             }
         }
         vc.errorResult = { (index: Int) in
@@ -134,5 +134,27 @@ class UserInfoVC: BaseFormGroupTC {
     override func goNext() {
         let vc = UserCollect()
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    /// api
+    // 上传用户头像
+    func p_updateUserIcon(icon: UIImage) -> Void {
+        
+        GCDHelper.runInGlobalQueue {
+            self.showLoadingHUD(hud: "上传图片中")
+            let api = UserUploadIcon_Post.init(icon: icon)
+            api.call(async: true)
+            GCDHelper.runInMainQueue {
+                self.hideLoadingHUD()
+                
+                if api.code == .status_ok {
+                    UIHelper.show(title: "上传图片成功")
+                    self.userHeaderView.icon = icon
+                } else {
+                    UIHelper.show(title: api.message)
+                }
+            }
+        }
+        
     }
 }

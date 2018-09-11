@@ -80,7 +80,7 @@ class RestApi {
             request?.httpBody = self.queryPostData()
         }
         else if _httpMethod == .HttpMethods_File {
-            assert(false, "TODO - 暂未完成上传图片功能")
+            assert(false, "子类必须重写改方法:\(_httpMethod)")
         }
         else {
             assert(false, "暂时不支持该请求:\(_httpMethod)")

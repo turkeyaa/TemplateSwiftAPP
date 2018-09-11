@@ -26,6 +26,7 @@ class UIHelper: UIView {
         view.clipsToBounds = true
         return view
     }()
+    
     lazy var titleLabel: UILabel = {
         var label = UILabel.init()
         label.textAlignment = .center
