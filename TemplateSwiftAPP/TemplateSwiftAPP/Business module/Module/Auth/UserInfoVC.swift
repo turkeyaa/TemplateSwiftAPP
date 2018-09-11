@@ -104,13 +104,15 @@ class UserInfoVC: BaseFormGroupTC {
     func enterAlbum() -> Void {
         
         let configu = AssetConfiguration.init()
-//        configu.leftTitle = "取消"
-//        configu.rightTitle = "完成"
-        configu.leftImage = UIImage.init(named: "app_closed")
-        configu.rightImage = UIImage.init(named: "app_completion")
+        configu.leftTitle = "取消"
+        configu.rightTitle = "完成"
+//        configu.leftImage = UIImage.init(named: "app_closed")
+//        configu.rightImage = UIImage.init(named: "app_completion")
+        configu.selectImage = UIImage.init(named: "app_select")
+        configu.deselectImage = UIImage.init(named: "app_deselect")
         configu.maxCount = 1    // 最大可选中图片数量
         
-        configu.numberBgColor = UIColor.red     // 数量背景颜色
+        configu.numberBgColor = UIColor.orange     // 数量背景颜色
         
         let vc = AssetPickerController.init(configu: configu)
         
