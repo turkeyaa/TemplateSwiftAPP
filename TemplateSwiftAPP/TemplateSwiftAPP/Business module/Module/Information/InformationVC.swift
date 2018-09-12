@@ -86,7 +86,10 @@ class InformationVC: BaseFormGroupTC {
                 }
             case 5:
                 do {
-                    showInfoMessage(hud: "TODO - \(title ?? "") - 暂未完成")
+                    let vc = BasePageVC()
+                    vc.title = "多视图切换"
+                    vc.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 
             default:

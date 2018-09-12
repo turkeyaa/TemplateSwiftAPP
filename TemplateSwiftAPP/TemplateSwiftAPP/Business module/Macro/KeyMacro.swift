@@ -9,7 +9,7 @@
 import Foundation
 
 // 友盟 - 测试用，需要修改为自己的友盟APPkey
-let kUmengAppKey = "57576c33e0f55a0d8a001751"
+let kUmengAppKey = "5b9879fdf29d98699a000023"      /// swiftcn
 // 微信
 let kWechatAppId = "wxdd44c96a85693969"
 let kWechatAppScrict = "2488abf8baaca7f5a7a9d10701eee281"

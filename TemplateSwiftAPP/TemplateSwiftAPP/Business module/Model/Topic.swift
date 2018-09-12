@@ -11,7 +11,7 @@ import Foundation
 class Topic: JSONModel,Codable {
     
     var topicID: UUID?
-    var userID: UUID = UUID.init()
+    var userID: UUID?
     var categoryId: Int = 0
     var likeNum: Int = 0
     var isGood: Int = 0
@@ -36,6 +36,7 @@ class Topic: JSONModel,Codable {
     /// 如果我们需要用不同的名称, 只需要提供我们自己的 CodingKey
     enum CodingKeys: String,CodingKey {
         case topicID = "id"
+        case userID
         case categoryId
         case likeNum
         case isGood
