@@ -82,7 +82,6 @@ class TopicDetailVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = topic.title
         self.rightIcon(icon: UIImage.init(named: "app_share")!)
         
         self.view.addSubview(md)
@@ -118,7 +117,7 @@ class TopicDetailVC: BaseVC {
                 self.hideLoadingHUD()
                 if api.code == .status_ok {
                     self.topic = api.topic
-                    
+                    self.title = api.topic.title
                     self.md.load(markdown: self.topic.content)
                     self.bottomView.updateUI(topic: self.topic)
                 } else {

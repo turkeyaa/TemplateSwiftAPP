@@ -132,6 +132,9 @@ class UserInfoVC: BaseFormGroupTC {
     }
     
     override func goNext() {
+        
+        p_updateUserIcon(icon: UIImage.init(named: "password")!)
+        return
         let vc = UserCollect()
         self.navigationController?.pushViewController(vc, animated: true)
     }

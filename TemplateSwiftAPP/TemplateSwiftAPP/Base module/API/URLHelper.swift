@@ -39,17 +39,34 @@ class URLHelper: NSObject {
         }
     }
     
+    func baseImageURL() -> String {
+        var url: String = self.baseURL()
+        
+        if APP_STATUS == AppStatus_Product {
+            url += ":8686/"
+            url += "images/"
+        }
+        else if APP_STATUS == AppStatus_Develop {
+            url += "/Users/wenhua/Documents/images/"
+        }
+        else if APP_STATUS == AppStatus_Test {
+            url += "/Users/wenhua/Documents/images/"
+        }
+        else {
+            
+        }
+        return url
+    }
+    
     func restApiURL(relativeURL: String) -> String {
-        var url:String = self.baseURL()
+        var url:String = baseURL()
         url += "/"
         url += relativeURL
         return url
     }
     
+    
     func restImageURL() -> String {
-        var url: String = self.baseURL()
-        url += ":8686/"
-        url += "images/"
-        return url
+        return baseImageURL()
     }
 }

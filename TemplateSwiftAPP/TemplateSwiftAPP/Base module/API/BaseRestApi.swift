@@ -115,7 +115,7 @@ class BaseRestApi: RestApi {
         var resultData: Data?
         if decodeType == .DecodeJSONTypeString {
             if data != nil {
-                resultData =  (data! as! String).data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+                resultData =  (data! as! String).data(using: String.Encoding.utf8)
             } else {
                 resultData = Data.init()
             }

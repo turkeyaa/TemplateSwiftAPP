@@ -25,7 +25,7 @@ class Login_Post: BaseRestApi {
     
     override func parseResponseJsonString(json: Data) -> Bool {
         
-        let result = String.init(data: json, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+        let result = String.init(data: json, encoding: String.Encoding.utf8)
         if result != nil && result!.count > 0 {
             token = result!
             return true
