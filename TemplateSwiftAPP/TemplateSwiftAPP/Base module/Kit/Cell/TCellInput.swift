@@ -54,7 +54,6 @@ class TCellInput: BaseTCell,UITextFieldDelegate {
         return view
     }()
     
-    
     class func stringInputCell() -> BaseTCell {
         let inputCell = TCellInput.init(style: .default, reuseIdentifier: nil);
         inputCell.textField.keyboardType = .default;
@@ -79,6 +78,8 @@ class TCellInput: BaseTCell,UITextFieldDelegate {
         addSubview(textField)
         
         setupLayouts()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textFiledEditChanged), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
     }
     
     override func setupLayouts() {
@@ -103,8 +104,16 @@ class TCellInput: BaseTCell,UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        value = textField.text!
         return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func textFiledEditChanged() -> Void {
+        value = textField.text!
     }
     
     override func height() -> CGFloat {

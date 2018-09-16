@@ -72,8 +72,8 @@ class LoginVC: BaseFormTC {
         let account = accountCell.value
         let password = passwordCell.value
         
-        if account.count < 6 {
-            showInfoMessage(hud: "账号不能小于6位数")
+        if account.count != 11 {
+            showInfoMessage(hud: "请输入正确的手机号")
             return
         }
         if password.count < 6 {

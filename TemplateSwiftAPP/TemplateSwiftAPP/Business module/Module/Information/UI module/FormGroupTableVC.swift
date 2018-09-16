@@ -37,6 +37,7 @@ class FormGroupTableVC: BaseFormGroupTC {
         let cell = TCellNotify.tcell(tableView: self.tableView, reuse: true) as! TCellNotify
         cell.title = "通知"
         cell.showIndicator(flag: false)
+        cell.addSwitchTarget(target: self, selector: #selector(switchEvent))
         return cell
     }()
     lazy var accountCell: TCellInput = {
@@ -58,5 +59,13 @@ class FormGroupTableVC: BaseFormGroupTC {
         title = "分组表单元"
         
         groupCells = [[iconCell,iconCell2],[labelCell],[switchCell],[accountCell,passwordCell]]
+    }
+    
+    @objc func switchEvent(sender: UISwitch) -> Void {
+        if sender.isOn {
+            UIHelper.show(title: "打开")
+        } else {
+            UIHelper.show(title: "关闭")
+        }
     }
 }

@@ -154,6 +154,7 @@ class UserInfoVC: BaseFormGroupTC {
                 self.hideLoadingHUD()
                 if api.code == .status_ok {
                     UIHelper.show(title: "上传图片成功")
+                    WorkSpace.currentUser().authorImage = api.imageUrl
                     self.userHeaderView.icon = icon
                 } else {
                     UIHelper.show(title: api.message)

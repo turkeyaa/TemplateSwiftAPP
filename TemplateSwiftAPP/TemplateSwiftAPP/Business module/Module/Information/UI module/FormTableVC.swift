@@ -29,6 +29,7 @@ class FormTableVC: BaseFormTC {
         let cell = TCellNotify.tcell(tableView: self.tableView, reuse: true) as! TCellNotify
         cell.title = "通知cell"
         cell.showIndicator(flag: false)
+        cell.addSwitchTarget(target: self, selector: #selector(switchEvent))
         return cell
     }()
     lazy var textFieldCell: TCellInput = {
@@ -47,7 +48,11 @@ class FormTableVC: BaseFormTC {
         tableView.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 10))
     }
     
-    func switchEvent(switch: UISwitch) {
-        
+    @objc func switchEvent(sender: UISwitch) -> Void {
+        if sender.isOn {
+            UIHelper.show(title: "打开")
+        } else {
+            UIHelper.show(title: "关闭")
+        }
     }
 }
