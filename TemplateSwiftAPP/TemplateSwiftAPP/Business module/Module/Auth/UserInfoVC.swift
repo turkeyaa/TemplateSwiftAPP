@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import TAssetPicker
 
+
 class UserInfoVC: BaseFormGroupTC {
     
     var groupValueDataSource = [[]]
@@ -132,9 +133,6 @@ class UserInfoVC: BaseFormGroupTC {
     }
     
     override func goNext() {
-        
-        p_updateUserIcon(icon: UIImage.init(named: "password")!)
-        return
         let vc = UserCollect()
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -144,12 +142,16 @@ class UserInfoVC: BaseFormGroupTC {
     func p_updateUserIcon(icon: UIImage) -> Void {
         
         GCDHelper.runInGlobalQueue {
+            
             self.showLoadingHUD(hud: "上传图片中")
             let api = UserUploadIcon_Post.init(icon: icon)
             api.call(async: true)
+            
+            sleep(1)
+            
             GCDHelper.runInMainQueue {
-                self.hideLoadingHUD()
                 
+                self.hideLoadingHUD()
                 if api.code == .status_ok {
                     UIHelper.show(title: "上传图片成功")
                     self.userHeaderView.icon = icon

@@ -12,6 +12,7 @@ import UIKit
 class UserUploadIcon_Post: BaseUploadApi {
     
     let icon: UIImage
+    var imageUrl: String = ""
     
     init(icon: UIImage) {
         self.icon = icon
@@ -26,6 +27,11 @@ class UserUploadIcon_Post: BaseUploadApi {
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {
+        let result = String.init(data: json, encoding: String.Encoding.utf8)
+        if result != nil && result!.count > 0 {
+            imageUrl = result!
+            return true
+        }
         
         return false
     }

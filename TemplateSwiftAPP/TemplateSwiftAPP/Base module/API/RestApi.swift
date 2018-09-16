@@ -23,7 +23,7 @@ enum HttpMethods {
 /// 接口对象基类
 class RestApi {
     
-    var _url: String?
+    var _url: String = ""
     var _httpMethod: HttpMethods = .HttpMethods_Get     // 默认为GET请求
     var _isCancel = false
     
@@ -50,7 +50,7 @@ class RestApi {
         
         if _httpMethod == .HttpMethods_Get {
             
-            var strUrl: String = _url!
+            var strUrl: String = _url
             let params = self.queryParameters()
             
             if params != nil {
@@ -74,7 +74,7 @@ class RestApi {
             request?.httpMethod = "GET"
         }
         else if _httpMethod == .HttpMethods_Post {
-            request = URLRequest(url: URL.init(string: _url!)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
+            request = URLRequest(url: URL.init(string: _url)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
             request?.httpMethod = "POST"
             request?.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request?.httpBody = self.queryPostData()
@@ -87,7 +87,7 @@ class RestApi {
         }
         
         /// 自定义header - token
-        request?.addValue(self.configToken(), forHTTPHeaderField: "Authorization")
+        request?.setValue(self.configToken(), forHTTPHeaderField: "Authorization")
         
         let condition = NSCondition.init()
         
@@ -124,6 +124,7 @@ class RestApi {
         condition.wait()
         condition.unlock()
     }
+    
     func cancel() -> Void {
         task!.cancel()
     }
@@ -135,6 +136,9 @@ class RestApi {
     func queryParameters() -> Dictionary<String, Any>? {
         return nil
     }
+//    func queryFileParameters() -> Dictionary<String, Any> {
+//        return [:]
+//    }
     
     /// 5. 自定义header
     func configToken() -> String {

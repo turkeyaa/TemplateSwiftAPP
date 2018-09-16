@@ -130,7 +130,7 @@ class BaseRestApi: RestApi {
         }
         
         if self.parseResponseJsonString(json: resultData!) {
-            
+            code = .status_ok
         }
         else {
             code = .status_invalid_json

@@ -65,7 +65,6 @@ class URLHelper: NSObject {
         return url
     }
     
-    
     func restImageURL() -> String {
         return baseImageURL()
     }

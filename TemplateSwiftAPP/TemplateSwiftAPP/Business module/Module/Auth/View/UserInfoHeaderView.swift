@@ -12,6 +12,15 @@ import SVProgressHUD
 
 class UserInfoHeaderView: BaseView {
     
+    override init(frame: CGRect) {
+        icon = UIImage.init()
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     lazy var iconView: UIImageView = {
         let view = UIImageView.init()
         view.contentMode = .scaleAspectFill
@@ -25,7 +34,10 @@ class UserInfoHeaderView: BaseView {
         return view
     }()
     
-    var icon: UIImage? = nil {
+    var icon: UIImage {
+        willSet {
+            
+        }
         didSet {
             iconView.image = icon
         }
