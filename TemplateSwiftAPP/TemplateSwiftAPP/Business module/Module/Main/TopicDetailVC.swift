@@ -105,7 +105,7 @@ class TopicDetailVC: BaseVC {
         
         self.showLoadingHUD(hud: "正在加载")
         
-        GCDHelper.runInGlobalQueue {
+        GCDUtil.runInGlobalQueue {
             
             let api = TopicInfo_Get.init(topicID: self.topicID)
             api.call(async: true)
@@ -113,7 +113,7 @@ class TopicDetailVC: BaseVC {
             let commentApi = CommentList_Get.init(offset: 0, limit: 100, topicID: self.topicID)
             commentApi.call(async: true)
             
-            GCDHelper.runInMainQueue {
+            GCDUtil.runInMainQueue {
                 self.hideLoadingHUD()
                 if api.code == .status_ok {
                     self.topic = api.topic

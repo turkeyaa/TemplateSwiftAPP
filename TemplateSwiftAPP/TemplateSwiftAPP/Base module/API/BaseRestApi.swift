@@ -88,7 +88,7 @@ class BaseRestApi: RestApi {
     override func onFailed(error: Error?) {
         code = .status_invalid_network
         message = HUD_service_error
-        GCDHelper.runInMainQueue {
+        GCDUtil.runInMainQueue {
             UIHelper.show(title: self.message)
         }
     }
@@ -96,7 +96,7 @@ class BaseRestApi: RestApi {
     override func onError(error: Error) {
         code = .status_invalid_network
         message = HUD_network_error
-        GCDHelper.runInMainQueue {
+        GCDUtil.runInMainQueue {
             UIHelper.show(title: self.message)
         }
     }
@@ -115,7 +115,7 @@ class BaseRestApi: RestApi {
         var resultData: Data?
         if decodeType == .DecodeJSONTypeString {
             if data != nil {
-                resultData =  (data! as! String).data(using: String.Encoding.utf8)
+                resultData =  (data! as! String).data(using: .utf8)
             } else {
                 resultData = Data.init()
             }

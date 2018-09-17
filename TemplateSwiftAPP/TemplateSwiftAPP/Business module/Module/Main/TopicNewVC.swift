@@ -46,10 +46,10 @@ class TopicNewVC: BaseFormTC {
             return
         }
         
-        GCDHelper.runInGlobalQueue {
+        GCDUtil.runInGlobalQueue {
             let api = TopicNew_Post.init(title: "iOS开发, 命名规范", content: self.textViewCell.title, categoryId: 1)
             api.call(async: true)
-            GCDHelper.runInMainQueue {
+            GCDUtil.runInMainQueue {
                 if api.code == .status_ok {
                     UIHelper.show(title: "发布主题成功了")
                     self.navigationController?.dismiss(animated: true, completion: nil)

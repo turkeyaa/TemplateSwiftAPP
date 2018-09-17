@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// MARK: - 颜色扩展
+/// MARK: - 颜色扩展
 extension UIColor {
     class func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         let color = UIColor.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
@@ -22,7 +22,7 @@ extension UIColor {
     }
 }
 
-// MARK: - 图片扩展
+/// MARK: - 图片扩展
 extension UIImage {
     class func contentOfURL(link: String) -> UIImage {
         let url = URL.init(string: link)!
@@ -37,7 +37,17 @@ extension UIImage {
     }
 }
 
-// MARK: - 字符串扩展
+/// MARK: - Data扩展
+extension Data {
+    mutating func append(_ string: String) {
+        guard let data = string.data(using: .utf8) else {
+            return
+        }
+        append(data)
+    }
+}
+
+/// MARK: - 字符串扩展
 extension String {
     
     /// 时间戳转化成日期：MM-dd HH:mm

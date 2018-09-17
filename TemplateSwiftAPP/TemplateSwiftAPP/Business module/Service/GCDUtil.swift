@@ -9,7 +9,7 @@
 import Foundation
 
 
-class GCDHelper: NSObject {
+class GCDUtil: NSObject {
     
     /// 并发队列
     static func runInGlobalQueue(block: @escaping () -> Void) -> Void {

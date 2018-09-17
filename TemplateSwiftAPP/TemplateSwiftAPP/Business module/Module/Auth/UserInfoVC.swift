@@ -141,7 +141,7 @@ class UserInfoVC: BaseFormGroupTC {
     // 上传用户头像
     func p_updateUserIcon(icon: UIImage) -> Void {
         
-        GCDHelper.runInGlobalQueue {
+        GCDUtil.runInGlobalQueue {
             
             self.showLoadingHUD(hud: "上传图片中")
             let api = UserUploadIcon_Post.init(icon: icon)
@@ -149,7 +149,7 @@ class UserInfoVC: BaseFormGroupTC {
             
             sleep(1)
             
-            GCDHelper.runInMainQueue {
+            GCDUtil.runInMainQueue {
                 
                 self.hideLoadingHUD()
                 if api.code == .status_ok {

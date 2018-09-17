@@ -81,7 +81,7 @@ class LoginVC: BaseFormTC {
             return
         }
         
-        GCDHelper.runInGlobalQueue {
+        GCDUtil.runInGlobalQueue {
             self.showLoadingHUD()
             let loginApi = Login_Post.init(account: account, password: password)
             loginApi.call(async: false)
@@ -92,7 +92,7 @@ class LoginVC: BaseFormTC {
                 userApi!.call(async: false)
             }
             
-            GCDHelper.runInMainQueue {
+            GCDUtil.runInMainQueue {
                 self.hideLoadingHUD()
                 /// 进入主线程,更新界面
                 if loginApi.code == .status_ok && userApi!.code == .status_ok {
