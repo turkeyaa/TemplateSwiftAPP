@@ -87,7 +87,7 @@ class CommentCell: BaseTCell {
     func updateComment(comment: Comment) -> Void {
         iconView.image = UIImage.init(named: "app_placeholder")
         titleLabel.text = comment.author
-        timeLabel.text = "发布于:" + String.timeStampToString(timeStamp: comment.createTime)
+        timeLabel.text = "发布于:" + DateUtil.timeStampToString(timeStamp: comment.createTime)
         contentLabel.text = comment.content
     }
     

@@ -41,7 +41,7 @@ class UserInfoVC: BaseFormGroupTC {
         groupDataSource = [["昵称","加入时间","地区"],["主页","签名"]]
         
         let user = WorkSpace.sharedInstance.user
-        groupValueDataSource = [[user.nickName,String.timeStampToString(timeStamp: user.createTime),user.city],[user.website,user.sign]]
+        groupValueDataSource = [[user.nickName,DateUtil.timeStampToString(timeStamp: user.createTime),user.city],[user.website,user.sign]]
         
         tableView.addSubview(exitBtn)
         tableView.addSubview(userHeaderView)

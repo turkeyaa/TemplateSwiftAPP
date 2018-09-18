@@ -93,7 +93,7 @@ class TopicCell: BaseTCell {
     
     func updateTopic(topic: Topic) -> Void {
         titleLabel.text = topic.author
-        timeLabel.text = "发布于:" + String.timeStampToString(timeStamp: topic.createTime)
+        timeLabel.text = "发布于:" + DateUtil.timeStampToString(timeStamp: topic.createTime)
         contentLabel.text = topic.content
         let url = URL.init(string: URLHelper.sharedInstance.restImageURL() + topic.authorImage)
         iconView.kf.setImage(with: url, placeholder: UIImage.init(named: "app_placeholder"), options: nil, progressBlock: { (receivedSize, totalSize) in

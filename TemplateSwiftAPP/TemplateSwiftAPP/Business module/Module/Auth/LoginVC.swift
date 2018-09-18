@@ -18,7 +18,7 @@ class LoginVC: BaseFormTC {
         let cell = TCellInput.tcell(tableView: self.tableView, reuse: true) as! TCellInput
         cell.icon = UIImage.init(named: "account")
         cell.title = "账号"
-        cell.placeholder = "请输入账号"
+        cell.placeholder = "请输入手机号"
         cell.value = "18698894171"
         cell.showIndicator(flag: false)
         return cell
@@ -73,11 +73,16 @@ class LoginVC: BaseFormTC {
         let password = passwordCell.value
         
         if account.count != 11 {
-            showInfoMessage(hud: "请输入正确的手机号")
+            showInfoMessage(hud: "请输入11位手机号")
             return
         }
         if password.count < 6 {
             showInfoMessage(hud: "密码不能小于6位数")
+            return
+        }
+        
+        if RegularUtil.isPhoneNumber(phone: account) == false {
+            showInfoMessage(hud: "请输入正确的手机号")
             return
         }
         

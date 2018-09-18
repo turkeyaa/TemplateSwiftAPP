@@ -11,10 +11,13 @@
 7. 宏定义：定义APP字体和颜色、设备型号、第三方Key...等。`目录：Base module/Macro/`
 8. 第三方SDK：推送、分享、统计分析、地图...等功能的访问
 
+
 > 接口相关
 
 - [x] 登录
 - [ ] 注册
+- [x] 用户信息
+- [x] 上传用户头像
 
 - [x] 主题列表
 - [x] 主题详情
@@ -25,9 +28,13 @@
 - [x] 我发布的主题列表
 - [x] 发布主题
 
+- [ ] 主题标签和标签主题
+
 - [ ] 分类列表
 
-
+- [ ] 管理用户
+- [ ] 管理主题
+- [ ] 管理评论
 
 ### 库使用
 
@@ -77,10 +84,50 @@ pod 'PageController'     # 多视图切换 https://github.com/hirohisa/PageContr
 > 如何实现?
 
 1. 定义**RestApi**，一个抽象类。包含：初始化、执行、取消、结果处理、参数、日志统计...等方法。一些是子类必须要实现的方法(参数、结果处理)
-2. 定义**BaseRestApi**，继承RestApi。定义错误码、解码类型、结果处理方法
-3. 定义**BaseUploadApi**，继承**BaseRestApi**，上传图片基类
-4. 定义**Users_Get**，继承**BaseRestApi**。定义初始化方法、请求参数、处理结果方法
+2. 定义**BaseRestApi**，继承RestApi。定义错误码、解码类型、处理返回数据
+3. 定义**BaseUploadApi**，继承**BaseRestApi**，上传图片基类，支持一张和多张图片上传
+4. 定义**Login_Post**，继承**BaseRestApi**，定义初始化方法、请求参数、处理结果方法
+5. 如果是上传图片相关，继承**BaseUploadApi**，定义初始化方法，和传递参数
 
+##### 登录接口实现如下：
+
+* 1. 定义初始化方法
+
+```
+init(account: String, password: String) {
+        super.init(url: "auth/login", httpMethod: .HttpMethods_Post)
+        decodeType = .DecodeJSONTypeString;   // 返回值为：token 字符串
+        
+        self.account = account
+        self.password = password
+    }
+```
+
+* 2. 传递参数
+
+```
+override func prepareRequestData() -> Dictionary<String, Any> {
+        return [
+            "account": account,
+            "password": password
+        ]
+    }
+```
+
+* 3. 解析数据，接口返回的data数据
+
+```
+override func parseResponseJsonString(json: Data) -> Bool {
+        
+        let result = String.init(data: json, encoding: String.Encoding.utf8)
+        if result != nil && result!.count > 0 {
+            token = result!
+            return true
+        }
+        
+        return false
+    }
+```
 
 > 客户端代码
 
@@ -102,6 +149,8 @@ else {
 #### 2. 模型
 
 Swift 4.0之后，苹果推出支持了json->model的转换。通过Codable可以直接将json转成对象
+
+在类**JSONModel**中，实现协议：**NSCoding**，支持自动化编码和解码对象。一般的模型对象需要继承**JSONModel**类。
 
 ```
 class Topic: JSONModel,Codable {

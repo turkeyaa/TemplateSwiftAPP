@@ -21,6 +21,8 @@
 		60480FB321369F2900E68DAC /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60480FB221369F2900E68DAC /* Topic.swift */; };
 		60480FB52136A16300E68DAC /* Topic_Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60480FB42136A16300E68DAC /* Topic_Get.swift */; };
 		60480FB82136A25800E68DAC /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60480FB72136A25800E68DAC /* TopicCell.swift */; };
+		606ED47021509ACE0087C3CF /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606ED46F21509ACE0087C3CF /* DateUtil.swift */; };
+		606ED47221509BB00087C3CF /* RegularUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606ED47121509BB00087C3CF /* RegularUtil.swift */; };
 		60756B8E213B52E2001628B1 /* LoginNotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60756B8D213B52E2001628B1 /* LoginNotify.swift */; };
 		60756B90213B5686001628B1 /* TCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60756B8F213B5686001628B1 /* TCellButton.swift */; };
 		60756B92213B5854001628B1 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60756B91213B5854001628B1 /* UserInfoVC.swift */; };
@@ -143,6 +145,8 @@
 		60480FB221369F2900E68DAC /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		60480FB42136A16300E68DAC /* Topic_Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic_Get.swift; sourceTree = "<group>"; };
 		60480FB72136A25800E68DAC /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
+		606ED46F21509ACE0087C3CF /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		606ED47121509BB00087C3CF /* RegularUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularUtil.swift; sourceTree = "<group>"; };
 		60756B8D213B52E2001628B1 /* LoginNotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNotify.swift; sourceTree = "<group>"; };
 		60756B8F213B5686001628B1 /* TCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellButton.swift; sourceTree = "<group>"; };
 		60756B91213B5854001628B1 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
@@ -314,6 +318,16 @@
 				60DF5983213BE9B000248384 /* CommentCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		606ED46E21509AA90087C3CF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6021698C2145011D005E6281 /* GCDUtil.swift */,
+				606ED46F21509ACE0087C3CF /* DateUtil.swift */,
+				606ED47121509BB00087C3CF /* RegularUtil.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		609BA71E213BA2A400593268 /* View */ = {
@@ -637,7 +651,7 @@
 			children = (
 				C6D9434A20624D0E007974A9 /* WorkSpace.swift */,
 				C691AC45206B3168004F5FA6 /* SandFileManager.swift */,
-				6021698C2145011D005E6281 /* GCDUtil.swift */,
+				606ED46E21509AA90087C3CF /* Utils */,
 				60E44038213AC80E00A14F8B /* Preference */,
 			);
 			path = Service;
@@ -981,6 +995,7 @@
 				60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */,
 				60DF597E213BD0C600248384 /* Comment.swift in Sources */,
 				60E7F8E02147693800D5926C /* UserUploadIcon_Post.swift in Sources */,
+				606ED47021509ACE0087C3CF /* DateUtil.swift in Sources */,
 				608AEC012136E244004F7809 /* TopicDetailVC.swift in Sources */,
 				60DF5982213BD82300248384 /* TopicInfo_Get.swift in Sources */,
 				60B093EB2148B5790011DE5F /* BasePageVC.swift in Sources */,
@@ -988,6 +1003,7 @@
 				6021698D2145011D005E6281 /* GCDUtil.swift in Sources */,
 				C6D9434920624CCD007974A9 /* Extension.swift in Sources */,
 				609BA72A213BC06E00593268 /* TopicNewVC.swift in Sources */,
+				606ED47221509BB00087C3CF /* RegularUtil.swift in Sources */,
 				C6D9432E2062463C007974A9 /* TabBarVC.swift in Sources */,
 				C691AC36206B3061004F5FA6 /* BaseFormGroupTC.swift in Sources */,
 				C6D9434B20624D0E007974A9 /* WorkSpace.swift in Sources */,
