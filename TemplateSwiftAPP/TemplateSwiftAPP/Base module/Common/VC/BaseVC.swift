@@ -11,6 +11,8 @@ import SVProgressHUD
 
 class BaseVC: UIViewController {
     
+    var isHideNav: Bool = false
+    
     var isShowEmptyView: Bool = false {
         didSet {
             if isShowEmptyView == true {
@@ -51,7 +53,18 @@ class BaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = ColorMacro.ColorBg
+        self.edgesForExtendedLayout = UIRectEdge.top
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isHideNav {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        } else {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
     
     /// MARK: - Event

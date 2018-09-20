@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import PageController
 
-/// todo - 待优化
 class BasePageVC: BaseVC {
     
     private var titles = [String]()
@@ -18,11 +17,28 @@ class BasePageVC: BaseVC {
 
     private var currentIndex: Int = 0
     
+    lazy var titleIndexView: TitleIndexView = {
+        
+        var pointY = Device_status
+        if !self.isHideNav {
+            pointY += Device_nav
+        }
+        let view = TitleIndexView.init(titles: titles, frame: CGRect.init(x: 0, y: pointY, width: Device_width, height: 50))
+        view.clickItemBlock = { (index: Int) -> Void in
+            self.currentIndex = index
+            self.exChangeTopViewIndex(index: index)
+        }
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titles = self.configTitles()
         controllers = self.configControlles()
+        
+        self.view.addSubview(titleIndexView)
+        titleIndexView.updateUI()
         
         configu()
         configuGesture()
@@ -35,6 +51,7 @@ class BasePageVC: BaseVC {
     func configu() -> Void {
         for vc in controllers {
             self.addChildViewController(vc)
+            vc.view.frame = CGRect.init(x: 0, y: titleIndexView.frame.size.height+titleIndexView.frame.origin.y, width: Device_width, height: Device_height-titleIndexView.frame.size.height+titleIndexView.frame.origin.y)
             self.view.addSubview(vc.view)
         }
         exChangeTopViewIndex(index: currentIndex)
@@ -57,6 +74,7 @@ class BasePageVC: BaseVC {
             return
         }
         exChangeTopViewIndex(index: currentIndex)
+        self.titleIndexView.currentIndex = currentIndex
     }
     
     @objc func swipeRightEvent() -> Void {
@@ -66,6 +84,7 @@ class BasePageVC: BaseVC {
             return
         }
         exChangeTopViewIndex(index: currentIndex)
+        self.titleIndexView.currentIndex = currentIndex
     }
     
     func configTitles() -> [String] {
