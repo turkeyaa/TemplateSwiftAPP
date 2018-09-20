@@ -11,36 +11,68 @@ import UIKit
 import PageController
 
 /// todo - 待优化
-class BasePageVC: PageController {
+class BasePageVC: BaseVC {
+    
+    private var titles = [String]()
+    private var controllers = [UIViewController]()
+
+    private var currentIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuBar.backgroundColor = UIColor.white
-//        menuBar.isAutoSelectDidEndUserInteractionEnabled = false
+        titles = self.configTitles()
+        controllers = self.configControlles()
         
-        viewControllers = addSubControllers()
+        configu()
+        configuGesture()
     }
     
-//    override var frameForMenuBar: CGRect {
-//        let frame = super.frameForMenuBar
-//        
-//        return CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: 60)
-//    }
+    private func exChangeTopViewIndex(index: Int) -> Void {
+        self.view.bringSubview(toFront: controllers[index].view)
+    }
     
-    func addSubControllers() -> [UIViewController] {
-        
-        let names = [
-            "favorites",
-            "recents",
-            "contacts",
-            "history",
-            "more",
-            ]
-        
-        return names.map { name -> UIViewController in
-            let viewController = BaseVC()
-            viewController.title = name
-            return viewController
+    func configu() -> Void {
+        for vc in controllers {
+            self.addChildViewController(vc)
+            self.view.addSubview(vc.view)
         }
+        exChangeTopViewIndex(index: currentIndex)
+    }
+    
+    func configuGesture() -> Void {
+        let swipeLeft = UISwipeGestureRecognizer.init(target: self, action: #selector(swipeLeftEvent))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer.init(target: self, action: #selector(swipeRightEvent))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func swipeLeftEvent() -> Void {
+        currentIndex = currentIndex + 1
+        if currentIndex > controllers.count - 1 {
+            currentIndex = controllers.count - 1
+            return
+        }
+        exChangeTopViewIndex(index: currentIndex)
+    }
+    
+    @objc func swipeRightEvent() -> Void {
+        currentIndex = currentIndex - 1
+        if currentIndex < 0 {
+            currentIndex = 0
+            return
+        }
+        exChangeTopViewIndex(index: currentIndex)
+    }
+    
+    func configTitles() -> [String] {
+        return [String]()
+    }
+    
+    func configControlles() -> [UIViewController] {
+        return [UIViewController]()
     }
 }

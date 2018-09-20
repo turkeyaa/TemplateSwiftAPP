@@ -7,3 +7,26 @@
 //
 
 import Foundation
+import UIKit
+
+class NewsVC: BasePageVC {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func configTitles() -> [String] {
+        return ["主题","分享","wiki","swift"]
+    }
+    
+    override func configControlles() -> [UIViewController] {
+        
+        var controllers = [UIViewController]()
+        let colors = [UIColor.red,UIColor.blue,UIColor.orange,UIColor.green]
+        for index in 0..<4 {
+            let vc = BaseVC()
+            vc.view.backgroundColor = colors[index]
+            controllers.append(vc)
+        }
+        return controllers
+    }
+}

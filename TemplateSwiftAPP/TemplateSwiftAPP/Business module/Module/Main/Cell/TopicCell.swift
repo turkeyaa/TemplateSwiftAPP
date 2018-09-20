@@ -16,6 +16,7 @@ class TopicCell: BaseTCell {
     /// 懒加载
     lazy var iconView: UIImageView = {
         let view = UIImageView()
+        view.layer.cornerRadius = 2.0
         return view
     }()
     lazy var titleLabel: UILabel = {
@@ -66,13 +67,12 @@ class TopicCell: BaseTCell {
         }
         titleLabel.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp.right).offset(10)
-            make.width.lessThanOrEqualTo(80)
+            make.width.greaterThanOrEqualTo(40)
             make.height.equalTo(20)
             make.top.equalTo(5)
         }
         timeLabel.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(titleLabel.snp.right).offset(10)
-            make.right.equalTo(-20)
             make.height.equalTo(20)
             make.top.equalTo(5)
         }

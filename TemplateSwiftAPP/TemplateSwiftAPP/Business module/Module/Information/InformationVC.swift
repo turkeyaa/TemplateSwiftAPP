@@ -38,10 +38,6 @@ class InformationVC: BaseFormGroupTC {
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
         let row = indexPath.row
@@ -86,7 +82,7 @@ class InformationVC: BaseFormGroupTC {
                 }
             case 5:
                 do {
-                    let vc = BasePageVC()
+                    let vc = NewsVC()
                     vc.title = "多视图切换"
                     vc.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(vc, animated: true)

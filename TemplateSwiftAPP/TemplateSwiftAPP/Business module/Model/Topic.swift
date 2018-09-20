@@ -47,6 +47,6 @@ class Topic: JSONModel,Codable {
         case title
         case content
         case createTime
-//        case authorImage
+        case authorImage
     }
 }
