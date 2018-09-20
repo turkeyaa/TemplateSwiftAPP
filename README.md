@@ -129,6 +129,20 @@ override func parseResponseJsonString(json: Data) -> Bool {
     }
 ```
 
+* 4. 如果需要模拟本地数据，可以实现下面的方法，可选
+
+```
+// 模拟本地接口，方便测试，需要在项目中添加相应的JSON数据（Resource目录）
+override func mockFile() -> String {
+	return "login"
+}
+
+override func mockType() -> MockType {
+	return .MockFile		/// 访问本地json数据
+	return .MockNone		/// 访问真实接口数据
+}
+```
+
 > 客户端代码
 
 ```

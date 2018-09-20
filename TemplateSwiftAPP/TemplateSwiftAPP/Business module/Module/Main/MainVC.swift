@@ -71,6 +71,11 @@ class MainVC: BaseLoadTC {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    /// 空页面点击交互
+    @objc override func emptyTapGesture() -> Void {
+        self.loadData(more: false)
+    }
+    
     override func goBack() {
         if !WorkSpace.sharedInstance.appPreference.isLoginSuccess {
             UIHelper.show(title: "请先登录")
@@ -79,11 +84,6 @@ class MainVC: BaseLoadTC {
         let vc = TopicNewVC()
         let nav = UINavigationController.init(rootViewController: vc)
         self.navigationController?.present(nav, animated: true, completion: nil)
-    }
-    
-    /// 空页面点击交互
-    @objc override func emptyTapGesture() -> Void {
-        self.loadData(more: false)
     }
     
     // 进入登录

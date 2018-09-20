@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import PageController
 
+/// todo - 待优化
 class BasePageVC: BaseVC {
     
     private var titles = [String]()
@@ -26,7 +27,7 @@ class BasePageVC: BaseVC {
         let view = TitleIndexView.init(titles: titles, frame: CGRect.init(x: 0, y: pointY, width: Device_width, height: 50))
         view.clickItemBlock = { (index: Int) -> Void in
             self.currentIndex = index
-            self.exChangeTopViewIndex(index: index)
+            self.exChangeTopViewIndex(index: index, type: true)
         }
         return view
     }()
@@ -44,17 +45,31 @@ class BasePageVC: BaseVC {
         configuGesture()
     }
     
-    private func exChangeTopViewIndex(index: Int) -> Void {
-        self.view.bringSubview(toFront: controllers[index].view)
+    private func exChangeTopViewIndex(index: Int, type: Bool) -> Void {
+        
+        let view = controllers[index].view!
+        self.view.bringSubview(toFront: view)
+        
+        if type {
+            view.frame = CGRect.init(x: Device_height, y: view.frame.origin.y, width: Device_width, height: view.frame.size.height)
+            UIView.animate(withDuration: 0.3) {
+                view.frame = CGRect.init(x: 0, y: view.frame.origin.y, width: Device_width, height: view.frame.size.height)
+            }
+        } else {
+            view.frame = CGRect.init(x: -Device_height, y: view.frame.origin.y, width: Device_width, height: view.frame.size.height)
+            UIView.animate(withDuration: 0.3) {
+                view.frame = CGRect.init(x: 0, y: view.frame.origin.y, width: Device_width, height: view.frame.size.height)
+            }
+        }
     }
     
     func configu() -> Void {
         for vc in controllers {
             self.addChildViewController(vc)
-            vc.view.frame = CGRect.init(x: 0, y: titleIndexView.frame.size.height+titleIndexView.frame.origin.y, width: Device_width, height: Device_height-titleIndexView.frame.size.height+titleIndexView.frame.origin.y)
+            vc.view.frame = CGRect.init(x: 0, y: titleIndexView.frame.size.height+titleIndexView.frame.origin.y, width: Device_width, height: self.view.frame.size.height-titleIndexView.frame.size.height-titleIndexView.frame.origin.y)
             self.view.addSubview(vc.view)
         }
-        exChangeTopViewIndex(index: currentIndex)
+        exChangeTopViewIndex(index: currentIndex, type: true)
     }
     
     func configuGesture() -> Void {
@@ -73,7 +88,7 @@ class BasePageVC: BaseVC {
             currentIndex = controllers.count - 1
             return
         }
-        exChangeTopViewIndex(index: currentIndex)
+        exChangeTopViewIndex(index: currentIndex, type: true)
         self.titleIndexView.currentIndex = currentIndex
     }
     
@@ -83,7 +98,7 @@ class BasePageVC: BaseVC {
             currentIndex = 0
             return
         }
-        exChangeTopViewIndex(index: currentIndex)
+        exChangeTopViewIndex(index: currentIndex, type: false)
         self.titleIndexView.currentIndex = currentIndex
     }
     

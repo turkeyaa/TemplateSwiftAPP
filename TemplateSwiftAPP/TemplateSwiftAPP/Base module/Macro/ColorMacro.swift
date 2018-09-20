@@ -15,7 +15,7 @@ class ColorMacro {
     static let ColorNav = UIColor.blue
     static let ColorTab = UIColor.lightGray
     static let ColorBg = UIColor.white
-    static let ColorLine = UIColor.init(white: 0.3, alpha: 0.7)
+    static let ColorLine = UIColor.init(white: 0.5, alpha: 0.5)
     static let ColorCellLine = UIColor.init(white: 0.7, alpha: 0.3)
     
     

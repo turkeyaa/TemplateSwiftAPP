@@ -13,22 +13,21 @@ class TabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let first = MainVC()
-        let second = CategoryVC()
-        let third = InformationVC()
+        let firstVc = MainVC()
+        let secondVc = CategoryManageVC()
+        let thirdVc = InformationVC()
         
-        let firstNav = UINavigationController.init(rootViewController: first)
-//        let secondNav = UINavigationController.init(rootViewController: second)
-        let thirdNav = UINavigationController.init(rootViewController: third)
+        let firstNav = UINavigationController.init(rootViewController: firstVc)
+        let secondNav = UINavigationController.init(rootViewController: secondVc)
+        let thirdNav = UINavigationController.init(rootViewController: thirdVc)
         
-        first.tabBarItem = UITabBarItem.init(title: "主页", image: UIImage.init(named: "main"), selectedImage: UIImage.init(named: "mainSel"));
-        first.title = "主页";
-        second.tabBarItem = UITabBarItem.init(title: "分类", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
-        second.title = "分类";
-        third.tabBarItem = UITabBarItem.init(title: "UI/Mudule", image: UIImage.init(named: "information"), selectedImage: UIImage.init(named: "informationSel"));
-        third.title = "UI/Mudule";
-        
-        self.viewControllers = [firstNav,second,thirdNav]
+        firstVc.tabBarItem = UITabBarItem.init(title: "主页", image: UIImage.init(named: "main"), selectedImage: UIImage.init(named: "mainSel"));
+        firstVc.title = "主页"
+        secondVc.tabBarItem = UITabBarItem.init(title: "分类", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
+        secondVc.title = "分类"
+        thirdVc.tabBarItem = UITabBarItem.init(title: "UI/Mudule", image: UIImage.init(named: "information"), selectedImage: UIImage.init(named: "informationSel"));
+        thirdVc.title = "UI/Mudule";
+        self.viewControllers = [firstNav,secondNav,thirdNav]
         
         // Do any additional setup after loading the view.
     }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CategoryVC: BasePageVC {
+class CategoryManageVC: BasePageVC {
     override func viewDidLoad() {
         self.isHideNav = true
         super.viewDidLoad()
@@ -21,12 +21,9 @@ class CategoryVC: BasePageVC {
     
     override func configControlles() -> [UIViewController] {
         
-        let colors = [UIColor.red,UIColor.blue,UIColor.orange,UIColor.green]
-        
         var controllers = [UIViewController]()
-        for index in 0..<configTitles().count {
-            let vc = BaseVC()
-            vc.view.backgroundColor = colors[index]
+        for _ in 0..<configTitles().count {
+            let vc = CategoryDetailVC.init()
             controllers.append(vc)
         }
         return controllers
