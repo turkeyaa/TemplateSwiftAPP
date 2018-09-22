@@ -42,11 +42,13 @@ class BaseLoadTC: BaseTC {
         offset = 0
         loadData(more: false)
     }
+    
     @objc func loadMore() -> Void {
         print("加载更多")
         offset += 1
         loadData(more: true)
     }
+    
     func loadData(more: Bool) -> Void {
         self.showLoadingHUD()
         let queue = DispatchQueue.global()

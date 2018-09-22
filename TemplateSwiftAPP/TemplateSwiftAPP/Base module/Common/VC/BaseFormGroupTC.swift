@@ -35,6 +35,7 @@ class BaseFormGroupTC: BaseFormTC {
         let cells = groupCells[section]
         return cells.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cells = groupCells[indexPath.section]
         let cell = cells[indexPath.row]

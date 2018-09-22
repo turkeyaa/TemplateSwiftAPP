@@ -16,14 +16,14 @@ class CategoryManageVC: BasePageVC {
     }
     
     override func configTitles() -> [String] {
-        return ["主题","分享","wiki","swift"]
+        return ["iOS开发","主题","分享","wiki","swift","vue","工具"]
     }
     
     override func configControlles() -> [UIViewController] {
         
         var controllers = [UIViewController]()
-        for _ in 0..<configTitles().count {
-            let vc = CategoryDetailVC.init()
+        for index in 0..<configTitles().count {
+            let vc = CategoryDetailVC.init(categoryId: index+1)
             controllers.append(vc)
         }
         return controllers

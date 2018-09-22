@@ -33,7 +33,7 @@ class BaseVC: UIViewController {
         return view
     }()
     
-    lazy var leftBtn: UIButton = {
+    private lazy var leftBtn: UIButton = {
         var view = UIButton.init(type: .custom)
         view.addTarget(self, action: #selector(BaseVC.goBack), for: .touchUpInside)
         view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
@@ -42,7 +42,7 @@ class BaseVC: UIViewController {
         return view
     }()
     
-    lazy var rightBtn: UIButton = {
+    private lazy var rightBtn: UIButton = {
         var view = UIButton.init(type: .custom)
         view.addTarget(self, action: #selector(BaseVC.goNext), for: .touchUpInside)
         view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)

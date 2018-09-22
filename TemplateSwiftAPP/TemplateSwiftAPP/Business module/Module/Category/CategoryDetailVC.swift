@@ -11,12 +11,19 @@ import UIKit
 
 class CategoryDetailVC: BaseLoadTC {
     
-    override init() {
+    var categoryId: Int = 1
+    
+    init(categoryId: Int) {
+        self.categoryId = categoryId
         super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func tableViewFrame() -> CGRect {
+        return CGRect.init(x: 0, y: 0, width: Device_width, height: self.view.frame.size.height-Device_tab-Device_status)
     }
     
     override func viewDidLoad() {
@@ -27,7 +34,7 @@ class CategoryDetailVC: BaseLoadTC {
     // MAKR: - 加载数据
     override func queryData() -> Array<Any>? {
         
-        let api = Topic_Get.init(offset: offset, limit: limit)
+        let api = CategoryTopic_Get.init(offset: offset, limit: limit, categoryId: categoryId)
         api.call(async: true)
         return api.dataSource
     }

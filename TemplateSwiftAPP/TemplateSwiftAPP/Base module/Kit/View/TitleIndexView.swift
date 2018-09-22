@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-private let kTitleWidth = 60
+private let kTitleWidth = 70
 
 class TitleIndexView: UIView {
     
@@ -54,7 +54,7 @@ class TitleIndexView: UIView {
         super.init(frame: frame)
         
         addSubview(scrollerView)
-        scrollerView.addSubview(bottomLineView)
+        addSubview(bottomLineView)
         scrollerView.addSubview(titleLineView)
     }
     
@@ -111,6 +111,13 @@ class TitleIndexView: UIView {
         titleLineView.frame = CGRect.init(x: index*kTitleWidth, y: Int(self.frame.size.height-4), width: kTitleWidth, height: 3)
         
         lastIndex = currentIndex
+        
+        let pointY = (currentIndex + 1) * kTitleWidth
+        if pointY > Int(Device_width) {
+            scrollerView.contentOffset = CGPoint.init(x: pointY - Int(Device_width), y: 0)
+        } else {
+            scrollerView.contentOffset = CGPoint.init(x: 0, y: 0)
+        }
     }
     
 }

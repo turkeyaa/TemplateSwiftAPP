@@ -14,7 +14,7 @@ class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
     var dataSource: Array<Any>?
     
     lazy var tableView: UITableView = {
-        let view = UITableView.init(frame: self.view.bounds, style: tableViewStyle())
+        let view = UITableView.init(frame: tableViewFrame(), style: tableViewStyle())
         view.tableHeaderView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: 10.0))
         view.tableFooterView = UIView.init()
         view.delegate = self
@@ -38,9 +38,14 @@ class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
         self.view.addSubview(tableView)
     }
     
-    /// MARK : 自定义表视图样式
+    /// MARK: 自定义表视图样式
     func tableViewStyle() -> UITableViewStyle {
         return UITableViewStyle.plain
+    }
+    
+    /// MARK: 自定义表视图大小
+    func tableViewFrame() -> CGRect {
+        return self.view.bounds
     }
     
     // MARK: - tableView delegate and dataSource
