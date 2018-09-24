@@ -12,14 +12,14 @@ target 'TemplateSwiftAPP' do
     pod 'SVProgressHUD'      # 提示功能 https://github.com/SVProgressHUD/SVProgressHUD
     pod 'MJRefresh'          # 上拉和下拉刷新框架 https://github.com/CoderMJLee/MJRefresh
     
-    pod 'SQLite.swift'       # SQLite https://github.com/stephencelis/SQLite.swift.git
+#    pod 'SQLite.swift'       # SQLite https://github.com/stephencelis/SQLite.swift.git
     pod 'IQKeyboardManagerSwift'  # 键盘交互 https://github.com/hackiftekhar/IQKeyboardManager
     
     pod 'MarkdownView'       # Markdown 渲染 https://github.com/keitaoouchi/MarkdownView.git
     
     pod 'TAssetPicker'       # 资源选择 https://github.com/turkeyaa/TAssetPicker
     
-    pod 'PageController'     # 多视图切换 https://github.com/hirohisa/PageController.git
+    pod 'DNSPageView'        # 多视图切换 https://github.com/Danie1s/DNSPageView.git
 
     # 友盟分享
     pod 'UMengUShare/Social/ReducedWeChat'

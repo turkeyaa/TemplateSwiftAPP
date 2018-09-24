@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import PageController
 
 /// todo - 待优化
 class BasePageVC: BaseVC {

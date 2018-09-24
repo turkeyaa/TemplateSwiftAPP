@@ -11,7 +11,6 @@
 		6005BCAA213B6B7E0034417B /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6005BCA9213B6B7E0034417B /* Main.xcassets */; };
 		6021698D2145011D005E6281 /* GCDUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6021698C2145011D005E6281 /* GCDUtil.swift */; };
 		6022B4112136C0BE005D7A30 /* MineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6022B4102136C0BE005D7A30 /* MineVC.swift */; };
-		603821992147B3E50054645D /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 603821982147B3E50054645D /* readme */; };
 		6041F38B213EB64E007A61A0 /* UserInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6041F38A213EB64E007A61A0 /* UserInfoHeaderView.swift */; };
 		6045DFFF21546617005EBBC9 /* CategoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6045DFFE21546617005EBBC9 /* CategoryDetailVC.swift */; };
 		6045E0012154672A005EBBC9 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6045E0002154672A005EBBC9 /* SearchVC.swift */; };
@@ -40,15 +39,11 @@
 		60A5E4E32153C4DE00037117 /* TitleIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E4E22153C4DE00037117 /* TitleIndexView.swift */; };
 		60A5E4E62153D1A100037117 /* CategoryManageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E4E52153D1A100037117 /* CategoryManageVC.swift */; };
 		60A5E4EC2153D1E500037117 /* Cagegory_Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5E4EB2153D1E500037117 /* Cagegory_Get.swift */; };
-		60A5E4EE2153D1F100037117 /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 60A5E4ED2153D1F100037117 /* readme */; };
-		60A5E4F02153D1FA00037117 /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 60A5E4EF2153D1FA00037117 /* readme */; };
-		60A5E4F22153D20200037117 /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 60A5E4F12153D20200037117 /* readme */; };
 		60B093EB2148B5790011DE5F /* BasePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B093EA2148B5790011DE5F /* BasePageVC.swift */; };
 		60B450A72088437200E0CFF7 /* EmptyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B450A62088437200E0CFF7 /* EmptyVC.swift */; };
 		60B450A9208846D400E0CFF7 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B450A8208846D400E0CFF7 /* NewsVC.swift */; };
 		60C07F80213FF67B008DCC4C /* ActionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C07F7F213FF67B008DCC4C /* ActionHelper.swift */; };
 		60C7EE8F21560CEA00AF5C20 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7EE8E21560CEA00AF5C20 /* Category.swift */; };
-		60C7EE9121560D9C00AF5C20 /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 60C7EE9021560D9C00AF5C20 /* readme */; };
 		60C7EE9321560E3600AF5C20 /* CategoryTopic_Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7EE9221560E3600AF5C20 /* CategoryTopic_Get.swift */; };
 		60C9D244214159DA004AADA2 /* FontMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D243214159DA004AADA2 /* FontMacro.swift */; };
 		60C9D24621415B84004AADA2 /* ColorMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D24521415B84004AADA2 /* ColorMacro.swift */; };
@@ -182,7 +177,6 @@
 		60B450A8208846D400E0CFF7 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		60C07F7F213FF67B008DCC4C /* ActionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHelper.swift; sourceTree = "<group>"; };
 		60C7EE8E21560CEA00AF5C20 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		60C7EE9021560D9C00AF5C20 /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
 		60C7EE9221560E3600AF5C20 /* CategoryTopic_Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTopic_Get.swift; sourceTree = "<group>"; };
 		60C9D243214159DA004AADA2 /* FontMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMacro.swift; sourceTree = "<group>"; };
 		60C9D24521415B84004AADA2 /* ColorMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMacro.swift; sourceTree = "<group>"; };
@@ -665,7 +659,6 @@
 		C6D9431F2060E952007974A9 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				60C7EE9021560D9C00AF5C20 /* readme */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -891,13 +884,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60A5E4F22153D20200037117 /* readme in Resources */,
-				603821992147B3E50054645D /* readme in Resources */,
 				6005BCA8213B6B490034417B /* redame in Resources */,
 				60480FA92136995900E68DAC /* category.json in Resources */,
 				60E4403D213ACE4700A14F8B /* Auth.xcassets in Resources */,
-				60C7EE9121560D9C00AF5C20 /* readme in Resources */,
-				60A5E4EE2153D1F100037117 /* readme in Resources */,
 				C655F6742058BB6E00F65568 /* Main.storyboard in Resources */,
 				C655F66E2058BB6E00F65568 /* Assets.xcassets in Resources */,
 				60480FB121369A1900E68DAC /* newLike.json in Resources */,
@@ -905,7 +894,6 @@
 				C607EFAF206DCA7600638291 /* login.json in Resources */,
 				C6A8D470207CAEE500836923 /* Information.xcassets in Resources */,
 				60480FAD213699D300E68DAC /* commentList.json in Resources */,
-				60A5E4F02153D1FA00037117 /* readme in Resources */,
 				60480FAF213699F100E68DAC /* success.json in Resources */,
 				C691AC1F206B25B1004F5FA6 /* register.json in Resources */,
 				6005BCAA213B6B7E0034417B /* Main.xcassets in Resources */,
@@ -964,13 +952,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TemplateSwiftAPP/Pods-TemplateSwiftAPP-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DNSPageView/DNSPageView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
-				"${BUILT_PRODUCTS_DIR}/PageController/PageController.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TAssetPicker/TAssetPicker.framework",
@@ -978,13 +965,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DNSPageView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TAssetPicker.framework",
