@@ -49,7 +49,6 @@ extension Data {
 
 /// MARK: - 字符串扩展
 extension String {
-    
     /// 时间戳转化成日期：yyyy-MM-dd HH:mm:ss
     static func timeStampToDate(timeStamp: TimeInterval) -> String {
         // 时间戳为毫秒级要 ／ 1000， 秒就不用除1000，参数带没带000
@@ -58,5 +57,73 @@ extension String {
         // yyyy-MM-dd HH:mm:ss
         dfmatter.dateFormat="yyyy-MM-dd HH:mm:ss"
         return dfmatter.string(from: date as Date)
+    }
+}
+
+/// MARK: - 判断设备类型
+extension UIDevice {
+    
+    /// 4/4s
+    class func is_iPhone4() -> Bool {
+        if UIScreen.main.bounds.height == 480 && UIScreen.main.bounds.width == 320 {
+            return true
+        }
+        return false
+    }
+    
+    /// 5/5s/5c/se
+    class func is_iPhone5() -> Bool {
+        if UIScreen.main.bounds.height == 568 && UIScreen.main.bounds.width == 320 {
+            return true
+        }
+        return false
+    }
+    
+    /// 6/6s/7/8
+    class func is_iPhone678() -> Bool {
+        if UIScreen.main.bounds.height == 667 && UIScreen.main.bounds.width == 375 {
+            return true
+        }
+        return false
+    }
+    
+    /// 6+/7+/8+
+    class func is_iPhone678Plus() -> Bool {
+        if UIScreen.main.bounds.height == 736 && UIScreen.main.bounds.width == 414 {
+            return true
+        }
+        return false
+    }
+    
+    /// iPhoneX
+    class func is_iPhoneX() -> Bool {
+        if UIScreen.main.bounds.height == 812 && UIScreen.main.bounds.width == 375 {
+            return true
+        }
+        return false
+    }
+    
+    /// iPhoneXR
+    class func is_iPhoneXR() -> Bool {
+        if UIScreen.main.bounds.height == 896 && UIScreen.main.bounds.width == 414 {
+            return true
+        }
+        return false
+    }
+    
+    /// iPhoneXS
+    class func is_iPhoneXS() -> Bool {
+        if UIScreen.main.bounds.height == 812 && UIScreen.main.bounds.width == 375 {
+            return true
+        }
+        return false
+    }
+    
+    /// iPhoneXSMax
+    class func is_iPhoneXSMax() -> Bool {
+        if UIScreen.main.bounds.height == 896 && UIScreen.main.bounds.width == 414 {
+            return true
+        }
+        return false
     }
 }

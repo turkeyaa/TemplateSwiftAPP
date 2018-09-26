@@ -34,10 +34,16 @@ class BasePageVC: BaseVC {
         
         // 创建对应的DNSPageView，并设置它的frame
         // titleView和contentView会连在一起
-        var paddingX: CGFloat = 64
-        if !self.isHideNav {
+        var paddingX: CGFloat = 0
+        if self.isHideNav {
             paddingX += 20
+        } else {
+            paddingX += Device_nav+Device_status
         }
+        if DeviceUtil.is_iPhoneX() {
+            paddingX += 44
+        }
+        
         let pageView = DNSPageView(frame: CGRect(x: 0, y: paddingX, width: size.width, height: size.height), style: style, titles: titles, childViewControllers: childViewControllers)
         view.addSubview(pageView)
     }
