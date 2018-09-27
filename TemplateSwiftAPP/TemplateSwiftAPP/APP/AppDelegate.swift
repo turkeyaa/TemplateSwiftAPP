@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBar
         
         // 2. SDK相关...
-        UmSDKHelper.configu()
+        UmSDKHelper.configuShare()
+        UmSDKHelper.configuAnaly()
         
         // 3. 键盘交互
         IQKeyboardManager.shared.enable = true

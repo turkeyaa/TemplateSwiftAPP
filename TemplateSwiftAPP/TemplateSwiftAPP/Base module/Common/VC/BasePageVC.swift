@@ -40,7 +40,7 @@ class BasePageVC: BaseVC {
         // titleView和contentView会连在一起
         var paddingX: CGFloat = 0
         if self.isHideNav {
-            paddingX += 0
+            paddingX += 20
         } else {
             paddingX += Device_nav+Device_status
         }

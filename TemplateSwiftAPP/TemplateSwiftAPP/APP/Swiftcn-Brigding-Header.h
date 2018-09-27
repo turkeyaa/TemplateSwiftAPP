@@ -18,4 +18,8 @@
 #import "UMSocialWechatHandler.h"
 #import <UShareUI/UShareUI.h>
 
+#import <UMAnalytics/MobClick.h>
+
+#import <UMCommon/UMCommon.h>
+
 #endif /* Swiftcn_Brigding_Header_h */

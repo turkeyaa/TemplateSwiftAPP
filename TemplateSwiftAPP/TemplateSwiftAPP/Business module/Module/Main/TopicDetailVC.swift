@@ -231,11 +231,12 @@ class TopicDetailVC: BaseVC {
             type = .sina
         }
         
-        UmSDKHelper.sharedInstance.share(type: type, title: "标题", content: "分享到QQ", vc: self) { (flag) in
+        UmSDKHelper.sharedInstance.share(type: type, title: "标题", content: "分享到内容", vc: self) { (flag) in
             if flag {
                 /// 分享成功
             } else {
                 /// 分享失败
+                UIHelper.show(title: "分享失败")
             }
         }
     }

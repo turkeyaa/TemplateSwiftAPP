@@ -14,7 +14,7 @@ class InformationVC: BaseFormGroupTC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        groupDataSource = [["表单元","分组表单元","下拉刷新表单元","网页视图","空页面","多视图切换"],["归档"],["友盟：分享、统计、推送","地图","支付"]]
+        groupDataSource = [["表单元","分组表单元","下拉刷新表单元","网页视图","空页面","多视图切换"],["归档"],["友盟：第三方登录、分享、统计、推送","地图","支付"]]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
