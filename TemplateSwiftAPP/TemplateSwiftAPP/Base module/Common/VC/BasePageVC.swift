@@ -10,14 +10,18 @@ import Foundation
 import UIKit
 import DNSPageView
 
-/// todo - 待优化
 class BasePageVC: BaseVC {
     
-    private var titles = [String]()
-    private var controllers = [UIViewController]()
+//    private var titles = [String]()
+//    private var controllers = [UIViewController]()
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupConfig()
+    }
+    
+    func setupConfig() -> Void {
         
         // 创建DNSPageStyle，设置样式
         let style = DNSPageStyle()
@@ -36,7 +40,7 @@ class BasePageVC: BaseVC {
         // titleView和contentView会连在一起
         var paddingX: CGFloat = 0
         if self.isHideNav {
-            paddingX += 20
+            paddingX += 0
         } else {
             paddingX += Device_nav+Device_status
         }

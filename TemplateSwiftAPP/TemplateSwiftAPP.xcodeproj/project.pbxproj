@@ -140,6 +140,7 @@
 /* Begin PBXFileReference section */
 		6005BCA7213B6B490034417B /* redame */ = {isa = PBXFileReference; lastKnownFileType = text; path = redame; sourceTree = "<group>"; };
 		6005BCA9213B6B7E0034417B /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
+		601FB822215CC70100148614 /* Swiftcn-Brigding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swiftcn-Brigding-Header.h"; sourceTree = "<group>"; };
 		6021698C2145011D005E6281 /* GCDUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDUtil.swift; sourceTree = "<group>"; };
 		6022B4102136C0BE005D7A30 /* MineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineVC.swift; sourceTree = "<group>"; };
 		603821982147B3E50054645D /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
@@ -414,6 +415,7 @@
 				C6D9435720624DB2007974A9 /* StringMacro.swift */,
 				C6D9435320624D8D007974A9 /* ClosureMacro.swift */,
 				C6D9435520624DA7007974A9 /* UIMacro.swift */,
+				C6D943342062492B007974A9 /* KeyMacro.swift */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -532,6 +534,7 @@
 			children = (
 				C655F6692058BB6E00F65568 /* AppDelegate.swift */,
 				C6D9432D2062463C007974A9 /* TabBarVC.swift */,
+				601FB822215CC70100148614 /* Swiftcn-Brigding-Header.h */,
 				C655F6642058BB6E00F65568 /* Assets.xcassets */,
 				C655F6652058BB6E00F65568 /* LaunchScreen.storyboard */,
 				C655F6672058BB6E00F65568 /* Main.storyboard */,
@@ -596,7 +599,6 @@
 		C6D943192060E952007974A9 /* Business module */ = {
 			isa = PBXGroup;
 			children = (
-				C6D943282060EE48007974A9 /* Macro */,
 				C6D943262060EE48007974A9 /* Resource */,
 				6005BCA6213B6B3D0034417B /* Vendors */,
 				C6D943252060EDD7007974A9 /* Service */,
@@ -730,14 +732,6 @@
 				60480FB021369A1900E68DAC /* newLike.json */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		C6D943282060EE48007974A9 /* Macro */ = {
-			isa = PBXGroup;
-			children = (
-				C6D943342062492B007974A9 /* KeyMacro.swift */,
-			);
-			path = Macro;
 			sourceTree = "<group>";
 		};
 		C6D9433C20624C47007974A9 /* VC */ = {
@@ -941,10 +935,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TemplateSwiftAPP/Pods-TemplateSwiftAPP-resources.sh",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/QQ/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/SocialLibraries/Sina/SinaSDK/WeiboSDK.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TencentOpenApi_IOS_Bundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1274,6 +1274,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DS.TemplateSwiftAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wenhua/Desktop/service/open source/templateSwiftAPP/TemplateSwiftAPP/TemplateSwiftAPP/APP/Swiftcn-Brigding-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1291,6 +1292,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DS.TemplateSwiftAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wenhua/Desktop/service/open source/templateSwiftAPP/TemplateSwiftAPP/TemplateSwiftAPP/APP/Swiftcn-Brigding-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -32,6 +32,7 @@ class TopicDetailVC: BaseVC {
         view.clickItemBlock = {
             (index: Int) -> Void in
             UIHelper.show(title: "分享到\(titles[index])")
+            self.umengShare(index: index)
         }
         return view
     }()
@@ -82,7 +83,8 @@ class TopicDetailVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.rightIcon(icon: UIImage.init(named: "app_share")!)
+//        self.rightIcon(icon: UIImage.init(named: "app_share")!)
+        self.rightTitle(title: "分享")
         
         self.view.addSubview(md)
         self.view.addSubview(bottomView)
@@ -214,7 +216,27 @@ class TopicDetailVC: BaseVC {
     }
     
     override func goNext() {
+        /// 自定义分享界面
         self.shareView.show()
     }
     
+    
+    func umengShare(index: Int) -> Void {
+        var type = UMSocialPlatformType.QQ
+        if index == 0 {
+            type = .QQ
+        } else if index == 1 {
+            type = .wechatSession
+        } else {
+            type = .sina
+        }
+        
+        UmSDKHelper.sharedInstance.share(type: type, title: "标题", content: "分享到QQ", vc: self) { (flag) in
+            if flag {
+                /// 分享成功
+            } else {
+                /// 分享失败
+            }
+        }
+    }
 }

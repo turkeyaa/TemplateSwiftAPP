@@ -11,4 +11,6 @@ import Foundation
 
 typealias BlockItem = (_ index: Int) -> Void
 
+typealias BlockSuccess = (_ flag: Bool) -> Void
+
 typealias BlockVoid = () -> Void

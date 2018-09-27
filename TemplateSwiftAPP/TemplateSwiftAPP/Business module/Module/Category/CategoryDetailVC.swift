@@ -65,7 +65,7 @@ class CategoryDetailVC: BaseLoadTC {
         let vc = TopicDetailVC()
         vc.topicID = topic.topicID!.uuidString
         vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     /// 空页面点击交互
