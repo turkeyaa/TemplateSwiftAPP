@@ -19,9 +19,9 @@ class ColorMacro {
     static let ColorCellLine = UIColor.init(white: 0.7, alpha: 0.3)
     
     
-    static let ColorText = UIColor.rgb(r: 33, g: 33, b: 33)
-    static let ColorText2 = UIColor.rgb(r: 66, g: 66, b: 66)
-    static let ColorText3 = UIColor.rgb(r: 99, g: 99, b: 99)
+    static let ColorText333 = UIColor.rgb(r: 33, g: 33, b: 33)
+    static let ColorText666 = UIColor.rgb(r: 66, g: 66, b: 66)
+    static let ColorText999 = UIColor.rgb(r: 99, g: 99, b: 99)
     
     /** 次要字体:不常用 */
     

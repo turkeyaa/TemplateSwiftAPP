@@ -27,8 +27,8 @@ class EmptyView: UIView {
     }()
     lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.textColor = ColorMacro.ColorText3
-        view.font = FontMacro.fontBb
+        view.textColor = ColorMacro.ColorText999
+        view.font = FontMacro.font14
         view.text = settingPlaceholdTitle()
         view.textAlignment = .center
         return view

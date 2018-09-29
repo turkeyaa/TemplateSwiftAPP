@@ -13,6 +13,7 @@ class TopicNewVC: BaseFormTC {
     
     lazy var textViewCell: TCellTextView = {
         let view = TCellTextView.tcell(tableView: self.tableView, reuse: true) as! TCellTextView
+        view.textView.becomeFirstResponder()
         return view
     }()
     lazy var categoryCell: TCellLabel = {

@@ -48,7 +48,6 @@ class LoginVC: BaseFormTC {
         
         self.title = "登录"
         self.rightTitle(title: "注册")
-        self.leftIcon(icon: UIImage.init(named: "app_back")!)
         
         /// 分割线
         tableView.separatorInset = UIEdgeInsets.init()

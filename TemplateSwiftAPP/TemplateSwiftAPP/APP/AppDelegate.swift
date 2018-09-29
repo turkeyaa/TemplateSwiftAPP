@@ -23,8 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = tabBar
         
-        UINavigationBar.appearance().tintColor = ColorMacro.ColorNav
-        UINavigationBar.appearance().backgroundColor = ColorMacro.ColorNav
+        // 1.1 导航栏字体和颜色
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().barTintColor = ColorMacro.ColorNav
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor : UIColor.white,
+            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18)]
         
         // 2. SDK相关...
         UmSDKHelper.configuShare()

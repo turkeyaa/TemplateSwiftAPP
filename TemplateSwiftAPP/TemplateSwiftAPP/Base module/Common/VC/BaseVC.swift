@@ -37,8 +37,8 @@ class BaseVC: UIViewController {
         var view = UIButton.init(type: .custom)
         view.addTarget(self, action: #selector(BaseVC.goBack), for: .touchUpInside)
         view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        view.titleLabel?.font = FontMacro.fontBB
-        view.setTitleColor(ColorMacro.ColorText, for: .normal)
+        view.titleLabel?.font = FontMacro.font15
+        view.setTitleColor(.white, for: .normal)
         return view
     }()
     
@@ -46,8 +46,8 @@ class BaseVC: UIViewController {
         var view = UIButton.init(type: .custom)
         view.addTarget(self, action: #selector(BaseVC.goNext), for: .touchUpInside)
         view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        view.titleLabel?.font = FontMacro.fontBB
-        view.setTitleColor(ColorMacro.ColorText, for: .normal)
+        view.titleLabel?.font = FontMacro.font15
+        view.setTitleColor(.white, for: .normal)
         return view
     }()
     
@@ -63,6 +63,11 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = ColorMacro.ColorBg
         self.edgesForExtendedLayout = UIRectEdge.top
+    }
+    
+    /// todo - 无效
+    func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .default
     }
     
     override func viewWillAppear(_ animated: Bool) {

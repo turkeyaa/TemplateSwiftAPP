@@ -36,7 +36,6 @@ class UserInfoVC: BaseFormGroupTC {
         
         self.title = "用户信息"
         self.rightTitle(title: "我发布的")
-        self.leftIcon(icon: UIImage.init(named: "app_back")!)
         
         groupDataSource = [["昵称","加入时间","地区"],["主页","签名"]]
         
