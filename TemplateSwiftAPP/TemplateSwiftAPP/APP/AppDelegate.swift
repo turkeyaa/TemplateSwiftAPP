@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = tabBar
         
+        UINavigationBar.appearance().tintColor = ColorMacro.ColorNav
+        UINavigationBar.appearance().backgroundColor = ColorMacro.ColorNav
+        
         // 2. SDK相关...
         UmSDKHelper.configuShare()
         UmSDKHelper.configuAnaly()

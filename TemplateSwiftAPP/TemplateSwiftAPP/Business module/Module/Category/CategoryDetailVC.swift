@@ -29,6 +29,9 @@ class CategoryDetailVC: BaseLoadTC {
     override func viewDidLoad() {
         self.isHideNav = true
         super.viewDidLoad()
+        
+        self.emptyView.emptyViewType = .EmptyViewType_Custom
+        self.emptyView.customEmptyViewFrame(frame: CGRect.init(x: 0, y: self.view.frame.origin.y, width: Device_width, height: self.view.frame.size.height))
     }
     
     // MAKR: - 加载数据

@@ -14,6 +14,7 @@ enum EmptyViewType {
     case EmptyViewType_NoNav
     case EmptyViewType_NoTab
     case EmptyViewType_NoNavAndTab
+    case EmptyViewType_Custom
 }
 
 class EmptyView: UIView {
@@ -26,7 +27,8 @@ class EmptyView: UIView {
     }()
     lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.textColor = UIColor.black
+        view.textColor = ColorMacro.ColorText3
+        view.font = FontMacro.fontBb
         view.text = settingPlaceholdTitle()
         view.textAlignment = .center
         return view
@@ -42,6 +44,7 @@ class EmptyView: UIView {
         super.init(frame: frame)
         
         setupUI()
+        setupLayout()
     }
     
     func setupUI() -> Void {
@@ -50,7 +53,9 @@ class EmptyView: UIView {
         
         addSubview(iconView)
         addSubview(titleLabel)
-        
+    }
+    
+    func setupLayout() -> Void {
         iconView.snp.makeConstraints { (make) in
             make.width.height.equalTo(200)
             make.centerX.equalTo(self.snp.centerX).offset(0)
@@ -77,7 +82,7 @@ class EmptyView: UIView {
         } else if type == .EmptyViewType_NoNavAndTab {
             self.frame = CGRect.init(x: 0, y: Device_nav+Device_status, width: Device_width, height: Device_height-Device_nav-Device_status-Device_tab)
         } else {
-            
+            /// 自定义尺寸
         }
     }
     
@@ -85,7 +90,12 @@ class EmptyView: UIView {
     func settingPlaceholdImage() -> UIImage {
         return UIImage.init(named: "app_empty")!
     }
+    
     func settingPlaceholdTitle() -> String {
         return "点击重新加载"
+    }
+    
+    func customEmptyViewFrame(frame: CGRect) -> Void {
+        self.frame = frame
     }
 }

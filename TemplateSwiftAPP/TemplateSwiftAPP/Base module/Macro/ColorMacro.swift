@@ -12,7 +12,7 @@ import UIKit
 class ColorMacro {
     
     /** 主要字体:常用 */
-    static let ColorNav = UIColor.blue
+    static let ColorNav = UIColor.rgb(r: 0, g: 123, b: 252)
     static let ColorTab = UIColor.lightGray
     static let ColorBg = UIColor.white
     static let ColorLine = UIColor.init(white: 0.5, alpha: 0.5)
