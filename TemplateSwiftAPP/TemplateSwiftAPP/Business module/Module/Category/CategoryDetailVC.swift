@@ -16,7 +16,11 @@ class CategoryDetailVC: BaseLoadTC {
     init(categoryId: Int) {
         self.categoryId = categoryId
         super.init()
+        
+        self.isHideNav = true
     }
+    
+    var parentNav: UINavigationController?
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -68,7 +72,7 @@ class CategoryDetailVC: BaseLoadTC {
         let vc = TopicDetailVC()
         vc.topicID = topic.topicID!.uuidString
         vc.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(vc, animated: true)
+        parentNav!.pushViewController(vc, animated: true)
     }
     
     /// 空页面点击交互
