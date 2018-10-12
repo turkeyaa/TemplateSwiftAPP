@@ -107,7 +107,7 @@ class BaseVC: UIViewController {
     
     func rightIcon(icon: UIImage) -> Void {
         rightBtn.setImage(icon, for: .normal)
-        let rightBarItem = UIBarButtonItem.init(customView: leftBtn)
+        let rightBarItem = UIBarButtonItem.init(customView: rightBtn)
         self.navigationItem.rightBarButtonItem = rightBarItem
     }
     

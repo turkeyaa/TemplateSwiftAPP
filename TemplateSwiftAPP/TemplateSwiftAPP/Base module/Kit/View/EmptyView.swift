@@ -25,6 +25,7 @@ class EmptyView: UIView {
         view.contentMode = .scaleAspectFit
         return view
     }()
+    
     lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = ColorMacro.ColorText999
@@ -48,16 +49,14 @@ class EmptyView: UIView {
     }
     
     func setupUI() -> Void {
-        
         backgroundColor = UIColor.white
-        
         addSubview(iconView)
         addSubview(titleLabel)
     }
     
     func setupLayout() -> Void {
         iconView.snp.makeConstraints { (make) in
-            make.width.height.equalTo(200)
+            make.width.height.equalTo(300)
             make.centerX.equalTo(self.snp.centerX).offset(0)
             make.centerY.equalTo(self.snp.centerY).offset(0)
         }
@@ -65,6 +64,19 @@ class EmptyView: UIView {
             make.left.right.equalTo(0)
             make.height.equalTo(30)
             make.top.equalTo(iconView.snp.bottom).offset(10)
+        }
+    }
+    
+    func updateLayout() -> Void {
+        iconView.snp.remakeConstraints { (make) in
+            make.width.height.equalTo(200)
+            make.centerX.equalTo(self.snp.centerX).offset(0)
+            make.centerY.equalTo(self.snp.centerY).offset(0)
+        }
+        titleLabel.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.height.equalTo(30)
+            make.top.equalTo(iconView.snp.bottom).offset(0)
         }
     }
     
@@ -84,10 +96,14 @@ class EmptyView: UIView {
         } else {
             /// 自定义尺寸
         }
+        
+        /// 更新约束
+        updateLayout()
     }
     
     /// Subclassing
     func settingPlaceholdImage() -> UIImage {
+//        return UIImage.init(named: "app_network_error")!
         return UIImage.init(named: "app_empty")!
     }
     

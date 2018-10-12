@@ -41,8 +41,8 @@ class ShareView: UIView {
         cancelBtn = UIButton.init()
         cancelBtn!.setTitle("取消", for: .normal)
         cancelBtn!.addTarget(self, action: #selector(hide), for: .touchUpInside)
-        cancelBtn?.setTitleColor(UIColor.red, for: .normal)
-        cancelBtn?.layer.borderColor = UIColor.lightGray.cgColor
+        cancelBtn?.setTitleColor(UIColor.orange, for: .normal)
+        cancelBtn?.layer.borderColor = UIColor.init(white: 0.5, alpha: 0.5).cgColor
         cancelBtn?.layer.borderWidth = 1.0
         cancelBtn?.layer.cornerRadius = 5.0
         contentView.addSubview(cancelBtn!)
@@ -72,6 +72,8 @@ class ShareView: UIView {
             let label = UILabel.init()
             label.text = title
             label.textAlignment = .center
+            label.textColor = ColorMacro.ColorText666
+            label.font = FontMacro.font14
             label.frame = CGRect.init(x: paddingX, y: 60, width: itemWidth, height: 20)
             contentView.addSubview(label)
             

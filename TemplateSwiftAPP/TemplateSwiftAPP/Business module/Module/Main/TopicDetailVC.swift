@@ -26,8 +26,8 @@ class TopicDetailVC: BaseVC {
     }()
     
     lazy var shareView: ShareView = {
-        let titles = ["QQ","微信","新浪微博"]
-        let icons = [UIImage.init(named: "app_qq")!,UIImage.init(named: "app_weixin")!,UIImage.init(named: "app_weibo")!]
+        let titles = ["QQ","微信","朋友圈","QQ空间"]
+        let icons = [UIImage.init(named: "app_qq")!,UIImage.init(named: "app_weixin")!,UIImage.init(named: "app_chatTime")!,UIImage.init(named: "app_qqSpace")!]
         let view = ShareView.init(titles: titles, images:icons)
         view.clickItemBlock = {
             (index: Int) -> Void in
@@ -83,8 +83,7 @@ class TopicDetailVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.rightIcon(icon: UIImage.init(named: "app_share")!)
-        self.rightTitle(title: "分享")
+        self.rightIcon(icon: UIImage.init(named: "app_share")!)
         
         self.view.addSubview(md)
         self.view.addSubview(bottomView)
@@ -219,7 +218,6 @@ class TopicDetailVC: BaseVC {
         /// 自定义分享界面
         self.shareView.show()
     }
-    
     
     func umengShare(index: Int) -> Void {
         var type = UMSocialPlatformType.QQ

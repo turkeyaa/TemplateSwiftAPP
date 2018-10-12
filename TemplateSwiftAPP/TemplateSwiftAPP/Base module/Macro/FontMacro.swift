@@ -23,14 +23,14 @@ class FontMacro {
     static let font10 = UIFont.systemFont(ofSize: 10)
     
     /// 粗体
-    static let fontBold17 = UIFont.boldSystemFont(ofSize: 17)
-    static let fontBold16 = UIFont.boldSystemFont(ofSize: 16)
-    static let fontBold15 = UIFont.boldSystemFont(ofSize: 15)
-    static let fontBold14 = UIFont.boldSystemFont(ofSize: 14)
-    static let fontBold13 = UIFont.boldSystemFont(ofSize: 13)
-    static let fontBold12 = UIFont.boldSystemFont(ofSize: 12)
-    static let fontBold11 = UIFont.boldSystemFont(ofSize: 11)
-    static let fontBold10 = UIFont.boldSystemFont(ofSize: 10)
+    static let boldFont17 = UIFont.boldSystemFont(ofSize: 17)
+    static let boldFont16 = UIFont.boldSystemFont(ofSize: 16)
+    static let boldFont15 = UIFont.boldSystemFont(ofSize: 15)
+    static let boldFont14 = UIFont.boldSystemFont(ofSize: 14)
+    static let boldFont13 = UIFont.boldSystemFont(ofSize: 13)
+    static let boldFont12 = UIFont.boldSystemFont(ofSize: 12)
+    static let boldFont11 = UIFont.boldSystemFont(ofSize: 11)
+    static let boldFont10 = UIFont.boldSystemFont(ofSize: 10)
     
     /// 不常用
     
