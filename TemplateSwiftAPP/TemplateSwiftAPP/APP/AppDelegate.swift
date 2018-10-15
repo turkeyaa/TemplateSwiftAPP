@@ -18,10 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // 1. UI
-        tabBar = TabBarVC()
-        window?.backgroundColor = UIColor.white
-        window?.rootViewController = tabBar
+        // 0. UI - storyboard实现
+        
+        // 1. UI - 代码实现
+//        tabBar = TabBarVC()
+//        window?.backgroundColor = UIColor.white
+//        window?.rootViewController = tabBar
         
         // 1.1 导航栏字体和颜色
         UINavigationBar.appearance().tintColor = .white
