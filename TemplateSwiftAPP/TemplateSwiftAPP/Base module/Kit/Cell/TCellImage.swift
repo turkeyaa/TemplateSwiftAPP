@@ -39,18 +39,20 @@ class TCellImage: BaseTCell {
     }
     
     /// 懒加载 - 私有成员变量
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = titleColor
         return view
     }()
-    lazy var valueLabel: UILabel = {
+    
+    private lazy var valueLabel: UILabel = {
         let view = UILabel()
         view.textColor = valueColor
         view.font = UIFont.systemFont(ofSize: 15)
         return view
     }()
-    lazy var iconView: UIImageView = {
+    
+    private lazy var iconView: UIImageView = {
         let view = UIImageView()
         return view
     }()

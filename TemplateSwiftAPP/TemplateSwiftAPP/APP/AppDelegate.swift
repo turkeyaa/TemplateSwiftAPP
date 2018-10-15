@@ -21,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 0. UI - storyboard实现
         
         // 1. UI - 代码实现
-//        tabBar = TabBarVC()
-//        window?.backgroundColor = UIColor.white
-//        window?.rootViewController = tabBar
+        tabBar = TabBarVC()
+        window?.backgroundColor = UIColor.white
+        window?.rootViewController = tabBar
         
         // 1.1 导航栏字体和颜色
         UINavigationBar.appearance().tintColor = .white

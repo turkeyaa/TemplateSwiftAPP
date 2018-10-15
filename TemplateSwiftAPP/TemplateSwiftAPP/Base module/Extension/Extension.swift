@@ -37,6 +37,31 @@ extension UIImage {
     }
 }
 
+extension UIView {
+    //MARK:- 绘制虚线
+    func drawDashLine(strokeColor: UIColor, lineWidth: CGFloat = 1, lineLength: Int = 4, lineSpacing: Int = 2, isBottom: Bool = true) {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.bounds = self.bounds
+        shapeLayer.anchorPoint = CGPoint(x: 0, y: 0)
+        shapeLayer.fillColor = UIColor.blue.cgColor
+        shapeLayer.strokeColor = strokeColor.cgColor
+        
+        shapeLayer.lineWidth = lineWidth
+        shapeLayer.lineJoin = kCALineJoinRound
+        
+        //每一段虚线长度 和 每两段虚线之间的间隔
+        shapeLayer.lineDashPattern = [NSNumber(value: lineLength), NSNumber(value: lineSpacing)]
+        
+        let path = CGMutablePath()
+        let y = isBottom == true ? self.layer.bounds.height - lineWidth : 0
+        path.move(to: CGPoint(x: 0, y: y))
+        path.addLine(to: CGPoint(x: self.layer.bounds.width, y: y))
+        shapeLayer.path = path
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+}
+
 /// MARK: - Data扩展
 extension Data {
     mutating func append(_ string: String) {

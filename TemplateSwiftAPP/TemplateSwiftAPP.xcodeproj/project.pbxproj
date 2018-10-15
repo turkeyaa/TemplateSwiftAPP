@@ -30,6 +30,7 @@
 		60756B90213B5686001628B1 /* TCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60756B8F213B5686001628B1 /* TCellButton.swift */; };
 		60756B92213B5854001628B1 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60756B91213B5854001628B1 /* UserInfoVC.swift */; };
 		608AEC012136E244004F7809 /* TopicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608AEC002136E244004F7809 /* TopicDetailVC.swift */; };
+		609A11E92174358400F70536 /* ThirdLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A11E82174358400F70536 /* ThirdLoginView.swift */; };
 		609BA71B213B9F1D00593268 /* UserCollectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA71A213B9F1D00593268 /* UserCollectVC.swift */; };
 		609BA71D213BA07300593268 /* UserTopic_Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA71C213BA07300593268 /* UserTopic_Get.swift */; };
 		609BA720213BA2B600593268 /* TopicBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609BA71F213BA2B600593268 /* TopicBottomView.swift */; };
@@ -163,6 +164,7 @@
 		60756B8F213B5686001628B1 /* TCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCellButton.swift; sourceTree = "<group>"; };
 		60756B91213B5854001628B1 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		608AEC002136E244004F7809 /* TopicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailVC.swift; sourceTree = "<group>"; };
+		609A11E82174358400F70536 /* ThirdLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdLoginView.swift; sourceTree = "<group>"; };
 		609BA71A213B9F1D00593268 /* UserCollectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectVC.swift; sourceTree = "<group>"; };
 		609BA71C213BA07300593268 /* UserTopic_Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTopic_Get.swift; sourceTree = "<group>"; };
 		609BA71F213BA2B600593268 /* TopicBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicBottomView.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				C6D9434D20624D58007974A9 /* ShareView.swift */,
+				609A11E82174358400F70536 /* ThirdLoginView.swift */,
 				C691AC43206B311A004F5FA6 /* NavView.swift */,
 				C6D9434620624CA0007974A9 /* EmptyView.swift */,
 				60A5E4E22153C4DE00037117 /* TitleIndexView.swift */,
@@ -1056,6 +1059,7 @@
 				609BA720213BA2B600593268 /* TopicBottomView.swift in Sources */,
 				6021698D2145011D005E6281 /* GCDUtil.swift in Sources */,
 				C6D9434920624CCD007974A9 /* Extension.swift in Sources */,
+				609A11E92174358400F70536 /* ThirdLoginView.swift in Sources */,
 				609BA72A213BC06E00593268 /* TopicNewVC.swift in Sources */,
 				606ED47221509BB00087C3CF /* RegularUtil.swift in Sources */,
 				C6D9432E2062463C007974A9 /* TabBarVC.swift in Sources */,

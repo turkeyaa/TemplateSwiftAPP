@@ -43,6 +43,19 @@ class LoginVC: BaseFormTC {
         return cell
     }()
     
+    lazy var thirdLoginView: ThirdLoginView = {
+        let titles = ["QQ","微信"]
+        let icons = [UIImage.init(named: "app_qq")!,UIImage.init(named: "app_weixin")!]
+        
+        let view = ThirdLoginView.init(frame: CGRect.init(x: 0, y: self.view.frame.size.height-200, width: Device_width, height: 150), titles: titles, images: icons)
+        view.clickItemBlock = {
+            (index: Int) -> Void in
+            UIHelper.show(title: "登录到\(titles[index])")
+            self.umengLogin(index: index)
+        }
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +68,8 @@ class LoginVC: BaseFormTC {
         
         tableView.tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: Device_width, height: 60))
         cells = [accountCell,passwordCell,loginBtn2]
+        
+        tableView.addSubview(thirdLoginView)
     }
     
     override func goNext() {
@@ -62,6 +77,12 @@ class LoginVC: BaseFormTC {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    /// 友盟登录
+    func umengLogin(index: Int) -> Void {
+        
+    }
+    
+    /// UITableView 代理和数据源方法
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cells[indexPath.row].height()
     }

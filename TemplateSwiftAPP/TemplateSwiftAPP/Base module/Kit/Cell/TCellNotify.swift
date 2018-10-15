@@ -28,12 +28,13 @@ class TCellNotify: BaseTCell {
     }
     
     /// 懒加载 - 私有成员变量
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = titleColor
         return view
     }()
-    lazy var switchView: UISwitch = {
+    
+    private lazy var switchView: UISwitch = {
         let view = UISwitch.init()
         return view
     }()

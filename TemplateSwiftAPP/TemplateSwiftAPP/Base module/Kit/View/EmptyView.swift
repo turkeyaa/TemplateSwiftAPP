@@ -19,14 +19,14 @@ enum EmptyViewType {
 
 class EmptyView: UIView {
     
-    lazy var iconView: UIImageView = {
+    private lazy var iconView: UIImageView = {
         let view = UIImageView()
         view.image = settingPlaceholdImage()
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = ColorMacro.ColorText999
         view.font = FontMacro.font14

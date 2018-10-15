@@ -11,16 +11,17 @@ import UIKit
 
 class ShareView: UIView {
     
-    var items: Int = 4
-    var contentHeight: CGFloat = 150.0
-    var shareWidth: CGFloat = 50.0
+    private var items: Int = 4
+    private var contentHeight: CGFloat = 150.0
+    private var shareWidth: CGFloat = 50.0
     
-    var contentView: UIView
+    private var contentView: UIView
+    private var cancelBtn: UIButton?
+    
+    private var _titles: [String]
+    private var _images: [UIImage]
+    
     var clickItemBlock: BlockItem?
-    var cancelBtn: UIButton?
-    
-    var _titles: [String]
-    var _images: [UIImage]
     
     /// 初始化方法
     init(titles: [String], images: [UIImage]) {

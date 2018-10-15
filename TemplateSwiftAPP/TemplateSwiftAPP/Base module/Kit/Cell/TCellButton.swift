@@ -30,14 +30,13 @@ class TCellButton: BaseTCell {
     }
     
     /// 懒加载 - 私有成员变量
-    lazy var titleButton: UIButton = {
+    private lazy var titleButton: UIButton = {
         let view = UIButton.init(type: .custom)
         view.backgroundColor = UIColor.lightGray
         return view
     }()
     
     override func setupSubViews() {
-        
         addSubview(titleButton)
         setupLayouts()
     }

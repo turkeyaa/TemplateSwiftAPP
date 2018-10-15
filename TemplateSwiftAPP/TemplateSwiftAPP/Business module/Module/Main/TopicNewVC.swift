@@ -13,7 +13,8 @@ class TopicNewVC: BaseFormTC {
     
     lazy var textViewCell: TCellTextView = {
         let view = TCellTextView.tcell(tableView: self.tableView, reuse: true) as! TCellTextView
-        view.textView.becomeFirstResponder()
+        view.placeholder = "请输入主题内容..."
+        view.beginInput()
         return view
     }()
     lazy var categoryCell: TCellLabel = {

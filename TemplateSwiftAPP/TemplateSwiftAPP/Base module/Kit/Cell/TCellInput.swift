@@ -38,16 +38,18 @@ class TCellInput: BaseTCell,UITextFieldDelegate {
     }
     
     /// 懒加载 - 私有成员变量
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textColor = titleColor
         return view
     }()
-    lazy var iconView: UIImageView = {
+    
+    private lazy var iconView: UIImageView = {
         let view = UIImageView()
         return view
     }()
-    lazy var textField: UITextField = {
+    
+    private lazy var textField: UITextField = {
         let view = UITextField.init()
         view.font = .systemFont(ofSize: 15)
         view.delegate = self

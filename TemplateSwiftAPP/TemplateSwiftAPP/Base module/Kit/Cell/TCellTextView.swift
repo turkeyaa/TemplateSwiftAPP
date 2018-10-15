@@ -16,18 +16,32 @@ class TCellTextView: BaseTCell,UITextViewDelegate {
             textView.text = title
         }
     }
+    var placeholder: String = "请输入内容" {
+        didSet {
+            placeholderLabel.text = placeholder
+        }
+    }
     
     /// 懒加载 - 私有成员变量
-    lazy var textView: UITextView = {
+    private lazy var textView: UITextView = {
         let view = UITextView.init()
         view.font = UIFont.systemFont(ofSize: 16)
         view.delegate = self
         return view
     }()
     
+    private lazy var placeholderLabel: UILabel = {
+        let label = UILabel.init()
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = UIColor.lightGray
+        label.text = placeholder
+        return label
+    }()
+    
     override func setupSubViews() {
         
         addSubview(textView)
+        addSubview(placeholderLabel)
         setupLayouts()
     }
     
@@ -36,6 +50,11 @@ class TCellTextView: BaseTCell,UITextViewDelegate {
         textView.snp.makeConstraints { (make) in
             make.left.top.equalTo(10)
             make.right.bottom.equalTo(-10)
+        }
+        
+        placeholderLabel.snp.makeConstraints { (make) in
+            make.left.top.equalTo(18)
+            make.height.equalTo(20)
         }
     }
     
@@ -49,5 +68,19 @@ class TCellTextView: BaseTCell,UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         title = textView.text
+        
+        if (title.count == 0) {
+            placeholderLabel.alpha = 1.0
+        } else {
+            placeholderLabel.alpha = 0.0
+        }
+    }
+    
+    func beginInput() -> Void {
+        textView.becomeFirstResponder()
+    }
+    
+    func endInput() -> Void {
+        textView.resignFirstResponder()
     }
 }
