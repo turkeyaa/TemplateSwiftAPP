@@ -13,18 +13,17 @@ class CategoryDetailVC: BaseLoadTC {
     
     var categoryId: Int = 1
     
-    init(categoryId: Int) {
-        self.categoryId = categoryId
-        super.init()
-        
-        self.isHideNav = true
-    }
+//    init(categoryId: Int) {
+//        self.categoryId = categoryId
+//        super.init()
+//        self.isHideNav = true
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     var parentNav: UINavigationController?
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func tableViewFrame() -> CGRect {
         return CGRect.init(x: 0, y: 0, width: Device_width, height: self.view.frame.size.height-Device_tab-Device_status)

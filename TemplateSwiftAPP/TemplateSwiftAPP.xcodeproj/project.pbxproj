@@ -140,7 +140,7 @@
 /* Begin PBXFileReference section */
 		6005BCA7213B6B490034417B /* redame */ = {isa = PBXFileReference; lastKnownFileType = text; path = redame; sourceTree = "<group>"; };
 		6005BCA9213B6B7E0034417B /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
-		601FB822215CC70100148614 /* Swiftcn-Brigding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swiftcn-Brigding-Header.h"; sourceTree = "<group>"; };
+		6013730C2174274300D5E13D /* Swiftcn-Brigding-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swiftcn-Brigding-Header.h"; sourceTree = "<group>"; };
 		6021698C2145011D005E6281 /* GCDUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDUtil.swift; sourceTree = "<group>"; };
 		6022B4102136C0BE005D7A30 /* MineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineVC.swift; sourceTree = "<group>"; };
 		603821982147B3E50054645D /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
@@ -534,7 +534,7 @@
 			children = (
 				C655F6692058BB6E00F65568 /* AppDelegate.swift */,
 				C6D9432D2062463C007974A9 /* TabBarVC.swift */,
-				601FB822215CC70100148614 /* Swiftcn-Brigding-Header.h */,
+				6013730C2174274300D5E13D /* Swiftcn-Brigding-Header.h */,
 				C655F6642058BB6E00F65568 /* Assets.xcassets */,
 				C655F6652058BB6E00F65568 /* LaunchScreen.storyboard */,
 				C655F6672058BB6E00F65568 /* Main.storyboard */,
@@ -1274,7 +1274,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DS.TemplateSwiftAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wenhua/Desktop/service/open source/templateSwiftAPP/TemplateSwiftAPP/TemplateSwiftAPP/APP/Swiftcn-Brigding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wenhua/Desktop/service/open source/templateStoryboardSwiftAPP/TemplateSwiftAPP/TemplateSwiftAPP/APP/Swiftcn-Brigding-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1292,7 +1292,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DS.TemplateSwiftAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wenhua/Desktop/service/open source/templateSwiftAPP/TemplateSwiftAPP/TemplateSwiftAPP/APP/Swiftcn-Brigding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/wenhua/Desktop/service/open source/templateStoryboardSwiftAPP/TemplateSwiftAPP/TemplateSwiftAPP/APP/Swiftcn-Brigding-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

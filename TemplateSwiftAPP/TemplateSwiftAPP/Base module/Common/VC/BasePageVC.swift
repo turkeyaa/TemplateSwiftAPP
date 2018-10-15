@@ -11,9 +11,6 @@ import UIKit
 import DNSPageView
 
 class BasePageVC: BaseVC {
-    
-//    private var titles = [String]()
-//    private var controllers = [UIViewController]()
  
     override func viewDidLoad() {
         super.viewDidLoad()

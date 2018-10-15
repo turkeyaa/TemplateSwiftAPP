@@ -23,7 +23,9 @@ class CategoryManageVC: BasePageVC {
         
         var controllers = [UIViewController]()
         for index in 0..<configTitles().count {
-            let vc = CategoryDetailVC.init(categoryId: index+1)
+//            let vc = CategoryDetailVC.init(categoryId: index+1)
+            let vc = CategoryDetailVC()
+            vc.categoryId = index+1
             vc.parentNav = self.navigationController!
             controllers.append(vc)
         }
