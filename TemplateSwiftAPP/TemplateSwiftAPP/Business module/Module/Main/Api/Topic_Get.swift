@@ -30,6 +30,6 @@ class Topic_Get: BaseRestApi {
         return "topicList"
     }
     override func mockType() -> MockType {
-        return .MockNone
+        return .MockFile
     }
 }

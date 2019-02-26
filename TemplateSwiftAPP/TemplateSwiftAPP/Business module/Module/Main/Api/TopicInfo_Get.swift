@@ -26,4 +26,11 @@ class TopicInfo_Get: BaseRestApi {
         
         return false
     }
+    
+    override func mockFile() -> String {
+        return "topicInfo"
+    }
+    override func mockType() -> MockType {
+        return .MockFile
+    }
 }

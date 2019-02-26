@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-import MarkdownView
+//import MarkdownView
 
 class TopicDetailVC: BaseVC {
     
     var topicID: String = ""
+    var content: String = ""
     
     private var topic: Topic = Topic()
     lazy var bottomView: TopicBottomView = {
@@ -56,11 +57,22 @@ class TopicDetailVC: BaseVC {
     }()
     
     lazy var md: MarkdownView = {
-        let view = MarkdownView()
+        let view = MarkdownView(frame: CGRect.init(x: 0, y: Device_nav+Device_status, width: Device_width, height: Device_height-Device_status-Device_nav-50));
         view.isScrollEnabled = true
+        
+        view.load(markdown: content)
+        
+//        let path = Bundle.main.path(forResource: "sample", ofType: "md")!
+//        let url = URL(fileURLWithPath: path)
+//        let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
+//        view.load(markdown: markdown, enableImage: true)
+        
+        view.layer.borderColor = UIColor.red.cgColor
+        view.layer.borderWidth = 1.0
+        //        view.load(markdown: "# Hello World!")
         // called when rendering finished
         view.onRendered = { [weak self] height in
-//            self?.showSuccessMessage(hud: "加载完成")
+            self?.showSuccessMessage(hud: "加载完成")
             self?.view.setNeedsLayout()
         }
         // called when user touch link
@@ -89,10 +101,10 @@ class TopicDetailVC: BaseVC {
         self.view.addSubview(bottomView)
         
         /// 约束
-        md.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(0)
-            make.bottom.equalTo(-50)
-        }
+        //        md.snp.makeConstraints { (make) in
+        //            make.top.left.right.equalTo(0)
+        //            make.bottom.equalTo(-50)
+        //        }
         bottomView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(0)
             make.height.equalTo(50)
@@ -119,7 +131,7 @@ class TopicDetailVC: BaseVC {
                 if api.code == .status_ok {
                     self.topic = api.topic
                     self.title = api.topic.title
-                    self.md.load(markdown: self.topic.content)
+//                    self.md.load(markdown: self.topic.content)
                     self.bottomView.updateUI(topic: self.topic)
                 } else {
                     
@@ -239,3 +251,4 @@ class TopicDetailVC: BaseVC {
         }
     }
 }
+

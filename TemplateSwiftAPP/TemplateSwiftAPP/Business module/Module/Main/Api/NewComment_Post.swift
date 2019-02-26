@@ -35,4 +35,11 @@ class NewComment_Post: BaseRestApi {
             "content": content
         ]
     }
+    
+    override func mockFile() -> String {
+        return "newComment"
+    }
+    override func mockType() -> MockType {
+        return .MockFile
+    }
 }

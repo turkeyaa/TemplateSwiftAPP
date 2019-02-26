@@ -24,4 +24,11 @@ class CategoryTopic_Get: BaseRestApi {
         
         return false
     }
+    
+    override func mockFile() -> String {
+        return "categoryTopicList"
+    }
+    override func mockType() -> MockType {
+        return .MockFile
+    }
 }

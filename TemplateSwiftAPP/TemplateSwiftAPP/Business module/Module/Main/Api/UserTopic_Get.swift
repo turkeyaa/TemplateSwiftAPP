@@ -28,4 +28,11 @@ class UserTopic_Get: BaseRestApi {
         
         return false
     }
+    
+    override func mockFile() -> String {
+        return "userTopicList"
+    }
+    override func mockType() -> MockType {
+        return .MockFile
+    }
 }

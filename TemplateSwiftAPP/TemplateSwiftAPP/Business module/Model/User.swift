@@ -42,7 +42,6 @@ class User: JSONModel,Codable {
         case sign
         case nickName
         case createTime
-        case authorImage
     }
 }
 

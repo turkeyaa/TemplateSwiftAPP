@@ -96,7 +96,7 @@ class TopicCell: BaseTCell {
         timeLabel.text = "发布于:" + DateUtil.timeStampToString(timeStamp: topic.createTime)
         contentLabel.text = topic.content
         let url = URL.init(string: URLHelper.sharedInstance.restImageURL() + topic.authorImage)
-        iconView.kf.setImage(with: url, placeholder: UIImage.init(named: "app_placeholder"), options: nil, progressBlock: { (receivedSize, totalSize) in
+        iconView.kf.setImage(with: url, placeholder: UIImage.init(named: "app_author"), options: nil, progressBlock: { (receivedSize, totalSize) in
             let progress = Float(receivedSize) / Float(totalSize)
             SVProgressHUD.showProgress(progress)
             SVProgressHUD.setBackgroundColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5))

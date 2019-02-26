@@ -32,4 +32,11 @@ class NewCollect_Post: BaseRestApi {
             "topicID": topicID
         ]
     }
+    
+    override func mockFile() -> String {
+        return "newCollect"
+    }
+    override func mockType() -> MockType {
+        return .MockFile
+    }
 }

@@ -32,4 +32,11 @@ class NewLike_Post: BaseRestApi {
             "topicID": topicID
         ]
     }
+    
+    override func mockFile() -> String {
+        return "newLike"
+    }
+    override func mockType() -> MockType {
+        return .MockFile
+    }
 }

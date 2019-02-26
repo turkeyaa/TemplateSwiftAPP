@@ -47,6 +47,6 @@ class Login_Post: BaseRestApi {
     }
     
     override func mockType() -> MockType {
-        return .MockNone
+        return .MockFile
     }
 }

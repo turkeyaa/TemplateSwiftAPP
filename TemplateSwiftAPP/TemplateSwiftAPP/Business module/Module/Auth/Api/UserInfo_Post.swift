@@ -39,6 +39,6 @@ class UserInfo_Post: BaseRestApi {
         return "userInfo"
     }
     override func mockType() -> MockType {
-        return .MockNone
+        return .MockFile
     }
 }

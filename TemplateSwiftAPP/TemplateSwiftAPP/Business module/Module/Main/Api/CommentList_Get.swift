@@ -25,4 +25,11 @@ class CommentList_Get: BaseRestApi {
         
         return false
     }
+    
+    override func mockFile() -> String {
+        return "commentList"
+    }
+    override func mockType() -> MockType {
+        return .MockFile
+    }
 }
