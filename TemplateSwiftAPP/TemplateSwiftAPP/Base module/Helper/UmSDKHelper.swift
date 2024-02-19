@@ -12,6 +12,7 @@ import UIKit
 /// 友盟SDK相关
 class UmSDKHelper: NSObject {
     
+    /*
     var clickItemBlock: BlockItem?
     
     static let sharedInstance = UmSDKHelper()
@@ -87,5 +88,6 @@ class UmSDKHelper: NSObject {
             }
         })
     }
+    */
     
 }

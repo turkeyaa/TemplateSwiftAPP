@@ -22,6 +22,8 @@ class BaseUploadApi: BaseRestApi {
     
     override func call(async: Bool) {
 
+        //?
+        /*
         Alamofire.upload(multipartFormData: { (multipartFormData) in
 
             /** 构造数据类型 */
@@ -63,6 +65,7 @@ class BaseUploadApi: BaseRestApi {
                     super.onError(error: encodingError)
             }
         })
+        */
     }
     
 //    override func call(async: Bool) {

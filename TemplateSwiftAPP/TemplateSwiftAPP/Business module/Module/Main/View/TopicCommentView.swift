@@ -64,7 +64,7 @@ class TopicCommentView: UIView,UITextViewDelegate {
         contentView.addSubview(lineView)
         contentView.addSubview(textView)
         
-        setupLayout()
+//        setupLayout()
         
         show()
     }
@@ -73,33 +73,33 @@ class TopicCommentView: UIView,UITextViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupLayout() -> Void {
-        contentView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.contentPaddingY)
-            make.left.right.bottom.equalTo(0)
-        }
-        closeBtn.snp.makeConstraints { (make) in
-            make.width.equalTo(50)
-            make.height.equalTo(30)
-            make.left.top.equalTo(10)
-        }
-        saveBtn.snp.makeConstraints { (make) in
-            make.width.equalTo(50)
-            make.height.equalTo(30)
-            make.top.equalTo(10)
-            make.right.equalTo(-10)
-        }
-        lineView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(0)
-            make.top.equalTo(39.5)
-            make.height.equalTo(0.5)
-        }
-        textView.snp.makeConstraints { (make) in
-            make.top.equalTo(40)
-            make.left.right.equalTo(0)
-            make.bottom.equalTo(0)      /// todo - 减去键盘高度
-        }
-    }
+//    func setupLayout() -> Void {
+//        contentView.snp.makeConstraints { (make) in
+//            make.top.equalTo(self.contentPaddingY)
+//            make.left.right.bottom.equalTo(0)
+//        }
+//        closeBtn.snp.makeConstraints { (make) in
+//            make.width.equalTo(50)
+//            make.height.equalTo(30)
+//            make.left.top.equalTo(10)
+//        }
+//        saveBtn.snp.makeConstraints { (make) in
+//            make.width.equalTo(50)
+//            make.height.equalTo(30)
+//            make.top.equalTo(10)
+//            make.right.equalTo(-10)
+//        }
+//        lineView.snp.makeConstraints { (make) in
+//            make.left.right.equalTo(0)
+//            make.top.equalTo(39.5)
+//            make.height.equalTo(0.5)
+//        }
+//        textView.snp.makeConstraints { (make) in
+//            make.top.equalTo(40)
+//            make.left.right.equalTo(0)
+//            make.bottom.equalTo(0)      /// todo - 减去键盘高度
+//        }
+//    }
     
     @objc func closeEvent() -> Void {
         self.hide()

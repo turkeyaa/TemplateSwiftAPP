@@ -1,52 +1,24 @@
-platform :ios, '9.0'
+platform :ios, '14.0'
 use_frameworks!
 
 target 'TemplateSwiftAPP' do
     
     
-    pod 'Alamofire'          # 网络请求 https://github.com/Alamofire/Alamofire，同 AFNetworking
-    pod 'SnapKit'            # 布局框架 https://github.com/SnapKit/SnapKit，同 Masonry
+    pod 'Alamofire', '5.8.1'         # 网络请求 https://github.com/Alamofire/Alamofire
+    pod 'SnapKit', '5.7.1'           # 布局框架 https://github.com/SnapKit/SnapKit
     
-    pod 'Kingfisher'         # 缓存图片 https://github.com/onevcat/Kingfisher，同 SDWebImage
-    #    pod 'RxSwift'            # 响应式编程框架 https://github.com/ReactiveX/RxSwift
-    pod 'SVProgressHUD'      # 提示功能 https://github.com/SVProgressHUD/SVProgressHUD
-    pod 'MJRefresh'          # 上拉和下拉刷新框架 https://github.com/CoderMJLee/MJRefresh
-    
-    #    pod 'SQLite.swift'       # SQLite https://github.com/stephencelis/SQLite.swift.git
+    pod 'Kingfisher'              # 缓存图片 https://github.com/onevcat/Kingfisher
     pod 'IQKeyboardManagerSwift'  # 键盘交互 https://github.com/hackiftekhar/IQKeyboardManager
     
-    #    pod 'MarkdownView'       # Markdown 渲染 https://github.com/keitaoouchi/MarkdownView.git
-    
-    pod 'TAssetPicker'       # 资源选择 https://github.com/turkeyaa/TAssetPicker
-    
-    pod 'DNSPageView'        # 多视图切换 https://github.com/Danie1s/DNSPageView.git
-    
-    # 友盟分享
-    # U-Share SDK UI模块（分享面板，建议添加）
-    pod 'UMengUShare/UI'
-    
-    # 友盟统计、推送SDK
-    pod 'UMCCommon'
-    pod 'UMCSecurityPlugins'
-    pod 'UMCAnalytics'
-    pod 'UMCPush'
-    pod 'UMCErrorCatch'
-    
-    # 集成微信(完整版14.4M)
-    pod 'UMengUShare/Social/WeChat'
-    
-    # 集成QQ(完整版7.6M)
-    pod 'UMengUShare/Social/QQ'
-    
-    # 集成新浪微博(完整版25.3M)
-    pod 'UMengUShare/Social/Sina'
-    
-    # 集成微信(精简版0.2M)
-    #    pod 'UMengUShare/Social/ReducedWeChat'
-    # 集成QQ(精简版0.5M)
-    #    pod 'UMengUShare/Social/ReducedQQ'
-    # 集成新浪微博(精简版1.0M)
-    #    pod 'UMengUShare/Social/ReducedSina'
+   # pod 'RxSwift'            # 响应式编程框架 https://github.com/ReactiveX/RxSwift
+    pod 'SQLite.swift'       # SQLite https://github.com/stephencelis/SQLite.swift.git
+    pod 'MarkdownView'       # Markdown 渲染 https://github.com/keitaoouchi/MarkdownView.git
+   
+   # pod 'DNSPageView'        # 多视图切换 https://github.com/Danie1s/DNSPageView.git
+   
+   pod 'SVProgressHUD'      # 提示功能 https://github.com/SVProgressHUD/SVProgressHUD
+   pod 'MJRefresh'          # 上拉和下拉刷新框架 https://github.com/CoderMJLee/MJRefresh
+   
     
     
     

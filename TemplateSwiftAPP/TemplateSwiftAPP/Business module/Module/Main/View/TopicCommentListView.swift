@@ -52,7 +52,7 @@ class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
         contentView.addSubview(lineView)
         contentView.addSubview(tableView)
         
-        setupLayout()
+//        setupLayout()
         
         show()
     }
@@ -61,26 +61,26 @@ class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupLayout() -> Void {
-        contentView.snp.makeConstraints { (make) in
-            make.top.equalTo(150)
-            make.left.right.bottom.equalTo(0)
-        }
-        closeBtn.snp.makeConstraints { (make) in
-            make.width.equalTo(50)
-            make.height.equalTo(30)
-            make.left.top.equalTo(10)
-        }
-        lineView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(0)
-            make.top.equalTo(39.5)
-            make.height.equalTo(0.5)
-        }
-        tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(40)
-            make.left.right.bottom.equalTo(0)
-        }
-    }
+//    func setupLayout() -> Void {
+//        contentView.snp.makeConstraints { (make) in
+//            make.top.equalTo(150)
+//            make.left.right.bottom.equalTo(0)
+//        }
+//        closeBtn.snp.makeConstraints { (make) in
+//            make.width.equalTo(50)
+//            make.height.equalTo(30)
+//            make.left.top.equalTo(10)
+//        }
+//        lineView.snp.makeConstraints { (make) in
+//            make.left.right.equalTo(0)
+//            make.top.equalTo(39.5)
+//            make.height.equalTo(0.5)
+//        }
+//        tableView.snp.makeConstraints { (make) in
+//            make.top.equalTo(40)
+//            make.left.right.bottom.equalTo(0)
+//        }
+//    }
     
     @objc func closeEvent() -> Void {
         self.hide()

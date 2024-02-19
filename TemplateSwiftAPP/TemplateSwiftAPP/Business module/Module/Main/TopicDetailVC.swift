@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-//import MarkdownView
+import MarkdownView
 
 class TopicDetailVC: BaseVC {
     
@@ -62,10 +62,10 @@ class TopicDetailVC: BaseVC {
         
         view.load(markdown: content)
         
-//        let path = Bundle.main.path(forResource: "sample", ofType: "md")!
-//        let url = URL(fileURLWithPath: path)
-//        let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
-//        view.load(markdown: markdown, enableImage: true)
+        let path = Bundle.main.path(forResource: "sample", ofType: "md")!
+        let url = URL(fileURLWithPath: path)
+        let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
+        view.load(markdown: markdown, enableImage: true)
         
         view.layer.borderColor = UIColor.red.cgColor
         view.layer.borderWidth = 1.0
@@ -101,10 +101,10 @@ class TopicDetailVC: BaseVC {
         self.view.addSubview(bottomView)
         
         /// 约束
-        //        md.snp.makeConstraints { (make) in
-        //            make.top.left.right.equalTo(0)
-        //            make.bottom.equalTo(-50)
-        //        }
+        md.snp.makeConstraints { (make) in
+            make.top.left.right.equalTo(0)
+            make.bottom.equalTo(-50)
+        }
         bottomView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(0)
             make.height.equalTo(50)
@@ -131,7 +131,7 @@ class TopicDetailVC: BaseVC {
                 if api.code == .status_ok {
                     self.topic = api.topic
                     self.title = api.topic.title
-//                    self.md.load(markdown: self.topic.content)
+                    self.md.load(markdown: self.topic.content)
                     self.bottomView.updateUI(topic: self.topic)
                 } else {
                     
@@ -232,6 +232,9 @@ class TopicDetailVC: BaseVC {
     }
     
     func umengShare(index: Int) -> Void {
+        
+        //?
+        /*
         var type = UMSocialPlatformType.QQ
         if index == 0 {
             type = .QQ
@@ -249,6 +252,7 @@ class TopicDetailVC: BaseVC {
                 UIHelper.show(title: "分享失败")
             }
         }
+        */
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import TAssetPicker
+//import TAssetPicker
 
 
 class UserInfoVC: BaseFormGroupTC {
@@ -99,6 +99,8 @@ class UserInfoVC: BaseFormGroupTC {
     
     func enterAlbum() -> Void {
         
+        //?
+        /*
         let configu = AssetConfiguration.init()
         configu.leftTitle = "取消"
         configu.rightTitle = "完成"
@@ -125,6 +127,7 @@ class UserInfoVC: BaseFormGroupTC {
             }
         }
         present(vc, animated: true, completion: nil)
+        */
     }
     
     override func goNext() {

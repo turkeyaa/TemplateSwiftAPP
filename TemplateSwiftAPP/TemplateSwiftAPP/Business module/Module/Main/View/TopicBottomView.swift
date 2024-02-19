@@ -67,6 +67,8 @@ class TopicBottomView: UIView {
     }
     
     func setupLayout() -> Void {
+        //?
+        /*
         likeBtn.snp.makeConstraints { (make) in
             make.width.height.equalTo(30)
             make.left.equalTo(30)
@@ -89,6 +91,7 @@ class TopicBottomView: UIView {
             make.width.equalTo(150)
             make.centerY.equalTo(self.snp.centerY)
         }
+        */
     }
     
     /// 更新

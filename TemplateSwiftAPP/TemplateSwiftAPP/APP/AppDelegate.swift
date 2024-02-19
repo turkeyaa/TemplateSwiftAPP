@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var tabBar: TabBarVC?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // 0. UI - storyboard实现
@@ -29,12 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().barTintColor = ColorMacro.ColorNav
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor : UIColor.white,
-            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18)]
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)]
         
         // 2. SDK相关...
-        UmSDKHelper.configuShare()
-        UmSDKHelper.configuAnaly()
+//        UmSDKHelper.configuShare()
+//        UmSDKHelper.configuAnaly()
         
         // 3. 键盘交互
         IQKeyboardManager.shared.enable = true

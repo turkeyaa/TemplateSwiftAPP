@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import SVProgressHUD
 import Kingfisher
+//import SVProgressHUD
 
 class TopicCell: BaseTCell {
     
@@ -92,17 +92,23 @@ class TopicCell: BaseTCell {
     }
     
     func updateTopic(topic: Topic) -> Void {
+        
         titleLabel.text = topic.author
         timeLabel.text = "发布于:" + DateUtil.timeStampToString(timeStamp: topic.createTime)
         contentLabel.text = topic.content
         let url = URL.init(string: URLHelper.sharedInstance.restImageURL() + topic.authorImage)
-        iconView.kf.setImage(with: url, placeholder: UIImage.init(named: "app_author"), options: nil, progressBlock: { (receivedSize, totalSize) in
-            let progress = Float(receivedSize) / Float(totalSize)
-            SVProgressHUD.showProgress(progress)
-            SVProgressHUD.setBackgroundColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5))
-            SVProgressHUD.setForegroundColor(UIColor.white)
-        }, completionHandler: { (image, error, cacheType, url) in
-            SVProgressHUD.dismiss()
+        iconView.kf.setImage(
+            with: url,
+            placeholder: UIImage.init(named: "app_author"),
+            options: nil,
+            progressBlock: { (receivedSize, totalSize) in
+//                let progress = Float(receivedSize) / Float(totalSize)
+//                SVProgressHUD.showProgress(progress)
+//                SVProgressHUD.setBackgroundColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5))
+//                SVProgressHUD.setForegroundColor(UIColor.white)
+            },
+            completionHandler:{ result in
+//                SVProgressHUD.dismiss()
         })
     }
 }

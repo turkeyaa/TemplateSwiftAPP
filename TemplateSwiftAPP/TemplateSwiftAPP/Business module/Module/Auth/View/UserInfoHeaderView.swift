@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import SVProgressHUD
+//import SVProgressHUD
 
 class UserInfoHeaderView: BaseView {
     
@@ -49,30 +49,30 @@ class UserInfoHeaderView: BaseView {
         addSubview(titleLabel)
     }
     
-    override func setupLayout() {
-        iconView.snp.makeConstraints { (make) in
-            make.width.height.equalTo(60)
-            make.left.equalTo(20)
-            make.centerY.equalTo(self.snp.centerY).offset(0)
-        }
-        titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(iconView.snp.right).offset(10)
-            make.centerY.equalTo(self.snp.centerY).offset(0)
-            make.height.equalTo(30)
-            make.right.equalTo(-20)
-        }
-    }
+//    override func setupLayout() {
+//        iconView.snp.makeConstraints { (make) in
+//            make.width.height.equalTo(60)
+//            make.left.equalTo(20)
+//            make.centerY.equalTo(self.snp.centerY).offset(0)
+//        }
+//        titleLabel.snp.makeConstraints { (make) in
+//            make.left.equalTo(iconView.snp.right).offset(10)
+//            make.centerY.equalTo(self.snp.centerY).offset(0)
+//            make.height.equalTo(30)
+//            make.right.equalTo(-20)
+//        }
+//    }
     
     func updateUI(user: User) -> Void {
         titleLabel.text = user.author
-        let url = URL.init(string: URLHelper.sharedInstance.restImageURL() + user.authorImage)
-        iconView.kf.setImage(with: url, placeholder: UIImage.init(named: "app_placeholder"), options: nil, progressBlock: { (receivedSize, totalSize) in
-            let progress = Float(receivedSize) / Float(totalSize)
-            SVProgressHUD.showProgress(progress)
-            SVProgressHUD.setBackgroundColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5))
-            SVProgressHUD.setForegroundColor(UIColor.white)
-        }, completionHandler: { (image, error, cacheType, url) in
-            SVProgressHUD.dismiss()
-        })
+//        let url = URL.init(string: URLHelper.sharedInstance.restImageURL() + user.authorImage)
+//        iconView.kf.setImage(with: url, placeholder: UIImage.init(named: "app_placeholder"), options: nil, progressBlock: { (receivedSize, totalSize) in
+//            let progress = Float(receivedSize) / Float(totalSize)
+//            SVProgressHUD.showProgress(progress)
+//            SVProgressHUD.setBackgroundColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5))
+//            SVProgressHUD.setForegroundColor(UIColor.white)
+//        }, completionHandler: { (image, error, cacheType, url) in
+//            SVProgressHUD.dismiss()
+//        })
     }
 }

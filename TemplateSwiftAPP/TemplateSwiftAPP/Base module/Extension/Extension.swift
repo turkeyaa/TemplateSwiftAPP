@@ -47,7 +47,7 @@ extension UIView {
         shapeLayer.strokeColor = strokeColor.cgColor
         
         shapeLayer.lineWidth = lineWidth
-        shapeLayer.lineJoin = kCALineJoinRound
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
         
         //每一段虚线长度 和 每两段虚线之间的间隔
         shapeLayer.lineDashPattern = [NSNumber(value: lineLength), NSNumber(value: lineSpacing)]

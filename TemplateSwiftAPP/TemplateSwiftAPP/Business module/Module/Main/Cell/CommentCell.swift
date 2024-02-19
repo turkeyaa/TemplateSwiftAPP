@@ -48,41 +48,41 @@ class CommentCell: BaseTCell {
         self.addSubview(timeLabel)
         self.addSubview(contentLabel)
         
-        self.setupLayouts()
+//        self.setupLayouts()
     }
     
-    override func setupLayouts() {
-        
-        iconView.snp.makeConstraints({ (make) -> Void in
-            make.width.height.equalTo(20)
-            make.left.equalTo(20)
-            make.top.equalTo(5)
-        })
-        titleLabel.snp.makeConstraints({ (make) -> Void in
-            make.left.equalTo(iconView.snp.right).offset(10)
-            make.width.equalTo(80)
-            make.height.equalTo(20)
-            make.top.equalTo(5)
-        })
-        timeLabel.snp.makeConstraints({ (make) -> Void in
-            make.left.equalTo(titleLabel.snp.right).offset(10)
-            make.right.equalTo(-20)
-            make.height.equalTo(20)
-            make.top.equalTo(5)
-        })
-        lineView.snp.makeConstraints { (make) in
-            make.left.equalTo(20)
-            make.right.equalTo(-20)
-            make.top.equalTo(iconView.snp.bottom).offset(5)
-            make.height.equalTo(1)
-        }
-        contentLabel.snp.makeConstraints({ (make) -> Void in
-            make.left.equalTo(10)
-            make.right.equalTo(-10)
-            make.top.equalTo(iconView.snp.bottom).offset(5)
-            make.bottom.equalTo(5)
-        })
-    }
+//    override func setupLayouts() {
+//        
+//        iconView.snp.makeConstraints({ (make) -> Void in
+//            make.width.height.equalTo(20)
+//            make.left.equalTo(20)
+//            make.top.equalTo(5)
+//        })
+//        titleLabel.snp.makeConstraints({ (make) -> Void in
+//            make.left.equalTo(iconView.snp.right).offset(10)
+//            make.width.equalTo(80)
+//            make.height.equalTo(20)
+//            make.top.equalTo(5)
+//        })
+//        timeLabel.snp.makeConstraints({ (make) -> Void in
+//            make.left.equalTo(titleLabel.snp.right).offset(10)
+//            make.right.equalTo(-20)
+//            make.height.equalTo(20)
+//            make.top.equalTo(5)
+//        })
+//        lineView.snp.makeConstraints { (make) in
+//            make.left.equalTo(20)
+//            make.right.equalTo(-20)
+//            make.top.equalTo(iconView.snp.bottom).offset(5)
+//            make.height.equalTo(1)
+//        }
+//        contentLabel.snp.makeConstraints({ (make) -> Void in
+//            make.left.equalTo(10)
+//            make.right.equalTo(-10)
+//            make.top.equalTo(iconView.snp.bottom).offset(5)
+//            make.bottom.equalTo(5)
+//        })
+//    }
     
     func updateComment(comment: Comment) -> Void {
         iconView.image = UIImage.init(named: "app_placeholder")

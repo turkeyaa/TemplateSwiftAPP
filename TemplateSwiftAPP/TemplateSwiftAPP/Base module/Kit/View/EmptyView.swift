@@ -55,6 +55,7 @@ class EmptyView: UIView {
     }
     
     func setupLayout() -> Void {
+        
         iconView.snp.makeConstraints { (make) in
             make.width.height.equalTo(300)
             make.centerX.equalTo(self.snp.centerX).offset(0)

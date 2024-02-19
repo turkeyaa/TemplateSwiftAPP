@@ -61,8 +61,6 @@ class TopicNewVC: BaseFormTC {
             }
         }
     }
-    
-    
 }
 
 

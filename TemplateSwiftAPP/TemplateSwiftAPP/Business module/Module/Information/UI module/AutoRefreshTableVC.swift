@@ -38,7 +38,7 @@ class AutoRefreshTableVC: BaseLoadTC {
         let vc = TopicDetailVC()
         let topic = self.dataSource![indexPath.row] as! Topic
         vc.topicID = topic.topicID!.uuidString
-        self.navigationController?.pushViewController(vc, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func emptyTapGesture() {

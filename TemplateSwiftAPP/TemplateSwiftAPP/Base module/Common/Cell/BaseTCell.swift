@@ -45,7 +45,7 @@ class BaseTCell: UITableViewCell {
         return cell!
     }
     
-    required override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.commonInit()
     }
@@ -78,10 +78,10 @@ class BaseTCell: UITableViewCell {
     
     func showIndicator(flag: Bool) -> Void {
         if flag {
-            self.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            self.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         }
         else {
-            self.accessoryType = UITableViewCellAccessoryType.none
+            self.accessoryType = UITableViewCell.AccessoryType.none
         }
     }
     

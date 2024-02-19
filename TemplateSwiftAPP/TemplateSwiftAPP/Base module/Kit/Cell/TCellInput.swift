@@ -80,8 +80,8 @@ class TCellInput: BaseTCell,UITextFieldDelegate {
         addSubview(textField)
         
         setupLayouts()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(textFiledEditChanged), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
+        //?
+//        NotificationCenter.default.addObserver(self, selector: #selector(textFiledEditChanged), name: NSNotification.Name.UITextField.textDidChangeNotification, object: textField)
     }
     
     override func setupLayouts() {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import SVProgressHUD
 
 class BaseVC: UIViewController {
@@ -17,7 +18,7 @@ class BaseVC: UIViewController {
         didSet {
             if isShowEmptyView == true {
                 view.addSubview(emptyView)
-                view.bringSubview(toFront: emptyView)
+                view.bringSubviewToFront(emptyView)
             }
             else {
                 emptyView.removeFromSuperview()
@@ -54,8 +55,7 @@ class BaseVC: UIViewController {
 //    init() {
 //        super.init(nibName: nil, bundle: nil)
 //    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
+//    required init?(coder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }
     

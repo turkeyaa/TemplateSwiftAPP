@@ -31,7 +31,7 @@ class BaseLoadTC: BaseTC {
         
         self.tableView.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(refresh))
         self.tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
-        
+
         self.loadData(more: false)
     }
     
@@ -68,12 +68,12 @@ class BaseLoadTC: BaseTC {
             
             DispatchQueue.main.async {
                 self.hideLoadingHUD()
-                self.tableView.mj_footer.endRefreshing()
-                self.tableView.mj_header.endRefreshing()
+                self.tableView.mj_footer?.endRefreshing()
+                self.tableView.mj_header?.endRefreshing()
                 
                 if self.dataSource == nil {
                     /// 网络链接失败了
-//                    self.showErrorMessage(hud: "网络连接异常了")
+                    self.showErrorMessage(hud: "网络连接异常了")
                     self.isShowEmptyView = true
                 } else if self.dataSource?.count == 0 {
                     /// 数据为空
@@ -82,7 +82,7 @@ class BaseLoadTC: BaseTC {
                     self.isShowEmptyView = false
                     if ((self.limit+1) * self.offset) > self.dataSource!.count {
                         /// 暂无更多数据
-                        self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                        self.tableView.mj_footer?.endRefreshingWithNoMoreData()
                     }
                 }
                 

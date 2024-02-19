@@ -19,6 +19,7 @@ class MainVC: BaseLoadTC {
         LoginNotify.sharedInstance.addLogoutObserver(target: self, selector: #selector(logoutSuccess))
         
         self.emptyView.emptyViewType = EmptyViewType.EmptyViewType_NoNavAndTab
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

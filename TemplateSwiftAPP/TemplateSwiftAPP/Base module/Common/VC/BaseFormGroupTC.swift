@@ -23,8 +23,8 @@ class BaseFormGroupTC: BaseFormTC {
     }
     
     /// MARK: 重写表视图样式
-    override func tableViewStyle() -> UITableViewStyle {
-        return UITableViewStyle.grouped
+    override func tableViewStyle() -> UITableView.Style {
+        return UITableView.Style.grouped
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

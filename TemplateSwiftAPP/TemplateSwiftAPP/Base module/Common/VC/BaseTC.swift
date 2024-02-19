@@ -7,9 +7,11 @@
 //
 
 import Foundation
-import MJRefresh
+import UIKit
+
 
 class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
+    
     
     var dataSource: Array<Any>?
     
@@ -39,8 +41,8 @@ class BaseTC: BaseVC,UITableViewDelegate,UITableViewDataSource {
     }
     
     /// MARK: 自定义表视图样式
-    func tableViewStyle() -> UITableViewStyle {
-        return UITableViewStyle.plain
+    func tableViewStyle() -> UITableView.Style {
+        return UITableView.Style.plain
     }
     
     /// MARK: 自定义表视图大小
