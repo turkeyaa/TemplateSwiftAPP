@@ -29,8 +29,8 @@ class BaseLoadTC: BaseTC {
         
         super.viewDidLoad()
         
-        self.tableView.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(refresh))
-        self.tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMore))
+        self.tableView.mj_header = MJRefreshHeader(refreshingTarget: self, refreshingAction: #selector(refresh))
+        self.tableView.mj_footer = MJRefreshFooter(refreshingTarget: self, refreshingAction: #selector(loadMore))
 
         self.loadData(more: false)
     }

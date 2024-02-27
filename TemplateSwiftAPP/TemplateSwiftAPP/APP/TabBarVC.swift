@@ -17,9 +17,9 @@ class TabBarVC: UITabBarController {
         let secondVc = CategoryManageVC()
         let thirdVc = InformationVC()
         
-        let firstNav = UINavigationController.init(rootViewController: firstVc)
-        let secondNav = UINavigationController.init(rootViewController: secondVc)
-        let thirdNav = UINavigationController.init(rootViewController: thirdVc)
+        let firstNav = UINavigationController(rootViewController: firstVc)
+        let secondNav = UINavigationController(rootViewController: secondVc)
+        let thirdNav = UINavigationController(rootViewController: thirdVc)
         
         firstVc.tabBarItem = UITabBarItem.init(title: "主页", image: UIImage.init(named: "main"), selectedImage: UIImage.init(named: "mainSel"));
         firstVc.title = "主页"
