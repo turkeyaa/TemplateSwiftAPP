@@ -83,7 +83,7 @@ class TopicCell: BaseTCell {
             make.height.equalTo(1)
         }
         contentLabel.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(10)
+            make.left.equalTo(20)
             make.right.equalTo(-20)
             make.top.equalTo(iconView.snp.bottom).offset(5)
             make.bottom.equalTo(5)
@@ -94,8 +94,8 @@ class TopicCell: BaseTCell {
     func updateTopic(topic: Topic) -> Void {
         
         titleLabel.text = topic.author
-        timeLabel.text = "发布于:" + DateUtil.timeStampToString(timeStamp: topic.createTime)
-        contentLabel.text = topic.content
+        timeLabel.text = "create time:" + DateUtil.timeStampToString(timeStamp: topic.createTime)
+        contentLabel.text = topic.title
         let url = URL.init(string: URLHelper.sharedInstance.restImageURL() + topic.authorImage)
         iconView.kf.setImage(
             with: url,

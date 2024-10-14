@@ -45,7 +45,7 @@ class LoginVC: BaseFormTC {
         let titles = ["Google","Facebook"]
         let icons = [UIImage.init(named: "app_google")!,UIImage.init(named: "app_facebook")!]
         
-        let view = ThirdLoginView.init(frame: CGRect.init(x: 0, y: self.view.frame.size.height-200, width: Device_width, height: 150), titles: titles, images: icons)
+        let view = ThirdLoginView.init(frame: CGRect.init(x: 0, y: self.view.frame.size.height-300, width: Device_width, height: 200), titles: titles, images: icons)
         view.clickItemBlock = {
             (index: Int) -> Void in
             UIHelper.show(title: "login to \(titles[index])")

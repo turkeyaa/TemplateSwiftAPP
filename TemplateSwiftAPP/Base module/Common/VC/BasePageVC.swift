@@ -35,15 +35,20 @@ class BasePageVC: BaseVC {
         // create PageView，set frame
         var paddingX: CGFloat = 0
         if self.isHideNav {
-            paddingX += 20
+            paddingX += Device_status
         } else {
             paddingX += Device_nav+Device_status
         }
+        
+        // todo occording to device type
         if DeviceUtil.is_iPhoneX() {
             paddingX += 44
         }
+        else {
+            paddingX += 44
+        }
         
-        let pageView = PageView(frame: CGRect(x: 0, y: paddingX, width: size.width, height: size.height), style: style, titles: titles, childViewControllers: childViewControllers)
+        let pageView = PageView(frame: CGRect(x: 0, y: paddingX, width: size.width, height: size.height-paddingX), style: style, titles: titles, childViewControllers: childViewControllers)
         view.addSubview(pageView)
     }
     

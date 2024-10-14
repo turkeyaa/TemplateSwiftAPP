@@ -13,6 +13,8 @@ class ColorMacro {
     
     /** major colr */
     static let ColorNav = UIColor.rgb(r: 255, g: 255, b: 255)
+    static let ColorNavTitle = UIColor.rgb(r: 54, g: 123, b: 246)
+    
     static let ColorTab = UIColor.lightGray
     static let ColorBg = UIColor.white
     static let ColorLine = UIColor.init(white: 0.5, alpha: 0.5)

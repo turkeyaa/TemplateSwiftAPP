@@ -1,15 +1,15 @@
 {
     "status": 200,
-    "message": "请求成功",
+    "message": "success",
     "data": {
-        "account": "18698894171",
+        "account": "wenhuayu05@icloud.com",
         "website": "https://github.com/turkeyaa",
         "author": "turkeyaa",
         "id": "9B7D73E9-9F92-4365-BC1D-7C7CBC4FF59F",
-        "city": "wuhan",
-        "company": "ds",
-        "sign": "Just like this",
-        "nickName": "用户D4801E16-E459-499F-95EB-26489B9EBE2B",
+        "city": "todo",
+        "company": "todo",
+        "sign": "Just do it",
+        "nickName": "todo123456",
         "createTime": 1531570432
     }
 }

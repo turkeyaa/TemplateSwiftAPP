@@ -39,7 +39,7 @@ class BaseVC: UIViewController {
         view.addTarget(self, action: #selector(BaseVC.goBack), for: .touchUpInside)
         view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
         view.titleLabel?.font = FontMacro.font15
-        view.setTitleColor(.blue, for: .normal)
+        view.setTitleColor(ColorMacro.ColorNavTitle, for: .normal)
         return view
     }()
     
@@ -48,7 +48,7 @@ class BaseVC: UIViewController {
         view.addTarget(self, action: #selector(BaseVC.goNext), for: .touchUpInside)
         view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
         view.titleLabel?.font = FontMacro.font15
-        view.setTitleColor(.blue, for: .normal)
+        view.setTitleColor(ColorMacro.ColorNavTitle, for: .normal)
         return view
     }()
     

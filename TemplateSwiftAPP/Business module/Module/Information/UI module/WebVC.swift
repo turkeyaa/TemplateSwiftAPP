@@ -14,6 +14,7 @@ class WebVC: BaseWebVC {
         super.viewDidLoad()
         
         /// 自定义HTML页面
-        openURL = "https://github.com/turkeyaa.com"
+        openURL = "https://bing.com"
+//        openURL = "https://github.com/turkeyaa.com"
     }
 }

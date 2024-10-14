@@ -23,8 +23,8 @@ class TabBarVC: UITabBarController {
         
         firstVc.tabBarItem = UITabBarItem.init(title: "Main", image: UIImage.init(named: "main"), selectedImage: UIImage.init(named: "mainSel"));
         firstVc.title = "Main"
-        secondVc.tabBarItem = UITabBarItem.init(title: "Library", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
-        secondVc.title = "Library"
+        secondVc.tabBarItem = UITabBarItem.init(title: "Category", image: UIImage.init(named: "library"), selectedImage: UIImage.init(named: "librarySel"));
+        secondVc.title = "Category"
         thirdVc.tabBarItem = UITabBarItem.init(title: "UI/Mudule", image: UIImage.init(named: "information"), selectedImage: UIImage.init(named: "informationSel"));
         thirdVc.title = "UI/Mudule";
         self.viewControllers = [firstNav,secondNav,thirdNav]

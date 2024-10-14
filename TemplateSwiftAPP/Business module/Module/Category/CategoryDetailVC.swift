@@ -37,7 +37,7 @@ class CategoryDetailVC: BaseLoadTC {
         self.emptyView.customEmptyViewFrame(frame: CGRect.init(x: 0, y: self.view.frame.origin.y, width: Device_width, height: self.view.frame.size.height))
     }
     
-    // MAKR: - 加载数据
+    // MAKR: - Loading data
     override func queryData() -> Array<Any>? {
         
         let api = CategoryTopic_Get.init(offset: offset, limit: limit, categoryId: categoryId)
@@ -63,7 +63,7 @@ class CategoryDetailVC: BaseLoadTC {
         return TopicCell.classCellHeight()
     }
     
-    // 点击 cell 事件
+    // click cell event
     func clickCell(index: Int) {
         
         let topic = self.dataSource![index] as! Topic
@@ -74,7 +74,7 @@ class CategoryDetailVC: BaseLoadTC {
         parentNav!.pushViewController(vc, animated: true)
     }
     
-    /// 空页面点击交互
+    /// click event of empty view 
     @objc override func emptyTapGesture() -> Void {
         self.loadData(more: false)
     }

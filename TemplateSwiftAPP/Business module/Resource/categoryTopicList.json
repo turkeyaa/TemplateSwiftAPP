@@ -1,6 +1,6 @@
 {
     "status": 200,
-    "message": "请求成功",
+    "message": "success",
     "data": [
         {
             "id": "2F79CB00-692F-4C9D-8DE7-1C8CC894977B",

@@ -16,7 +16,7 @@ class CategoryManageVC: BasePageVC {
     }
     
     override func configTitles() -> [String] {
-        return ["iOS","主题","分享","wiki","swift","vue","工具"]
+        return ["iOS","Swift","SwiftUI","SwiftData"]
     }
     
     override func configControlles() -> [UIViewController] {

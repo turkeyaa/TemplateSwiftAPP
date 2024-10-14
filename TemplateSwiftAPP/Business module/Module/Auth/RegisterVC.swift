@@ -13,8 +13,8 @@ class RegisterVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "注册"
+        self.title = "register"
         
-        UIHelper.show(title: "todo - 暂未完成")
+        UIHelper.show(title: "todo - not complete")
     }
 }

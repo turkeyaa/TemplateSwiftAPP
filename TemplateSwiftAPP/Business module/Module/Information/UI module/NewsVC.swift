@@ -22,6 +22,7 @@ class NewsVC: BasePageVC {
         
         var controllers = [UIViewController]()
         let colors = [UIColor.red,UIColor.blue,UIColor.orange,UIColor.green]
+        
         for index in 0..<configTitles().count {
             let vc = BaseVC()
             vc.view.backgroundColor = colors[index]

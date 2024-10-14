@@ -26,10 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBar
         
         // 1.1 color and text
-        UINavigationBar.appearance().tintColor = .blue
+        UINavigationBar.appearance().tintColor = ColorMacro.ColorNavTitle
         UINavigationBar.appearance().barTintColor = ColorMacro.ColorNav
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor : UIColor.blue,
+            NSAttributedString.Key.foregroundColor : ColorMacro.ColorNavTitle,
             NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)]
         
         // 3. keyboard input event
