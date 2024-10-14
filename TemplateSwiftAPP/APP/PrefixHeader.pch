@@ -1,0 +1,30 @@
+//
+//  PrefixHeader.pch
+//  TemplateSwiftAPP
+//
+//  Created by wenhua yu on 2018/3/20.
+//  Copyright © 2018年 wenhua yu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// Framework
+import UIKit
+
+// Macro
+import UIMacro
+import StringMacro
+import KeyMacro
+
+// Library
+import SnapKit
+import Kingfisher
+
+
+@end
+
+#endif /* PrefixHeader_pch */
