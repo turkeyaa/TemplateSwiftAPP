@@ -13,7 +13,12 @@ class NewLike_Post: BaseRestApi {
     private var topicID: String = ""
     
     init(topicID: String) {
+        /*
         super.init(url: "topic/newLike", httpMethod: .HttpMethods_Post)
+        */
+        
+        super.init(url: "api/newLike.json", httpMethod: .HttpMethods_Post)
+        
         decodeType = .DecodeJSONTypeNone
         
         self.topicID = topicID

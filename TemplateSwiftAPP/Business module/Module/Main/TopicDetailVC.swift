@@ -58,12 +58,14 @@ class TopicDetailVC: BaseMarkdownVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        super.mdFileName = "sample"
+        
         self.rightIcon(icon: UIImage.init(named: "app_share")!)
         
-        bottomView.snp.makeConstraints { (make) in
-            make.left.bottom.right.equalTo(0)
-            make.height.equalTo(50)
-        }
+//        bottomView.snp.makeConstraints { (make) in
+//            make.left.bottom.right.equalTo(0)
+//            make.height.equalTo(50)
+//        }
         
         self.loadTopic()
     }
@@ -86,9 +88,8 @@ class TopicDetailVC: BaseMarkdownVC {
                 if api.code == .status_ok {
                     self.topic = api.topic
                     self.title = api.topic.title
-//                    self.md.load(markdown: self.topic.content)
-                    super.mdFileName = "## title \n\n### sub title \n\n#### content \n\n##### sub title"
-                    self.bottomView.updateUI(topic: self.topic)
+                    super.mdFile = self.topic.content
+//                    self.bottomView.updateUI(topic: self.topic)
                 } else {
                     
                 }

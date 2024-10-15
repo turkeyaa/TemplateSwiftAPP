@@ -11,7 +11,10 @@ import Foundation
 class Topic_Get: BaseRestApi {
     
     init(offset: Int, limit: Int) {
-//        super.init(url: "topic/list?offset=\(offset)&limit=\(limit)", httpMethod: .HttpMethods_Get)
+        
+        /*
+        super.init(url: "topic/list?offset=\(offset)&limit=\(limit)", httpMethod: .HttpMethods_Get)
+        */
         
         // Mock Github api
         super.init(url: "api/topicList.json", httpMethod: .HttpMethods_Get)

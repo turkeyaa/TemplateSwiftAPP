@@ -13,10 +13,12 @@ class TopicInfo_Get: BaseRestApi {
     var topic: Topic = Topic()
     
     init(topicID: String) {
-//        super.init(url: "topic/info?topicID=\(topicID)", httpMethod: .HttpMethods_Get)
+        /*
+        super.init(url: "topic/info?topicID=\(topicID)", httpMethod: .HttpMethods_Get)
+        */
         
         // Mock Github api
-        super.init(url: "Resource/sample.md", httpMethod: .HttpMethods_Get)
+        super.init(url: "api/topicInfo.json", httpMethod: .HttpMethods_Get)
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {

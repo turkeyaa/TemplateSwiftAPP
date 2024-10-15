@@ -15,7 +15,9 @@ class UserInfo_Post: BaseRestApi {
     private var token: String = ""
     
     init(token: String) {
-        super.init(url: "user/user", httpMethod: .HttpMethods_Post)
+//        super.init(url: "user/user", httpMethod: .HttpMethods_Post)
+        
+        super.init(url: "api/userInfo.json", httpMethod: .HttpMethods_Post)
         self.token = token
     }
     

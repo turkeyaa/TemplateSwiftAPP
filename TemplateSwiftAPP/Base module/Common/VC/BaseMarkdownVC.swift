@@ -19,6 +19,12 @@ class BaseMarkdownVC: BaseVC {
         }
     }
     
+    var mdFile: String = "" {
+        didSet {
+            setupLoad()
+        }
+    }
+    
     
     lazy var mdView: MarkdownView = {
         
@@ -50,14 +56,16 @@ class BaseMarkdownVC: BaseVC {
     
     func setupLoad() -> Void {
         
-        /*
-        mdView.load(markdown: "## title \n\n### sub title \n\n#### content \n\n##### sub title")
-        */
-        
-        let path = Bundle.main.path(forResource: mdFileName, ofType: "md")!
-        let url = URL(fileURLWithPath: path)
-        let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
-        mdView.load(markdown: markdown, enableImage: true)
+        if mdFileName != "" {
+            let path = Bundle.main.path(forResource: mdFileName, ofType: "md")!
+            let url = URL(fileURLWithPath: path)
+            let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
+            mdView.load(markdown: markdown, enableImage: true)
+        } else if mdFile != "" {
+            mdView.load(markdown: mdFile)
+        } else {
+            assert(false, "there is no data for loading")
+        }
         
         mdView.onRendered = { [weak self] height in
             self?.view.setNeedsLayout()

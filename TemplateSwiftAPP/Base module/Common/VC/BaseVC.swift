@@ -63,6 +63,10 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = ColorMacro.ColorBg
         self.edgesForExtendedLayout = UIRectEdge.top
+        
+        // todo
+        self.view.layer.borderWidth = 2
+        self.view.layer.borderColor = UIColor.blue.cgColor
     }
     
     // todo - 无效

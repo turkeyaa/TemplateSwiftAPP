@@ -11,7 +11,11 @@ import Foundation
 class CategoryTopic_Get: BaseRestApi {
     
     init(offset: Int, limit: Int, categoryId: Int) {
+        /*
         super.init(url: "topic/categoryTopicList?offset=\(offset)&limit=\(limit)&categoryId=\(categoryId)", httpMethod: .HttpMethods_Get)
+         */
+        // Mock Github api
+        super.init(url: "api/categoryTopicList.json", httpMethod: .HttpMethods_Get)
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {

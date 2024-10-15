@@ -11,7 +11,7 @@ import Foundation
 class Category_Get: BaseRestApi {
     
     init() {
-        super.init(url: "api/categoryTopicList.json", httpMethod: .HttpMethods_Get)
+        super.init(url: "api/category.json", httpMethod: .HttpMethods_Get)
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {

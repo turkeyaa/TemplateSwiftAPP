@@ -11,7 +11,9 @@ import Foundation
 class CommentList_Get: BaseRestApi {
     
     init(offset: Int, limit: Int, topicID: String) {
-        super.init(url: "topic/commentList?topicID=\(topicID)", httpMethod: .HttpMethods_Get)
+//        super.init(url: "topic/commentList?topicID=\(topicID)", httpMethod: .HttpMethods_Get)
+        
+        super.init(url: "api/commentList.json", httpMethod: .HttpMethods_Get)
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {

@@ -13,7 +13,12 @@ class NewCollect_Post: BaseRestApi {
     private var topicID: String = ""
     
     init(topicID: String) {
+        /*
         super.init(url: "topic/newCollect", httpMethod: .HttpMethods_Post)
+        */
+        
+        super.init(url: "api/newCollect.json", httpMethod: .HttpMethods_Post)
+        
         decodeType = .DecodeJSONTypeNone
         
         self.topicID = topicID

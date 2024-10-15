@@ -11,7 +11,10 @@ import Foundation
 class UserTopic_Get: BaseRestApi {
     
     init(offset: Int, limit: Int) {
+        /*
         super.init(url: "UserTopic/topicList?offset=\(offset)&limit=\(limit)", httpMethod: .HttpMethods_Get)
+         */
+        super.init(url: "api/userTopicList.json", httpMethod: .HttpMethods_Get)
     }
     
     override func queryToken() -> String {

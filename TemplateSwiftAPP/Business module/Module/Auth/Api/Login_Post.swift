@@ -16,7 +16,9 @@ class Login_Post: BaseRestApi {
     private var password: String = ""
     
     init(account: String, password: String) {
-        super.init(url: "auth/login", httpMethod: .HttpMethods_Post)
+//        super.init(url: "auth/login", httpMethod: .HttpMethods_Post)
+        
+        super.init(url: "api/login.json", httpMethod: .HttpMethods_Post)
         decodeType = .DecodeJSONTypeString;   // token string
         
         self.account = account
