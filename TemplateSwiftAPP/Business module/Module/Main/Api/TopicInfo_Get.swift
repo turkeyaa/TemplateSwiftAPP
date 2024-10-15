@@ -13,7 +13,10 @@ class TopicInfo_Get: BaseRestApi {
     var topic: Topic = Topic()
     
     init(topicID: String) {
-        super.init(url: "topic/info?topicID=\(topicID)", httpMethod: .HttpMethods_Get)
+//        super.init(url: "topic/info?topicID=\(topicID)", httpMethod: .HttpMethods_Get)
+        
+        // Mock Github api
+        super.init(url: "Resource/sample.md", httpMethod: .HttpMethods_Get)
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {
@@ -27,10 +30,12 @@ class TopicInfo_Get: BaseRestApi {
         return false
     }
     
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "topicInfo"
     }
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }

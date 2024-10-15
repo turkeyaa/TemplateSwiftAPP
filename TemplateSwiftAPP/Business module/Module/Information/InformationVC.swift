@@ -14,7 +14,7 @@ class InformationVC: BaseFormGroupTC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        groupDataSource = [["cell","cell group","pull to refresh and load more","web view","empty view","Multiple view switching"],["local storage"],["auth","map","pay"]]
+        groupDataSource = [["cell","cell group","pull to refresh and load more","web view","empty view","Markdown view"],["local storage"],["auth","map","pay"]]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,8 +82,8 @@ class InformationVC: BaseFormGroupTC {
                 }
             case 5:
                 do {
-                    let vc = NewsVC()
-                    vc.title = "views switching"
+                    let vc = CustomMarkdownVC()
+                    vc.title = title
                     vc.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(vc, animated: true)
                 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MarkdownView
 
-class TopicDetailVC: BaseVC {
+class TopicDetailVC: BaseMarkdownVC {
     
     var topicID: String = ""
     var content: String = ""
@@ -55,57 +55,11 @@ class TopicDetailVC: BaseVC {
         return view
     }()
     
-    lazy var md: MarkdownView = {
-        
-        // todo
-//        let view = MarkdownView(frame: CGRect.init(x: 0, y: Device_nav+Device_status, width: Device_width, height: Device_height-Device_status-Device_nav-50));
-        let view = MarkdownView.init();
-        view.isScrollEnabled = true
-        
-        view.load(markdown: content)
-        
-        let path = Bundle.main.path(forResource: "sample", ofType: "md")!
-        let url = URL(fileURLWithPath: path)
-        let markdown = try! String(contentsOf: url, encoding: String.Encoding.utf8)
-        view.load(markdown: markdown, enableImage: true)
-        
-//        view.layer.borderColor = UIColor.red.cgColor
-//        view.layer.borderWidth = 1.0
-
-        view.onRendered = { [weak self] height in
-            self?.showSuccessMessage(hud: HUD_success)
-            self?.view.setNeedsLayout()
-        }
-        // called when user touch link
-        view.onTouchLink = { [weak self] request in
-            guard let url = request.url else { return false }
-            
-            if url.scheme == "file" {
-                return false
-            } else if url.scheme == "http" {
-                let webVC = WebVC()
-                self?.navigationController?.pushViewController(webVC, animated: true)
-                return false
-            } else {
-                return false
-            }
-        }
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.rightIcon(icon: UIImage.init(named: "app_share")!)
         
-        self.view.addSubview(md)
-        self.view.addSubview(bottomView)
-        
-        /// 约束
-        md.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(0)
-            make.bottom.equalTo(-50)
-        }
         bottomView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(0)
             make.height.equalTo(50)
@@ -132,7 +86,8 @@ class TopicDetailVC: BaseVC {
                 if api.code == .status_ok {
                     self.topic = api.topic
                     self.title = api.topic.title
-                    self.md.load(markdown: self.topic.content)
+//                    self.md.load(markdown: self.topic.content)
+                    super.mdFileName = "## title \n\n### sub title \n\n#### content \n\n##### sub title"
                     self.bottomView.updateUI(topic: self.topic)
                 } else {
                     

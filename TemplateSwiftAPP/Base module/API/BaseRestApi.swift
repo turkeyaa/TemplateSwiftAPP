@@ -66,7 +66,7 @@ class BaseRestApi: RestApi {
             super.call(async: async)
         }
         else {
-            // MOCK local api
+            // MOCK local json resource
             let mockFile = self.mockFile()
             let fileUrl = Bundle.main.url(forResource: mockFile, withExtension: "json")!
             let data = try! Data.init(contentsOf: fileUrl)

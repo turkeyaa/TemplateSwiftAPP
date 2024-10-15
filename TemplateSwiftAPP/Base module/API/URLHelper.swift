@@ -26,13 +26,14 @@ class URLHelper: NSObject {
         
         // use your own IP address
         if APP_STATUS == AppStatus_Product {
-            return "https://github.com/turkeyaa/TemplateSwiftAPP/tree/master/api"
+//            return "https://github.com/turkeyaa/TemplateSwiftAPP/tree/master/"
+            return "https://raw.githubusercontent.com/turkeyaa/TemplateSwiftAPP/refs/heads/master/"
         }
         else if APP_STATUS == AppStatus_Develop {
-            return "https://github.com/turkeyaa/TemplateSwiftAPP/tree/master/api"
+            return "https://raw.githubusercontent.com/turkeyaa/TemplateSwiftAPP/refs/heads/master/"
         }
         else if APP_STATUS == AppStatus_Test {
-            return "test"
+            return "https://raw.githubusercontent.com/turkeyaa/TemplateSwiftAPP/refs/heads/master/"
         }
         else {
             return "other"
@@ -42,16 +43,14 @@ class URLHelper: NSObject {
     func baseImageURL() -> String {
         var url: String = self.baseURL()
         
-        // todo
         if APP_STATUS == AppStatus_Product {
-            url += ":8686/"
-            url += "images/"
+            url += "path/images/product"
         }
         else if APP_STATUS == AppStatus_Develop {
-            url += "path/develop"
+            url += "path/images/develop"
         }
         else if APP_STATUS == AppStatus_Test {
-            url += "path/test"
+            url += "path/images/test"
         }
         else {
             

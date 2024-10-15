@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 /** 基于NSURLSession的HTTP数据交互实现，你也可以通过第三方库来实现.
  */
@@ -38,6 +39,35 @@ class RestApi {
         _isCancel = false
     }
     
+    // todo test online api
+    func call(async: Bool) -> Void {
+        
+        let condition = NSCondition.init()
+        
+        AF.request(_url).response { resp in
+            debugPrint(resp)
+            
+            if let response = resp.response {
+                
+                if response.statusCode == 200 {
+                    self.onSuccessed(response: resp.data!)
+                } else {
+                    self.onFailed(error: resp.error)
+                }
+            }
+            
+            condition.lock()
+            condition.signal()
+            condition.unlock()
+        }
+        
+        condition.lock()
+        condition.wait()
+        condition.unlock()
+    }
+    
+    
+    /*
     // 3. call and cancel
     func call(async: Bool) -> Void {
         
@@ -123,6 +153,8 @@ class RestApi {
         condition.wait()
         condition.unlock()
     }
+    */
+    
     
     func cancel() -> Void {
         task!.cancel()

@@ -25,10 +25,12 @@ class CategoryTopic_Get: BaseRestApi {
         return false
     }
     
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "categoryTopicList"
     }
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }

@@ -29,10 +29,12 @@ class UserTopic_Get: BaseRestApi {
         return false
     }
     
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "userTopicList"
     }
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }

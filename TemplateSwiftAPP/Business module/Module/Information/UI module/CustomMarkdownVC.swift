@@ -1,19 +1,17 @@
 //
-//  WebVC.swift
+//  NewsVC.swift
 //  TemplateSwiftAPP
 //
-//  Created by wenhua yu on 2018/4/12.
+//  Created by wenhua on 2018/4/19.
 //  Copyright © 2018年 wenhua yu. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class WebVC: BaseWebVC {
+class CustomMarkdownVC: BaseMarkdownVC {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // test
-        openURL = "https://bing.com"
+        super.mdFileName = "sample"
     }
 }

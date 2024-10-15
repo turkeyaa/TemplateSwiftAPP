@@ -11,7 +11,10 @@ import Foundation
 class Topic_Get: BaseRestApi {
     
     init(offset: Int, limit: Int) {
-        super.init(url: "topic/list?offset=\(offset)&limit=\(limit)", httpMethod: .HttpMethods_Get)
+//        super.init(url: "topic/list?offset=\(offset)&limit=\(limit)", httpMethod: .HttpMethods_Get)
+        
+        // Mock Github api
+        super.init(url: "api/topicList.json", httpMethod: .HttpMethods_Get)
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {
@@ -25,11 +28,12 @@ class Topic_Get: BaseRestApi {
         return false
     }
     
-    // 模拟本地接口，方便测试，需要在项目中添加相应的JSON数据（Resource目录）
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "topicList"
     }
     override func mockType() -> MockType {
-        return .MockFile
+        return .MockNone
     }
+     */
 }

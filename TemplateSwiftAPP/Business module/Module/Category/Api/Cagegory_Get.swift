@@ -11,7 +11,7 @@ import Foundation
 class Category_Get: BaseRestApi {
     
     init() {
-        super.init(url: "category/list", httpMethod: .HttpMethods_Get)
+        super.init(url: "api/categoryTopicList.json", httpMethod: .HttpMethods_Get)
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {
@@ -25,6 +25,7 @@ class Category_Get: BaseRestApi {
         return false
     }
     
+    /* Mock local resource json, for more expediently test 
     override func mockFile() -> String {
         return "category"
     }
@@ -32,4 +33,5 @@ class Category_Get: BaseRestApi {
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }

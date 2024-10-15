@@ -33,10 +33,12 @@ class NewLike_Post: BaseRestApi {
         ]
     }
     
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "newLike"
     }
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }

@@ -26,10 +26,12 @@ class CommentList_Get: BaseRestApi {
         return false
     }
     
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "commentList"
     }
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }

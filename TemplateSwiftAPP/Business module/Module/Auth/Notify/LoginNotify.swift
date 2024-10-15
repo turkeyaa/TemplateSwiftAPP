@@ -17,7 +17,7 @@ class LoginNotify {
     
     static let sharedInstance = LoginNotify.init()
     
-    /// 登录成功通知
+    // Login successfully notify
     func addLoginObserver(target: Any, selector: Selector) -> Void {
         center.addObserver(target, selector: selector, name: NSNotification.Name(rawValue: kNotifyLogin), object: nil)
     }
@@ -30,7 +30,7 @@ class LoginNotify {
         center.post(name: NSNotification.Name(rawValue: kNotifyLogin), object: nil)
     }
     
-    /// 退出登录通知
+    /// Logout successfully notify
     func addLogoutObserver(target: Any, selector: Selector) -> Void {
         center.addObserver(target, selector: selector, name: NSNotification.Name(rawValue: kNotifyLogout), object: nil)
     }

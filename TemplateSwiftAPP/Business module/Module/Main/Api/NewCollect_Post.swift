@@ -33,10 +33,12 @@ class NewCollect_Post: BaseRestApi {
         ]
     }
     
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "newCollect"
     }
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }

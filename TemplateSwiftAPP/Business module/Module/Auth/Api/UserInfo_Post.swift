@@ -34,11 +34,12 @@ class UserInfo_Post: BaseRestApi {
         return token
     }
     
-    // 模拟本地接口，方便测试，需要在项目中添加相应的JSON数据（Resource目录）
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "userInfo"
     }
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }

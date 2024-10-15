@@ -17,7 +17,7 @@ class Login_Post: BaseRestApi {
     
     init(account: String, password: String) {
         super.init(url: "auth/login", httpMethod: .HttpMethods_Post)
-        decodeType = .DecodeJSONTypeString;   // token 字符串
+        decodeType = .DecodeJSONTypeString;   // token string
         
         self.account = account
         self.password = password
@@ -41,7 +41,7 @@ class Login_Post: BaseRestApi {
         ]
     }
     
-    // 模拟本地接口，方便测试，需要在项目中添加相应的JSON数据（Resource目录）
+    /* Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "login"
     }
@@ -49,4 +49,5 @@ class Login_Post: BaseRestApi {
     override func mockType() -> MockType {
         return .MockFile
     }
+     */
 }
