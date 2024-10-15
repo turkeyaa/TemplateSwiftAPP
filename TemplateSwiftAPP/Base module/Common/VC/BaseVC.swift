@@ -65,8 +65,8 @@ class BaseVC: UIViewController {
         self.edgesForExtendedLayout = UIRectEdge.top
         
         // todo
-        self.view.layer.borderWidth = 2
-        self.view.layer.borderColor = UIColor.blue.cgColor
+//        self.view.layer.borderWidth = 2
+//        self.view.layer.borderColor = UIColor.blue.cgColor
     }
     
     // todo - 无效

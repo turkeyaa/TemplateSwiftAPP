@@ -16,6 +16,7 @@ class TopicDetailVC: BaseMarkdownVC {
     var content: String = ""
     
     private var topic: Topic = Topic()
+    
     lazy var bottomView: TopicBottomView = {
         var view = TopicBottomView.init()
         view.clickItemBlock = {
@@ -58,14 +59,13 @@ class TopicDetailVC: BaseMarkdownVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        super.mdFileName = "sample"
-        
         self.rightIcon(icon: UIImage.init(named: "app_share")!)
         
-//        bottomView.snp.makeConstraints { (make) in
-//            make.left.bottom.right.equalTo(0)
-//            make.height.equalTo(50)
-//        }
+        self.view.addSubview(bottomView)
+        bottomView.snp.makeConstraints { make in
+            make.height.equalTo(80)
+            make.left.bottom.right.equalTo(0)
+        }
         
         self.loadTopic()
     }
@@ -89,7 +89,7 @@ class TopicDetailVC: BaseMarkdownVC {
                     self.topic = api.topic
                     self.title = api.topic.title
                     super.mdFile = self.topic.content
-//                    self.bottomView.updateUI(topic: self.topic)
+                    self.bottomView.updateUI(topic: self.topic)
                 } else {
                     
                 }

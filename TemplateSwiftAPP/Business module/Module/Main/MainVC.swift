@@ -100,4 +100,9 @@ class MainVC: BaseLoadTC {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    // todo setting frame according to device type
+    override func tableViewFrame() -> CGRect {
+        return CGRect(x: 0, y: 0, width: Device_width, height: Device_height-Device_tab_full)
+    }
 }

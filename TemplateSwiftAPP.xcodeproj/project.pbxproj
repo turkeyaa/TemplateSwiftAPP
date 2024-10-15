@@ -735,6 +735,7 @@
 				601EF8632224C48B00C26F78 /* category.json */,
 				601EF8612224C48B00C26F78 /* categoryTopicList.json */,
 				601EF8682224C48B00C26F78 /* commentList.json */,
+				C6E2AF0F2CBD3E100011D2CB /* fail.json */,
 				601EF8662224C48B00C26F78 /* login.json */,
 				601EF8642224C48B00C26F78 /* newCollect.json */,
 				601EF85D2224C48B00C26F78 /* newComment.json */,
@@ -745,7 +746,6 @@
 				601EF8652224C48B00C26F78 /* topicList.json */,
 				601EF8622224C48B00C26F78 /* userInfo.json */,
 				601EF8672224C48B00C26F78 /* userTopicList.json */,
-				C6E2AF0F2CBD3E100011D2CB /* fail.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1246,7 +1246,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J6JZNVUZ7F;
 				INFOPLIST_FILE = TemplateSwiftAPP/APP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1269,7 +1269,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = J6JZNVUZ7F;
 				INFOPLIST_FILE = TemplateSwiftAPP/APP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -17,7 +17,7 @@ class TopicNew_Post: BaseRestApi {
     init(title: String, content: String, categoryId: Int) {
 //        super.init(url: "topic/new", httpMethod: .HttpMethods_Post)
         
-        super.init(url: "api/fail.json", httpMethod: .HttpMethods_Post)
+        super.init(url: "api/success.json", httpMethod: .HttpMethods_Post)
         decodeType = .DecodeJSONTypeNone
         
         self.title = title

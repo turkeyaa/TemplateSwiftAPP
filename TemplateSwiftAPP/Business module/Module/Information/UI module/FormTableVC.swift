@@ -27,7 +27,7 @@ class FormTableVC: BaseFormTC {
     }()
     lazy var switchCell: TCellNotify = {
         let cell = TCellNotify.tcell(tableView: self.tableView, reuse: true) as! TCellNotify
-        cell.title = "notification title"
+        cell.title = "notify"
         cell.showIndicator(flag: false)
         cell.addSwitchTarget(target: self, selector: #selector(switchEvent))
         return cell

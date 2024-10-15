@@ -13,22 +13,23 @@ class TopicNewVC: BaseFormTC {
     
     lazy var textViewCell: TCellTextView = {
         let view = TCellTextView.tcell(tableView: self.tableView, reuse: true) as! TCellTextView
-        view.placeholder = "请输入主题内容..."
+        view.placeholder = "post a topic..."
+        view.showIndicator(flag: false)
         view.beginInput()
         return view
     }()
     lazy var categoryCell: TCellLabel = {
         let cell = TCellLabel.tcell(tableView: self.tableView, reuse: true) as! TCellLabel
-        cell.title = "分类名称"
-        cell.value = "主题"
+        cell.title = "category"
+        cell.value = "Swift"
         return cell
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "发布新主题"
-        self.leftTitle(title: "关闭")
-        self.rightTitle(title: "保存")
+        self.title = "New topic"
+        self.leftTitle(title: "close")
+        self.rightTitle(title: "save")
         
         self.cells = [textViewCell,categoryCell]
     }
@@ -44,16 +45,16 @@ class TopicNewVC: BaseFormTC {
     override func goNext() {
         
         if textViewCell.title.count == 0 {
-            UIHelper.show(title: "内容不能为空")
+            UIHelper.show(title: "no contents")
             return
         }
         
         GCDUtil.runInGlobalQueue {
-            let api = TopicNew_Post.init(title: "iOS开发, 命名规范", content: self.textViewCell.title, categoryId: 1)
+            let api = TopicNew_Post.init(title: "Swift code basic", content: self.textViewCell.title, categoryId: 1)
             api.call(async: true)
             GCDUtil.runInMainQueue {
                 if api.code == .status_ok {
-                    UIHelper.show(title: "发布主题成功了")
+                    UIHelper.show(title: "post a topic successfully")
                     self.navigationController?.dismiss(animated: true, completion: nil)
                 } else {
                     UIHelper.show(title: api.message)

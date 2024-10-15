@@ -18,7 +18,7 @@ class UserInfoVC: BaseFormGroupTC {
     lazy var exitBtn: UIButton = {
         let view = UIButton.init(type: .custom)
         view.frame = CGRect.init(x: 30, y: 400, width: Device_width-60, height: 45)
-        view.setTitle("退出", for: .normal)
+        view.setTitle("logout", for: .normal)
         view.addTarget(self, action: #selector(logoutEvent), for: .touchUpInside)
         view.backgroundColor = UIColor.red
         return view
@@ -34,10 +34,10 @@ class UserInfoVC: BaseFormGroupTC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "用户信息"
-        self.rightTitle(title: "我发布的")
+        self.title = "info"
+        self.rightTitle(title: "topics")
         
-        groupDataSource = [["昵称","加入时间","地区"],["主页","签名"]]
+        groupDataSource = [["nick name","time","zone"],["homepage","sign"]]
         
         let user = WorkSpace.sharedInstance.user
         groupValueDataSource = [[user.nickName,DateUtil.timeStampToString(timeStamp: user.createTime),user.city],[user.website,user.sign]]
@@ -83,12 +83,12 @@ class UserInfoVC: BaseFormGroupTC {
     
     @objc func logoutEvent() -> Void {
         WorkSpace.sharedInstance.onLogOut()
-        UIHelper.show(title: "退出登录成功")
+        UIHelper.show(title: "logout successfully")
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc func assetEvent() -> Void {
-        ActionHelper.showSheet(title: "", message: "选择类型", actions: ["访问相册","访问相机"], vc: self) { (index) in
+        ActionHelper.showSheet(title: "", message: "type", actions: ["photo album","Camera"], vc: self) { (index) in
             if index == 0 {
                 self.enterAlbum()
             } else {

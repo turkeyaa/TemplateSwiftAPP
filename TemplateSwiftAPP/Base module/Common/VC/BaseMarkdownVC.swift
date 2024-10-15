@@ -28,13 +28,12 @@ class BaseMarkdownVC: BaseVC {
     
     lazy var mdView: MarkdownView = {
         
-        
         let md = MarkdownView();
         md.frame = CGRect(x: 0, y: 0, width: Device_width, height: Device_height)
         md.isScrollEnabled = true
         
-        view.layer.borderColor = UIColor.red.cgColor
-        view.layer.borderWidth = 1.0
+//        view.layer.borderColor = UIColor.red.cgColor
+//        view.layer.borderWidth = 1.0
         
         return md
     }()

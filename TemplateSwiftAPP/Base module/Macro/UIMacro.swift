@@ -14,3 +14,7 @@ let Device_height: CGFloat      = UIScreen.main.bounds.height
 let Device_nav: CGFloat         = 44.0
 let Device_tab: CGFloat         = 49.0
 let Device_status: CGFloat      = 20.0
+
+// for full screen
+let Device_status_full: CGFloat     = 40
+let Device_tab_full: CGFloat        = 69

@@ -50,6 +50,7 @@ class RestApi {
             if let response = resp.response {
                 
                 if response.statusCode == 200 {
+                
                     self.onSuccessed(response: resp.data!)
                 } else {
                     self.onFailed(error: resp.error)

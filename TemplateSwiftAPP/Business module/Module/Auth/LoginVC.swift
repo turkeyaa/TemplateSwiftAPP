@@ -20,6 +20,7 @@ class LoginVC: BaseFormTC {
         cell.title = "account"
         cell.placeholder = "input an account"
         cell.showIndicator(flag: false)
+        cell.value = "18668089860"
         return cell
     }()
     lazy var passwordCell: TCellInput = {
@@ -28,6 +29,7 @@ class LoginVC: BaseFormTC {
         cell.title = "password"
         cell.placeholder = "input a password"
         cell.showIndicator(flag: false)
+        cell.value = "123456789"
         return cell
     }()
     
@@ -49,7 +51,7 @@ class LoginVC: BaseFormTC {
         view.clickItemBlock = {
             (index: Int) -> Void in
             UIHelper.show(title: "login to \(titles[index])")
-            self.umengLogin(index: index)
+            self.thirdLogin(index: index)
         }
         return view
     }()
@@ -75,12 +77,19 @@ class LoginVC: BaseFormTC {
     }
     
     // custom third login logic
-    func umengLogin(index: Int) -> Void {
+    func thirdLogin(index: Int) -> Void {
         
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cells[indexPath.row].height()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        
+        // todo
+        loginEvent()
     }
     
     @objc func loginEvent() -> Void {
