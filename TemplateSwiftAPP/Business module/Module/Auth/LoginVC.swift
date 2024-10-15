@@ -20,7 +20,7 @@ class LoginVC: BaseFormTC {
         cell.title = "account"
         cell.placeholder = "input an account"
         cell.showIndicator(flag: false)
-        cell.value = "18668089860"
+        cell.value = "wenhuayu05@icloud.com"
         return cell
     }()
     lazy var passwordCell: TCellInput = {
@@ -87,9 +87,6 @@ class LoginVC: BaseFormTC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
-        
-        // todo
-        loginEvent()
     }
     
     @objc func loginEvent() -> Void {
@@ -97,7 +94,7 @@ class LoginVC: BaseFormTC {
         let account = accountCell.value
         let password = passwordCell.value
         
-        if account.count != 11 {
+        if account.count < 6 {
             showInfoMessage(hud: "Please input correct phone number")
             return
         }
@@ -106,7 +103,7 @@ class LoginVC: BaseFormTC {
             return
         }
         
-        if RegularUtil.isPhoneNumber(phone: account) == false {
+        if RegularUtil.isEmail(email: account) == false {
             showInfoMessage(hud: "Please input correct phone number")
             return
         }

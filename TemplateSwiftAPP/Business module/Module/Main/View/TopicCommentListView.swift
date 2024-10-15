@@ -24,7 +24,7 @@ class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
     }()
     lazy var closeBtn: UIButton = {
         let view = UIButton.init(type: .custom)
-        view.setTitle("关闭", for: .normal)
+        view.setTitle("close", for: .normal)
         view.setTitleColor(UIColor.lightGray, for: .normal)
         view.addTarget(self, action: #selector(closeEvent), for: .touchUpInside)
         return view
@@ -46,7 +46,17 @@ class TopicCommentListView: UIView,UITableViewDelegate,UITableViewDataSource {
         super.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
         self.backgroundColor = UIColor.rgba(r: 0, g: 0, b: 0, alpha: 0.5)
         
+        /*
         UIApplication.shared.keyWindow!.addSubview(self)
+        
+        */
+        
+        let window = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first(where: { $0.isKeyWindow })
+        window?.addSubview(self)
+        
         self.addSubview(contentView)
         contentView.addSubview(closeBtn)
         contentView.addSubview(lineView)

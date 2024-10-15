@@ -40,8 +40,8 @@ class TCellTextView: BaseTCell,UITextViewDelegate {
     
     override func setupSubViews() {
         
-        addSubview(textView)
-        addSubview(placeholderLabel)
+        contentView.addSubview(textView)
+        contentView.addSubview(placeholderLabel)
         setupLayouts()
     }
     

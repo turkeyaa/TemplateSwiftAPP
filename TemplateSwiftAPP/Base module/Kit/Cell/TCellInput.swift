@@ -75,9 +75,9 @@ class TCellInput: BaseTCell,UITextFieldDelegate {
     
     override func setupSubViews() {
         
-        addSubview(iconView)
-        addSubview(titleLabel)
-        addSubview(textField)
+        contentView.addSubview(iconView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(textField)
         
         setupLayouts()
         //?

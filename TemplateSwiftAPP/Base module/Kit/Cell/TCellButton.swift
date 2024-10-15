@@ -37,7 +37,7 @@ class TCellButton: BaseTCell {
     }()
     
     override func setupSubViews() {
-        addSubview(titleButton)
+        contentView.addSubview(titleButton)
         setupLayouts()
     }
     

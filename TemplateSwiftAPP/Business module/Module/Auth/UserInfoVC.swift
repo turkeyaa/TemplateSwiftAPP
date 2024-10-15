@@ -99,35 +99,6 @@ class UserInfoVC: BaseFormGroupTC {
     
     func enterAlbum() -> Void {
         
-        //?
-        /*
-        let configu = AssetConfiguration.init()
-        configu.leftTitle = "取消"
-        configu.rightTitle = "完成"
-//        configu.leftImage = UIImage.init(named: "app_closed")
-//        configu.rightImage = UIImage.init(named: "app_completion")
-        configu.selectImage = UIImage.init(named: "app_select")
-        configu.deselectImage = UIImage.init(named: "app_deselect")
-        configu.maxCount = 1    // 最大可选中图片数量
-        
-        configu.numberBgColor = UIColor.orange     // 数量背景颜色
-        
-        let vc = AssetPickerController.init(configu: configu)
-        
-        vc.assetResult = { (result: [UIImage]) in
-            print(result)   // UIImage 数组对象
-            if result.count > 0 {
-                let icon = result[0]
-                self.p_updateUserIcon(icon: icon)
-            }
-        }
-        vc.errorResult = { (index: Int) in
-            if index == 0 {
-                UIHelper.show(title: "只能选择\(configu.maxCount)张图片")
-            }
-        }
-        present(vc, animated: true, completion: nil)
-        */
     }
     
     override func goNext() {
@@ -135,8 +106,9 @@ class UserInfoVC: BaseFormGroupTC {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    /// api
-    // 上传用户头像
+    
+    /*
+    // todo 上传用户头像
     func p_updateUserIcon(icon: UIImage) -> Void {
         
         GCDUtil.runInGlobalQueue {
@@ -159,6 +131,6 @@ class UserInfoVC: BaseFormGroupTC {
                 }
             }
         }
-        
     }
+     */
 }

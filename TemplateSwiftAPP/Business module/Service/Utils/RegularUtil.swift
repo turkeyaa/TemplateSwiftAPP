@@ -26,7 +26,14 @@ class RegularUtil: NSObject {
     
     /// todo - 暂未完成
     static func isEmail(email: String) -> Bool {
-        return false
+        
+        let emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,64}$"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES[c] %@", emailRegex)
+        
+        if !emailPredicate.evaluate(with: email) {
+            return false
+        }
+        return true
     }
     
 }

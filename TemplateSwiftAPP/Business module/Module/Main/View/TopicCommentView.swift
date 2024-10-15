@@ -57,8 +57,17 @@ class TopicCommentView: UIView,UITextViewDelegate {
         super.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
         self.backgroundColor = UIColor.rgba(r: 0, g: 0, b: 0, alpha: 0.5)
         
+        /*
         UIApplication.shared.keyWindow!.addSubview(self)
         addSubview(contentView)
+        */
+        
+        let window = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first(where: { $0.isKeyWindow })
+        window?.addSubview(contentView)
+        
         contentView.addSubview(closeBtn)
         contentView.addSubview(saveBtn)
         contentView.addSubview(lineView)
@@ -103,6 +112,10 @@ class TopicCommentView: UIView,UITextViewDelegate {
     
     @objc func closeEvent() -> Void {
         self.hide()
+        if clickItemBlock != nil {
+            clickItemBlock!(0)
+            hide()
+        }
     }
     
     @objc func saveEvent() -> Void {
@@ -121,6 +134,7 @@ class TopicCommentView: UIView,UITextViewDelegate {
         UIView.animate(withDuration: 0.4) {
             self.alpha = 0.0
             self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height-self.contentPaddingY)
+
         }
     }
     

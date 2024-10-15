@@ -39,15 +39,23 @@ class UIHelper: UIView {
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
+
         
-        // todo
+        let window = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first(where: { $0.isKeyWindow })
+        
+        window?.addSubview(contentView)
+        window?.addSubview(titleLabel)
+        centerY = (window?.frame.height)!/2.0
+        
+        /*
+         // obsolete
         let window = UIApplication.shared.keyWindow!
-//        let window = UIApplication.shared.windows.first!
-//        let window = self.window!
-        window.addSubview(contentView)
-        window.addSubview(titleLabel)
-        
         centerY = window.frame.height/2.0
+        */
+        
         setupLayout()
     }
     

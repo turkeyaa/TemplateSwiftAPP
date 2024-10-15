@@ -117,9 +117,9 @@ class TopicDetailVC: BaseMarkdownVC {
         }
     }
     
-    /// 交互事件
+    
     func btnEvent(index: Int) -> Void {
-        
+    
         if !WorkSpace.sharedInstance.appPreference.isLoginSuccess {
             UIHelper.show(title: "not login")
             return
@@ -154,6 +154,7 @@ class TopicDetailVC: BaseMarkdownVC {
                 /// 添加评论
                 DispatchQueue.main.async {
                     self.commentView.show()
+//                    self.view.addSubview(self.commentView)
                 }
             } else {
                 /// 评论列表
@@ -181,6 +182,8 @@ class TopicDetailVC: BaseMarkdownVC {
         if index == 1 {
             addComment(content: commentView.title)
         }
+//        commentView.removeFromSuperview()
+        commentView.hide()
     }
     
     override func goNext() {

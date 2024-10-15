@@ -41,8 +41,9 @@ class TCellNotify: BaseTCell {
     
     override func setupSubViews() {
         
-        addSubview(titleLabel)
-        addSubview(switchView)
+        
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(switchView)
         
         setupLayouts()
     }

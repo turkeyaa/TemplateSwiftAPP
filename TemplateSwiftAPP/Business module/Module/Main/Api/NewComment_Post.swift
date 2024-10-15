@@ -38,7 +38,9 @@ class NewComment_Post: BaseRestApi {
         ]
     }
     
-    /* Mock local resource json, for more expediently test
+     
+    /*
+     // Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "newComment"
     }
@@ -46,4 +48,5 @@ class NewComment_Post: BaseRestApi {
         return .MockFile
     }
      */
+    
 }

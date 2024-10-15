@@ -59,9 +59,9 @@ class TCellImage: BaseTCell {
     
     override func setupSubViews() {
         
-        addSubview(iconView)
-        addSubview(titleLabel)
-        addSubview(valueLabel)
+        contentView.addSubview(iconView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(valueLabel)
         
         setupLayouts()
     }

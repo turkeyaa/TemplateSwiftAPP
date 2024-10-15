@@ -47,7 +47,7 @@ class CommentCell: BaseTCell {
         self.addSubview(timeLabel)
         self.addSubview(contentLabel)
         
-//        self.setupLayouts()
+        self.setupLayouts()
     }
     
     override func setupLayouts() {
@@ -76,7 +76,7 @@ class CommentCell: BaseTCell {
             make.height.equalTo(1)
         }
         contentLabel.snp.makeConstraints({ (make) -> Void in
-            make.left.equalTo(10)
+            make.left.equalTo(20)
             make.right.equalTo(-10)
             make.top.equalTo(iconView.snp.bottom).offset(5)
             make.bottom.equalTo(5)

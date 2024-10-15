@@ -49,8 +49,8 @@ class TCellLabel: BaseTCell {
     
     override func setupSubViews() {
         
-        addSubview(titleLabel)
-        addSubview(valueLabel)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(valueLabel)
         
         setupLayouts()
     }
