@@ -28,14 +28,14 @@ class TopicCommentView: UIView,UITextViewDelegate {
     }()
     lazy var closeBtn: UIButton = {
         let view = UIButton.init(type: .custom)
-        view.setTitle("关闭", for: .normal)
+        view.setTitle("close", for: .normal)
         view.setTitleColor(UIColor.lightGray, for: .normal)
         view.addTarget(self, action: #selector(closeEvent), for: .touchUpInside)
         return view
     }()
     lazy var saveBtn: UIButton = {
         let view = UIButton.init(type: .custom)
-        view.setTitle("保存", for: .normal)
+        view.setTitle("submit", for: .normal)
         view.setTitleColor(UIColor.orange, for: .normal)
         view.addTarget(self, action: #selector(saveEvent), for: .touchUpInside)
         return view
@@ -57,16 +57,13 @@ class TopicCommentView: UIView,UITextViewDelegate {
         super.init(frame: CGRect.init(x: 0, y: 0, width: Device_width, height: Device_height))
         self.backgroundColor = UIColor.rgba(r: 0, g: 0, b: 0, alpha: 0.5)
         
-        /*
-        UIApplication.shared.keyWindow!.addSubview(self)
-        addSubview(contentView)
-        */
         
         let window = UIApplication.shared.connectedScenes
             .compactMap { $0 as? UIWindowScene }
             .flatMap { $0.windows }
             .first(where: { $0.isKeyWindow })
-        window?.addSubview(contentView)
+        window?.addSubview(self)
+        self.addSubview(contentView)
         
         contentView.addSubview(closeBtn)
         contentView.addSubview(saveBtn)
@@ -93,7 +90,7 @@ class TopicCommentView: UIView,UITextViewDelegate {
             make.left.top.equalTo(10)
         }
         saveBtn.snp.makeConstraints { (make) in
-            make.width.equalTo(50)
+            make.width.equalTo(70)
             make.height.equalTo(30)
             make.top.equalTo(10)
             make.right.equalTo(-10)
@@ -105,36 +102,33 @@ class TopicCommentView: UIView,UITextViewDelegate {
         }
         textView.snp.makeConstraints { (make) in
             make.top.equalTo(40)
-            make.left.right.equalTo(0)
-            make.bottom.equalTo(0)      /// todo - 减去键盘高度
+            make.left.equalTo(10)
+            make.right.bottom.equalTo(-10)      /// todo - 减去键盘高度
         }
     }
     
     @objc func closeEvent() -> Void {
-        self.hide()
         if clickItemBlock != nil {
             clickItemBlock!(0)
-            hide()
         }
     }
     
     @objc func saveEvent() -> Void {
         if title.count == 0 {
-            UIHelper.show(title: "评论内容不能为空")
+            UIHelper.show(title: "no content")
             return
         }
         if clickItemBlock != nil {
             clickItemBlock!(1)
-            hide()
         }
     }
     
     @objc func hide() -> Void {
         textView.resignFirstResponder()
+        textView.text = ""
         UIView.animate(withDuration: 0.4) {
             self.alpha = 0.0
             self.contentView.frame = CGRect.init(x: 0, y: Device_height, width: Device_width, height: Device_height-self.contentPaddingY)
-
         }
     }
     

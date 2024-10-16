@@ -90,6 +90,11 @@
 		C655F6772058BB6E00F65568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C655F6692058BB6E00F65568 /* AppDelegate.swift */; };
 		C655F67B2058BB6E00F65568 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C655F66A2058BB6E00F65568 /* Info.plist */; };
 		C655F67C2058BB6E00F65568 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C655F66A2058BB6E00F65568 /* Info.plist */; };
+		C65C167F2CBE94A90047409D /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = C65C167E2CBE94A90047409D /* NIO */; };
+		C65C16812CBE94A90047409D /* NIOConcurrencyHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = C65C16802CBE94A90047409D /* NIOConcurrencyHelpers */; };
+		C65C16832CBE94A90047409D /* NIOCore in Frameworks */ = {isa = PBXBuildFile; productRef = C65C16822CBE94A90047409D /* NIOCore */; };
+		C65C16852CBE94A90047409D /* NIOEmbedded in Frameworks */ = {isa = PBXBuildFile; productRef = C65C16842CBE94A90047409D /* NIOEmbedded */; };
+		C65C16872CBE94A90047409D /* NIOFoundationCompat in Frameworks */ = {isa = PBXBuildFile; productRef = C65C16862CBE94A90047409D /* NIOFoundationCompat */; };
 		C691AC17206B21C6004F5FA6 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C691AC16206B21C6004F5FA6 /* URLHelper.swift */; };
 		C691AC19206B2355004F5FA6 /* BaseUploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C691AC18206B2355004F5FA6 /* BaseUploadApi.swift */; };
 		C691AC1D206B2564004F5FA6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C691AC1C206B2564004F5FA6 /* User.swift */; };
@@ -287,16 +292,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C65C167F2CBE94A90047409D /* NIO in Frameworks */,
 				C6D654872CBCC151001B4B03 /* SQLite in Frameworks */,
 				C6D654902CBCC368001B4B03 /* MJRefresh in Frameworks */,
+				C65C16872CBE94A90047409D /* NIOFoundationCompat in Frameworks */,
 				C6D654842CBCC115001B4B03 /* IQKeyboardManagerSwift in Frameworks */,
 				C6D654812CBCC0C2001B4B03 /* Kingfisher in Frameworks */,
 				C6D6547E2CBCC02C001B4B03 /* SnapKit-Dynamic in Frameworks */,
 				C6D654722CBCBD79001B4B03 /* Algorithms in Frameworks */,
 				C6D6548D2CBCC2FC001B4B03 /* ProgressHUD in Frameworks */,
 				C6D6548A2CBCC192001B4B03 /* MarkdownView in Frameworks */,
+				C65C16832CBE94A90047409D /* NIOCore in Frameworks */,
 				C6D654CD2CBD08BC001B4B03 /* DNSPageView in Frameworks */,
+				C65C16852CBE94A90047409D /* NIOEmbedded in Frameworks */,
 				C6D6547C2CBCC02C001B4B03 /* SnapKit in Frameworks */,
+				C65C16812CBE94A90047409D /* NIOConcurrencyHelpers in Frameworks */,
 				C6D654792CBCBF2D001B4B03 /* AlamofireDynamic in Frameworks */,
 				C6D654772CBCBF2D001B4B03 /* Alamofire in Frameworks */,
 			);
@@ -820,6 +830,11 @@
 				C6D6548C2CBCC2FC001B4B03 /* ProgressHUD */,
 				C6D6548F2CBCC368001B4B03 /* MJRefresh */,
 				C6D654CC2CBD08BC001B4B03 /* DNSPageView */,
+				C65C167E2CBE94A90047409D /* NIO */,
+				C65C16802CBE94A90047409D /* NIOConcurrencyHelpers */,
+				C65C16822CBE94A90047409D /* NIOCore */,
+				C65C16842CBE94A90047409D /* NIOEmbedded */,
+				C65C16862CBE94A90047409D /* NIOFoundationCompat */,
 			);
 			productName = TemplateSwiftAPP;
 			productReference = C655F6312058BA3900F65568 /* TemplateSwiftAPP.app */;
@@ -909,6 +924,7 @@
 				C6D6548B2CBCC2FC001B4B03 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 				C6D6548E2CBCC368001B4B03 /* XCRemoteSwiftPackageReference "MJRefresh" */,
 				C6D654CB2CBD08BC001B4B03 /* XCRemoteSwiftPackageReference "DNSPageView" */,
+				C65C167D2CBE94A90047409D /* XCRemoteSwiftPackageReference "swift-nio" */,
 			);
 			productRefGroup = C655F6322058BA3900F65568 /* Products */;
 			projectDirPath = "";
@@ -1410,6 +1426,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C65C167D2CBE94A90047409D /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.75.0;
+			};
+		};
 		C6D654702CBCBD79001B4B03 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-algorithms.git";
@@ -1493,6 +1517,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C65C167E2CBE94A90047409D /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C65C167D2CBE94A90047409D /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+		C65C16802CBE94A90047409D /* NIOConcurrencyHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C65C167D2CBE94A90047409D /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOConcurrencyHelpers;
+		};
+		C65C16822CBE94A90047409D /* NIOCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C65C167D2CBE94A90047409D /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOCore;
+		};
+		C65C16842CBE94A90047409D /* NIOEmbedded */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C65C167D2CBE94A90047409D /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOEmbedded;
+		};
+		C65C16862CBE94A90047409D /* NIOFoundationCompat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C65C167D2CBE94A90047409D /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOFoundationCompat;
+		};
 		C6D654712CBCBD79001B4B03 /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C6D654702CBCBD79001B4B03 /* XCRemoteSwiftPackageReference "swift-algorithms" */;

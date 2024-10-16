@@ -8,7 +8,6 @@
 
 import Foundation
 
-/// 正则表达式，验证输入数据正确性
 class RegularUtil: NSObject {
     
     static func isPhoneNumber(phone: String) -> Bool {
@@ -24,7 +23,7 @@ class RegularUtil: NSObject {
         }
     }
     
-    /// todo - 暂未完成
+    
     static func isEmail(email: String) -> Bool {
         
         let emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,64}$"

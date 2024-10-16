@@ -110,6 +110,7 @@ class TopicDetailVC: BaseMarkdownVC {
                 self.hideLoadingHUD()
                 if api.code == .status_ok {
                     UIHelper.show(title: HUD_success)
+                    self.commentView.hide()
                 } else {
                     UIHelper.show(title: api.message)
                 }
@@ -154,7 +155,6 @@ class TopicDetailVC: BaseMarkdownVC {
                 /// 添加评论
                 DispatchQueue.main.async {
                     self.commentView.show()
-//                    self.view.addSubview(self.commentView)
                 }
             } else {
                 /// 评论列表
@@ -179,11 +179,12 @@ class TopicDetailVC: BaseMarkdownVC {
     
     func commentEvent(index: Int) -> Void {
         
-        if index == 1 {
+        if index == 0 {
+            commentView.hide()
+        }
+        else {
             addComment(content: commentView.title)
         }
-//        commentView.removeFromSuperview()
-        commentView.hide()
     }
     
     override func goNext() {

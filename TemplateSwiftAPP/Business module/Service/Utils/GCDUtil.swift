@@ -11,24 +11,21 @@ import Foundation
 
 class GCDUtil: NSObject {
     
-    /// 并发队列
+    /// concurrency queue
     static func runInGlobalQueue(block: @escaping () -> Void) -> Void {
         DispatchQueue.global().async(execute: block)
     }
     
-    /// 主队列
+    /// main quene
     static func runInMainQueue(block: @escaping () -> Void) -> Void {
         DispatchQueue.main.async(execute: block)
     }
     
-    /// 延迟调用
+    /// delay
     static func runAfterSecs(secs: UInt, block: @escaping () -> Void) -> Void {
         let deadline: DispatchTime = DispatchTime.init(uptimeNanoseconds: UInt64(secs))
         DispatchQueue.main.asyncAfter(deadline: deadline, execute: block)
     }
     
-    /// 自定义串行队列
-    
-    /// 队列组
     
 }

@@ -37,7 +37,7 @@ class ShareView: UIView {
         self.backgroundColor = UIColor.rgba(r: 0, g: 0, b: 0, alpha: 0.5)
         
         /*
-        // todo
+        // todo have been abandoned
         UIApplication.shared.keyWindow!.addSubview(self)
         self.addSubview(contentView)
         */
@@ -46,7 +46,8 @@ class ShareView: UIView {
             .compactMap { $0 as? UIWindowScene }
             .flatMap { $0.windows }
             .first(where: { $0.isKeyWindow })
-        window?.addSubview(contentView)
+        window?.addSubview(self)
+        self.addSubview(contentView)
         
         
         cancelBtn = UIButton.init()

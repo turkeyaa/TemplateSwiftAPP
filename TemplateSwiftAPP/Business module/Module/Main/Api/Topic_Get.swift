@@ -31,7 +31,8 @@ class Topic_Get: BaseRestApi {
         return false
     }
     
-    /* Mock local resource json, for more expediently test
+     /*
+//     Mock local resource json, for more expediently test
     override func mockFile() -> String {
         return "topicList"
     }

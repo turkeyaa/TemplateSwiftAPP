@@ -45,7 +45,7 @@ class RestApi {
         let condition = NSCondition.init()
         
         AF.request(_url).response { resp in
-            debugPrint(resp)
+//            debugPrint(resp)
             
             if let response = resp.response {
                 

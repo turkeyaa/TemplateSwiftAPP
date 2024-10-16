@@ -16,6 +16,7 @@ class NewComment_Post: BaseRestApi {
     init(topicID: String, content: String) {
 //        super.init(url: "topic/newComment", httpMethod: .HttpMethods_Post)
         
+//        super.init(url: "api/success.json", httpMethod: .HttpMethods_Post)
         super.init(url: "api/newComment.json", httpMethod: .HttpMethods_Post)
         decodeType = .DecodeJSONTypeNone
         

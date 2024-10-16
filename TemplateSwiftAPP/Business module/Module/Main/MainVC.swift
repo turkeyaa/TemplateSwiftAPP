@@ -43,6 +43,11 @@ class MainVC: BaseLoadTC {
         return api.dataSource
     }
     
+    // todo setting frame according to device type
+    override func tableViewFrame() -> CGRect {
+        return CGRect(x: 0, y: 0, width: Device_width, height: Device_height-Device_tab_full)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: TopicCell = TopicCell.tcell(tableView: tableView, reuse: true) as! TopicCell
@@ -99,10 +104,11 @@ class MainVC: BaseLoadTC {
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        
     }
-    
-    // todo setting frame according to device type
-    override func tableViewFrame() -> CGRect {
-        return CGRect(x: 0, y: 0, width: Device_width, height: Device_height-Device_tab_full)
-    }
+
 }
+
+
+
+
