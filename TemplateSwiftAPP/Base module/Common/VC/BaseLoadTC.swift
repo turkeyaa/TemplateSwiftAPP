@@ -50,10 +50,10 @@ class BaseLoadTC: BaseTC {
     }
     
     func loadData(more: Bool) -> Void {
+        
         self.showLoadingHUD()
-        let queue = DispatchQueue.global()
-        queue.async {
-            
+        
+        GCDUtil.runInGlobalQueue {
             let array = self.queryData()
             if array != nil {
                 if more {
@@ -66,7 +66,7 @@ class BaseLoadTC: BaseTC {
                 // todo network is error
             }
             
-            DispatchQueue.main.async {
+            GCDUtil.runInMainQueue {
                 self.hideLoadingHUD()
                 self.tableView.mj_footer?.endRefreshing()
                 self.tableView.mj_header?.endRefreshing()
@@ -89,6 +89,47 @@ class BaseLoadTC: BaseTC {
             }
         }
     }
+    
+//    func loadData(more: Bool) -> Void {
+//        self.showLoadingHUD()
+//        let queue = DispatchQueue.global()
+//        queue.async {
+//            
+//            let array = self.queryData()
+//            if array != nil {
+//                if more {
+//                    self.dataSource = self.dataSource! + array!
+//                }
+//                else {
+//                    self.dataSource = array
+//                }
+//            } else {
+//                // todo network is error
+//            }
+//            
+//            DispatchQueue.main.async {
+//                self.hideLoadingHUD()
+//                self.tableView.mj_footer?.endRefreshing()
+//                self.tableView.mj_header?.endRefreshing()
+//                
+//                if self.dataSource == nil {
+//                    self.showErrorMessage(hud: HUD_network_error)
+//                    self.isShowEmptyView = true
+//                } else if self.dataSource?.count == 0 {
+//                    // no data
+//                    self.isShowEmptyView = true
+//                } else {
+//                    self.isShowEmptyView = false
+//                    if ((self.limit+1) * self.offset) > self.dataSource!.count {
+//                        // no more data
+//                        self.tableView.mj_footer?.endRefreshingWithNoMoreData()
+//                    }
+//                }
+//                
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
     
     // MARK: -  mush perform the service logic in subclass
     func queryData() -> Array<Any>? {

@@ -41,7 +41,7 @@ class CategoryDetailVC: BaseLoadTC {
     override func queryData() -> Array<Any>? {
         
         let api = CategoryTopic_Get.init(offset: offset, limit: limit, categoryId: categoryId)
-        api.call(async: true)
+        api.call(asynchronous: true)
         return api.dataSource
     }
     

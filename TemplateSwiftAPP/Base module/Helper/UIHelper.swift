@@ -90,8 +90,8 @@ class UIHelper: UIView {
     }
     
     func postSetting() -> Void {
-        let delayTime: DispatchTimeInterval = .seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayTime) {
+        let delayTime: UInt = 1
+        GCDUtil.runAfterSecs(secs: delayTime) {
             self.titleLabel.alpha = 0.0;
             self.contentView.alpha = 0.0;
         }

@@ -61,9 +61,9 @@ class BaseRestApi: RestApi {
         super.init(url: BaseRestApi.getRestApiURL(relativeURL: url),httpMethod: httpMethod)
     }
     
-    override func call(async: Bool) {
+    override func call(asynchronous: Bool) {
         if self.mockType() == .MockNone {
-            super.call(async: async)
+            super.call(asynchronous: asynchronous)
         }
         else {
             // MOCK local json resource

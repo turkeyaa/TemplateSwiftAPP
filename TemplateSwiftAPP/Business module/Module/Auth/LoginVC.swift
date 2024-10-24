@@ -111,12 +111,12 @@ class LoginVC: BaseFormTC {
         GCDUtil.runInGlobalQueue {
             self.showLoadingHUD()
             let loginApi = Login_Post.init(account: account, password: password)
-            loginApi.call(async: false)
+            loginApi.call(asynchronous: false)
             
             var userApi: UserInfo_Post?
             if loginApi.code == .status_ok {
                 userApi = UserInfo_Post.init(token: loginApi.token)
-                userApi!.call(async: false)
+                userApi!.call(asynchronous: false)
             }
             
             GCDUtil.runInMainQueue {

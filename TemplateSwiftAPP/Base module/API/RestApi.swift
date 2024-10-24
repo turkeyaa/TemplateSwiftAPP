@@ -21,6 +21,9 @@ enum HttpMethods {
     case HttpMethods_File
 }
 
+// todo for test
+let ifAlamofireRequest = true
+
 /// 接口对象基类
 class RestApi {
     
@@ -40,121 +43,119 @@ class RestApi {
     }
     
     // todo test online api
-    func call(async: Bool) -> Void {
+    func call(asynchronous: Bool) -> Void {
         
-        let condition = NSCondition.init()
-        
-        AF.request(_url).response { resp in
-//            debugPrint(resp)
+        if ifAlamofireRequest == true {
             
-            if let response = resp.response {
+            let condition = NSCondition.init()
+            
+            AF.request(_url).response { resp in
+                debugPrint(resp)
                 
-                if response.statusCode == 200 {
-                
-                    self.onSuccessed(response: resp.data!)
-                } else {
-                    self.onFailed(error: resp.error)
-                }
-            }
-            
-            condition.lock()
-            condition.signal()
-            condition.unlock()
-        }
-        
-        condition.lock()
-        condition.wait()
-        condition.unlock()
-    }
-    
-    
-    /*
-    // 3. call and cancel
-    func call(async: Bool) -> Void {
-        
-        if Thread.isMainThread {
-            assert(false, "can't fetch data in main thread")
-            return
-        }
-        
-        var request: URLRequest?
-        
-        if _httpMethod == .HttpMethods_Get {
-            
-            var strUrl: String = _url
-            let params = self.queryParameters()
-            
-            if params != nil {
-                var index = 0
-                for (key, value) in params! {
-                    if index == 0 {
-                        strUrl.append("?")
-                    }
-                    else {
-                        strUrl.append("&")
-                    }
-                    strUrl += key
-                    strUrl += "="
-                    strUrl += value as! String
-                    
-                    index += 1
-                }
-            }
-            
-            request = URLRequest(url: URL.init(string: strUrl)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
-            request?.httpMethod = "GET"
-        }
-        else if _httpMethod == .HttpMethods_Post {
-            request = URLRequest(url: URL.init(string: _url)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
-            request?.httpMethod = "POST"
-            request?.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request?.httpBody = self.queryPostData()
-        }
-        else if _httpMethod == .HttpMethods_File {
-            assert(false, "subclasses must overwrite:\(_httpMethod)")
-        }
-        else {
-            assert(false, "todo other http methods:\(_httpMethod)")
-        }
-        
-        // custom header - token
-        request?.setValue(self.configToken(), forHTTPHeaderField: "Authorization")
-        
-        let condition = NSCondition.init()
-        
-        let session: URLSession = URLSession.shared
-        
-        task = session.dataTask(with: request!, completionHandler: { (data, resp, error) in
-            
-            if error != nil {
-                print(error.debugDescription)
-                self.onError(error: error!)
-            }
-            else {
-                if let response = resp as? HTTPURLResponse {
+                if let response = resp.response {
                     
                     if response.statusCode == 200 {
-                        
-                        self.onSuccessed(response: data!)
+                    
+                        self.onSuccessed(response: resp.data!)
                     } else {
-                        self.onFailed(error: error)
+                        self.onFailed(error: resp.error)
                     }
                 }
+                
+                condition.lock()
+                condition.signal()
+                condition.unlock()
             }
             
             condition.lock()
-            condition.signal()
+            condition.wait()
             condition.unlock()
+        }
+        else {
             
-        }) as URLSessionTask?
-        
-        task!.resume()
-        
-        condition.lock()
-        condition.wait()
-        condition.unlock()
+            if Thread.isMainThread {
+                assert(false, "can't fetch data in main thread")
+                return
+            }
+            
+            var request: URLRequest?
+            
+            if _httpMethod == .HttpMethods_Get {
+                
+                var strUrl: String = _url
+                let params = self.queryParameters()
+                
+                if params != nil {
+                    var index = 0
+                    for (key, value) in params! {
+                        if index == 0 {
+                            strUrl.append("?")
+                        }
+                        else {
+                            strUrl.append("&")
+                        }
+                        strUrl += key
+                        strUrl += "="
+                        strUrl += value as! String
+                        
+                        index += 1
+                    }
+                }
+                
+                request = URLRequest(url: URL.init(string: strUrl)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
+                request?.httpMethod = "GET"
+            }
+            else if _httpMethod == .HttpMethods_Post {
+                request = URLRequest(url: URL.init(string: _url)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
+                request?.httpMethod = "POST"
+                request?.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request?.httpBody = self.queryPostData()
+            }
+            else if _httpMethod == .HttpMethods_File {
+                assert(false, "subclasses must overwrite:\(_httpMethod)")
+            }
+            else {
+                assert(false, "todo other http methods:\(_httpMethod)")
+            }
+            
+            // custom header - token
+            request?.setValue(self.configToken(), forHTTPHeaderField: "Authorization")
+            
+            let condition = NSCondition.init()
+            
+            let session: URLSession = URLSession.shared
+            
+            task = session.dataTask(with: request!, completionHandler: { (data, resp, error) in
+                
+                if error != nil {
+                    print(error.debugDescription)
+                    self.onError(error: error!)
+                }
+                else {
+                    if let response = resp as? HTTPURLResponse {
+                        
+                        if response.statusCode == 200 {
+                            
+                            self.onSuccessed(response: data!)
+                        } else {
+                            self.onFailed(error: error)
+                        }
+                    }
+                }
+                
+                condition.lock()
+                condition.signal()
+                condition.unlock()
+                
+            }) as URLSessionTask?
+            
+            task!.resume()
+            
+            condition.lock()
+            condition.wait()
+            condition.unlock()
+        }
     }
-    */
     
     
     func cancel() -> Void {

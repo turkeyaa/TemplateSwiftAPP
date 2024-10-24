@@ -51,7 +51,7 @@ class TopicNewVC: BaseFormTC {
         
         GCDUtil.runInGlobalQueue {
             let api = TopicNew_Post.init(title: "Swift code basic", content: self.textViewCell.title, categoryId: 1)
-            api.call(async: true)
+            api.call(asynchronous: true)
             GCDUtil.runInMainQueue {
                 if api.code == .status_ok {
                     UIHelper.show(title: "post a topic successfully")

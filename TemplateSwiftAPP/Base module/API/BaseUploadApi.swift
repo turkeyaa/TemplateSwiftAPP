@@ -22,7 +22,7 @@ class BaseUploadApi: BaseRestApi {
     
     
     /*
-    override func call(async: Bool) {
+    override func call(asynchronous: Bool) {
 
         // todo
         AF.upload(multipartFormData: { (multipartFormData) in
@@ -70,7 +70,7 @@ class BaseUploadApi: BaseRestApi {
      */
     
     
-    override func call(async: Bool) {
+    override func call(asynchronous: Bool) {
 
         if Thread.isMainThread {
             assert(false, "主线程不允许同步调用")

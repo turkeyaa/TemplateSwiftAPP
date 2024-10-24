@@ -115,7 +115,7 @@ class UserInfoVC: BaseFormGroupTC {
             
             self.showLoadingHUD(hud: "上传图片中")
             let api = UserUploadIcon_Post.init(icon: icon)
-            api.call(async: true)
+            api.call(asynchronous: true)
             
             sleep(1)
             

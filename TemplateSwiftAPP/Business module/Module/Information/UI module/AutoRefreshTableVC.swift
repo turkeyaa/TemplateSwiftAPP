@@ -18,7 +18,7 @@ class AutoRefreshTableVC: BaseLoadTC {
     override func queryData() -> Array<Any>? {
         
         let api = Topic_Get.init(offset: offset, limit: limit)
-        api.call(async: true)
+        api.call(asynchronous: true)
         return api.dataSource
     }
     

@@ -78,10 +78,10 @@ class TopicDetailVC: BaseMarkdownVC {
         GCDUtil.runInGlobalQueue {
             
             let api = TopicInfo_Get.init(topicID: self.topicID)
-            api.call(async: true)
+            api.call(asynchronous: true)
             
             let commentApi = CommentList_Get.init(offset: 0, limit: 100, topicID: self.topicID)
-            commentApi.call(async: true)
+            commentApi.call(asynchronous: true)
             
             GCDUtil.runInMainQueue {
                 self.hideLoadingHUD()
@@ -101,12 +101,11 @@ class TopicDetailVC: BaseMarkdownVC {
         
         self.showLoadingHUD(hud: HUD_loading)
         
-        DispatchQueue.global().async {
-            
+        GCDUtil.runInGlobalQueue {
             let api = NewComment_Post.init(topicID: self.topicID, content: content)
-            api.call(async: true)
+            api.call(asynchronous: true)
             
-            DispatchQueue.main.async {
+            GCDUtil.runInMainQueue {
                 self.hideLoadingHUD()
                 if api.code == .status_ok {
                     UIHelper.show(title: HUD_success)
@@ -126,12 +125,12 @@ class TopicDetailVC: BaseMarkdownVC {
             return
         }
         
-        DispatchQueue.global().async {
+        GCDUtil.runInGlobalQueue {
             
             if index == 0 {
                 let api = NewLike_Post.init(topicID: self.topic.topicID!.uuidString)
-                api.call(async: true)
-                DispatchQueue.main.async {
+                api.call(asynchronous: true)
+                GCDUtil.runInMainQueue {
                     if api.code == .status_ok {
                         UIHelper.show(title: HUD_success)
                         self.topic.likeNum += 1
@@ -142,8 +141,8 @@ class TopicDetailVC: BaseMarkdownVC {
                 
             } else if index == 1 {
                 let api = NewCollect_Post.init(topicID: self.topic.topicID!.uuidString)
-                api.call(async: true)
-                DispatchQueue.main.async {
+                api.call(asynchronous: true)
+                GCDUtil.runInMainQueue {
                     if api.code == .status_ok {
                         UIHelper.show(title: HUD_success)
                         self.topic.collectNum += 1
@@ -153,14 +152,14 @@ class TopicDetailVC: BaseMarkdownVC {
                 }
             } else if index == 2 {
                 /// 添加评论
-                DispatchQueue.main.async {
+                GCDUtil.runInMainQueue {
                     self.commentView.show()
                 }
             } else {
                 /// 评论列表
                 let api = CommentList_Get.init(offset: 0, limit: 100, topicID: self.topicID)
-                api.call(async: true)
-                DispatchQueue.main.async {
+                api.call(asynchronous: true)
+                GCDUtil.runInMainQueue {
                     if api.code == .status_ok {
                         self.commentListView.show()
                         self.commentListView.dataSource = api.dataSource
