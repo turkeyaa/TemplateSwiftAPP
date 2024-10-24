@@ -122,6 +122,7 @@ class TopicDetailVC: BaseMarkdownVC {
     
         if !WorkSpace.sharedInstance.appPreference.isLoginSuccess {
             UIHelper.show(title: "not login")
+//            self.showLoadingHUD(hud: "not logint")
             return
         }
         

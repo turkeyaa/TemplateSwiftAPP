@@ -25,7 +25,7 @@ class NewCollect_Post: BaseRestApi {
     }
     
     override func parseResponseJsonString(json: Data) -> Bool {
-        return true
+        return false
     }
     
     override func queryToken() -> String {
