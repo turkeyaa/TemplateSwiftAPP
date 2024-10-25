@@ -26,11 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBar
         
         // 1.1 color and text
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithDefaultBackground()
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        
         UINavigationBar.appearance().tintColor = ColorMacro.ColorNavTitle
         UINavigationBar.appearance().barTintColor = ColorMacro.ColorNav
         UINavigationBar.appearance().titleTextAttributes = [
             NSAttributedString.Key.foregroundColor : ColorMacro.ColorNavTitle,
             NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)]
+        
+        
         
         // 3. keyboard input event
         IQKeyboardManager.shared.enable = true
